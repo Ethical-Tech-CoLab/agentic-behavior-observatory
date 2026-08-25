@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Agentic Behaviour Observatory — Ethical Tech CoLab</title>
-<meta name="description" content="Automated analysis of GitHub repositories that build agent-based simulations, synthetic populations, and LLM-based behavioural models.">
+<title>Agentic Behavior Observatory — Ethical Tech CoLab</title>
+<meta name="description" content="Paste a GitHub repository URL and get a live, evidence-linked analysis of how it models agentic behavior — agent-based simulation, synthetic populations, and LLM behavioral modeling.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="app.css">
 </head>
@@ -14,23 +14,34 @@
     <div class="brand">
       <span class="dot"></span>
       <div>
-        <h1>Agentic Behaviour Observatory</h1>
-        <p>Ethical Tech CoLab · repository analysis for agent-based simulation, synthetic populations, and LLM behavioural modelling</p>
+        <h1>Agentic Behavior Observatory</h1>
+        <p>Ethical Tech CoLab · repository analysis for agent-based simulation, synthetic populations, and LLM behavioral modeling</p>
       </div>
     </div>
     <button id="theme" class="ghost" type="button" aria-label="Toggle theme">◐</button>
   </div>
+  <nav class="tabs wrap" role="tablist">
+    <button class="tab" role="tab" data-view="observatory" aria-selected="true">Observatory</button>
+    <button class="tab" role="tab" data-view="definitions" aria-selected="false">Definitions</button>
+    <button class="tab" role="tab" data-view="methodology" aria-selected="false">Methodology</button>
+  </nav>
 </header>
 
 <main class="wrap">
+<section id="view-observatory">
   <section class="panel add">
-    <label for="url">Analyse a repository</label>
+    <label for="url">Analyze a repository</label>
     <div class="row">
       <input id="url" type="text" spellcheck="false" placeholder="https://github.com/owner/repo">
-      <button id="go" class="primary" type="button">Get command</button>
+      <button id="go" class="primary" type="button">Analyze</button>
     </div>
-    <pre id="cmd" hidden></pre>
-    <p class="hint">The dashboard is static, so analysis runs locally or in CI. Paste a URL to get the exact command; the report lands in <code>data/reports/</code> and appears here after <code>analyzer/build_index.py</code>.</p>
+    <div id="status" class="status" hidden></div>
+    <details class="tok">
+      <summary>GitHub token (optional)</summary>
+      <p class="hint">An analysis costs 2 API requests — about 30 repositories an hour unsigned, because file contents come from <code>raw.githubusercontent.com</code>, which isn't rate limited. Add a token only if you hit the limit or want to read a private repository. It is stored in this browser only and never leaves it except to github.com.</p>
+      <div class="row"><input id="token" type="password" spellcheck="false" placeholder="ghp_…" autocomplete="off">
+        <button id="saveTok" type="button">Save</button></div>
+    </details>
   </section>
 
   <section class="controls">
@@ -39,7 +50,7 @@
     <select id="sort">
       <option value="relevance">Sort: relevance</option>
       <option value="stars">Sort: stars</option>
-      <option value="analysed_at">Sort: recently analysed</option>
+      <option value="analyzed_at">Sort: recently analyzed</option>
       <option value="repo">Sort: name</option>
     </select>
   </section>
@@ -50,19 +61,160 @@
 
   <section class="panel">
     <h2>Population lab</h2>
-    <p class="hint">Which demographic dimensions and which model versions the analysed corpus actually covers. Gaps here are research gaps: a dimension nobody models is a population nobody simulates.</p>
+    <p class="hint">Which demographic dimensions and which model versions the analyzed corpus actually covers. Gaps here are research gaps: a dimension nobody models is a population nobody simulates.</p>
     <div class="lab">
-      <div><h3>Dimensions modelled</h3><div id="dims" class="bars"></div></div>
+      <div><h3>Dimensions modeled</h3><div id="dims" class="bars"></div></div>
       <div><h3>Models &amp; versions referenced</h3><div id="models" class="bars"></div></div>
     </div>
   </section>
+</section>
+
+<section id="view-definitions" hidden class="prose">
+  <h2>Definitions</h2>
+  <p>The terms this observatory measures, in the sense it measures them. Where a term is contested, the reading used here is stated plainly rather than smoothed over — a score means nothing unless you know what it was counting.</p>
+
+  <h3 class="grp">The behavior itself</h3>
+  <dl class="defs">
+    <div>
+      <dt>Reinforcement behavior</dt>
+      <dd>Behavior that is <em>learned from consequence</em> rather than specified in advance. An agent acts, the environment returns a reward, and the agent adjusts what it will do next so as to earn more reward over time. Nobody writes down the strategy; the strategy is what survives repeated feedback.</dd>
+      <dd>The distinction that matters for this observatory: rule-based behavior is authored — you can read the rule in the source and know what the agent will do. Reinforcement behavior is <em>discovered</em> — you can read the reward function and still not know what the agent will do, which is exactly why it has to be observed rather than assumed. Reward hacking, where an agent maximizes the stated reward while defeating its intent, is the standard demonstration of that gap.</dd>
+      <dd class="aka">Signals: named algorithms (PPO, DQN, SAC, Q-learning), reward functions and discount factors, the <code>reset</code>/<code>step</code> environment contract, RLHF and DPO.</dd>
+    </div>
+    <div>
+      <dt>Reinforcement learning (RL)</dt>
+      <dd>The family of methods that produce reinforcement behavior: an agent, an environment, a state, a set of actions, a reward signal, and a policy mapping states to actions. Training searches for a policy that maximizes expected cumulative reward, discounted over time.</dd>
+      <dd>Its relevance here is twofold. It is how many simulated agents acquire their behavior — and, through RLHF and preference optimisation, it is how the language models used <em>as</em> agents acquired theirs. A model's behavioral tendencies in a simulation are partly an artifact of the reward model used to align it, which is one reason model version matters as much as prompt design.</dd>
+    </div>
+    <div>
+      <dt>Agentic behavior</dt>
+      <dd>Behavior of a system that pursues goals over multiple steps, keeps state between them, chooses among available actions, and acts on an environment rather than only answering. The word marks a spectrum, not a category: a scripted chatbot sits at one end, a tool-using planner that revises its approach after failure sits at the other.</dd>
+      <dd>This observatory treats agency as an empirical property of the code — does something loop, hold memory, select actions, receive consequences? — rather than a claim in the README.</dd>
+    </div>
+    <div>
+      <dt>Emergence</dt>
+      <dd>Population-level regularities that no individual agent's rules state: segregation from mild preferences, traffic waves from local braking, opinion cascades from local imitation. It is the usual reason for simulating a population instead of reasoning about the average member of it.</dd>
+      <dd>It is also the usual place validation fails. An emergent pattern can be a genuine finding or an artifact of the scheduler, the grid, or the random seed, which is why seeded runs and sensitivity analysis carry weight on the evaluation axis.</dd>
+    </div>
+  </dl>
+
+  <h3 class="grp">The three subject axes</h3>
+  <dl class="defs">
+    <div>
+      <dt>Agent-based simulation (ABM)</dt>
+      <dd>Modeling a system as many interacting individuals, each following its own rules, and running them forward in time to see what the population does. The unit of description is the individual; aggregate behavior is an output, never an input.</dd>
+      <dd class="aka">Signals: Mesa, AgentPy, PettingZoo, NetLogo, Repast, SimPy; agent classes, schedulers, step loops, spatial grids and networks.</dd>
+    </div>
+    <div>
+      <dt>Synthetic data &amp; synthetic populations</dt>
+      <dd><strong>Synthetic data</strong> is generated rather than observed, built to preserve the statistical structure of real data without carrying its records. <strong>A synthetic population</strong> is the specific case that matters here: a full roster of individuals with plausible, jointly consistent attributes — age with income with household with region — matching known marginals from a census or survey, so a simulation can be run over people who do not exist but who are distributed like people who do.</dd>
+      <dd>The classic construction is iterative proportional fitting, reweighting a seed sample until it matches published margins. The classic failure is a population that matches every margin and no real joint distribution — every attribute right one at a time, nobody plausible taken whole.</dd>
+      <dd class="aka">Signals: SDV, CTGAN, synthcity, Faker, Gretel; population synthesis and IPF, census/microdata seeds, differential privacy, generation at scale.</dd>
+    </div>
+    <div>
+      <dt>LLM-based behavioral modeling</dt>
+      <dd>Using a language model as the behavioral engine of a simulated individual: the agent is given a persona, a memory, and a situation, and the model's output <em>is</em> its behavior. It replaces hand-written decision rules with a model's learned priors about how someone so described would act.</dd>
+      <dd>The trade is explicit. Hand-written rules are transparent and thin; model-driven agents are rich and opaque, carrying whatever the training data encoded about the demographic they are asked to portray — which is why the dimensions a study conditions on, and the model version it used, are both recorded here.</dd>
+      <dd class="aka">Signals: Anthropic/OpenAI SDKs, LangGraph, AutoGen, CrewAI, DSPy, local runtimes; personas, memory streams, generative-agent architectures.</dd>
+    </div>
+  </dl>
+
+  <h3 class="grp">Terms of art</h3>
+  <dl class="defs">
+    <div>
+      <dt>Silicon sampling</dt>
+      <dd>Prompting a language model to answer as a demographically specified person, and treating the answers as survey responses. Cheap, fast, and reproducible; also prone to reproducing a flattened, stereotyped version of the group being portrayed, and to shifting when the model version changes underneath the study.</dd>
+    </div>
+    <div>
+      <dt>Generative agents</dt>
+      <dd>The architecture pairing a language model with a memory stream, retrieval over that memory, periodic reflection into higher-level beliefs, and planning — so behavior accumulates a history instead of restarting each turn.</dd>
+    </div>
+    <div>
+      <dt>Persona conditioning</dt>
+      <dd>The attributes supplied to an agent before it acts — age, occupation, region, beliefs, backstory. This is where a study's demographic assumptions actually live, usually in a prompt template rather than in a documented model, which is why the observatory extracts them.</dd>
+    </div>
+    <div>
+      <dt>Population dimension</dt>
+      <dd>A single attribute along which a synthetic population varies — age, income, education, region, migration status, disability, literacy, caste. The observatory counts which dimensions appear across the corpus, because a dimension nobody models is a population nobody simulates, and an unmodeled dimension is an implicit assumption that it does not matter.</dd>
+    </div>
+    <div>
+      <dt>Fidelity, utility, privacy</dt>
+      <dd>The three axes any synthetic population is judged on. <strong>Fidelity</strong>: does it resemble the real distribution (KS, Wasserstein, Jensen–Shannon)? <strong>Utility</strong>: does a model trained on it work on real data (train-synthetic-test-real)? <strong>Privacy</strong>: can a real individual be recovered from it (differential privacy, <em>k</em>-anonymity, re-identification tests)? Gains on any one are usually paid for by another.</dd>
+    </div>
+    <div>
+      <dt>Face validity vs. construct validity</dt>
+      <dd><strong>Face validity</strong>: the simulation looks right to someone who knows the domain. <strong>Construct validity</strong>: the mechanism inside it corresponds to the mechanism in the world. Model-driven agents make the first easy to achieve and the second no easier — a plausible transcript is not evidence of a correct mechanism.</dd>
+    </div>
+  </dl>
+</section>
+
+<section id="view-methodology" hidden class="prose">
+  <h2>How this is built</h2>
+  <p>Paste a GitHub URL and the analysis runs <strong>in your browser</strong> — there is no server. What follows is the whole method, so you can judge a score rather than trust it.</p>
+
+  <ol class="steps">
+    <li>
+      <h3>1 · Read the repository</h3>
+      <p>Two calls to <code>api.github.com</code> fetch the repository metadata and its full file tree. Every file body then comes from <code>raw.githubusercontent.com</code>, which is CORS-open and not rate limited — so a complete analysis costs two API requests, roughly thirty repositories an hour with no token at all.</p>
+      <p>Vendored and build directories (<code>node_modules</code>, <code>dist</code>, <code>venv</code>, …) are dropped. Of what remains, up to <strong>120 text files under 200&nbsp;KB</strong> are read, ordered: dependency manifests first, then prose, then source — and within source, paths whose names suggest the modeling core (<code>agent</code>, <code>persona</code>, <code>popul</code>, <code>synth</code>, <code>reward</code>, <code>prompt</code>…) before the rest, larger files before near-empty ones. Every report states <code>files_read / files_total</code>, so the sampling is never silent.</p>
+    </li>
+    <li>
+      <h3>2 · Fire signals</h3>
+      <p>The taxonomy is a flat list of signals, each belonging to one axis and carrying a weight. A signal fires on the first match of its pattern against one of three surfaces:</p>
+      <ul>
+        <li><code>dep</code> — the names declared in <code>requirements.txt</code>, <code>pyproject.toml</code>, <code>package.json</code>, and friends</li>
+        <li><code>path</code> — the repository's file paths</li>
+        <li><code>text</code> — the contents of the files that were read</li>
+      </ul>
+      <p>A fired signal records <em>where</em> it fired, down to the line, plus the surrounding text. That evidence is attached to the report and shown in the dashboard, so any score can be walked back to the code that produced it.</p>
+    </li>
+    <li>
+      <h3>3 · Score the axes</h3>
+      <p>Each axis scores as the share of its available weight that fired:</p>
+      <pre>axis score = 100 × (weight of signals that fired) / (total weight on that axis)</pre>
+      <p>This is <strong>signal coverage, not quality</strong>. A framework that touches everything scores above a small, sharp research repository that does one thing exactly right — and that is the intended reading, not a flaw to correct for.</p>
+    </li>
+    <li>
+      <h3>4 · Set the headline</h3>
+      <p>Three axes describe the <em>subject</em> of the work — agent-based simulation, synthetic data, LLM behavioral modeling. Two describe <em>how</em> it is done — reinforcement learning and evaluation. The headline relevance uses only the subject axes:</p>
+      <pre>relevance = 0.6 × max(subject axes) + 0.4 × mean(subject axes)</pre>
+      <p>The <code>max</code> term keeps a purely agent-based or purely synthetic-data repository squarely in scope; the <code>mean</code> term rewards work that genuinely spans them. The primary axis shown on each card is the strongest subject axis, never the evaluation score.</p>
+    </li>
+    <li>
+      <h3>5 · Extract the population lab</h3>
+      <p>Two things get pulled out of the text separately from scoring, because they are the actual research question:</p>
+      <p><strong>Dimensions modeled.</strong> A fixed vocabulary of demographic attributes — age, income, education, region, migration, disability, caste, literacy, and so on — is matched against every file read, and the number of files mentioning each is recorded. Across the corpus this shows which population dimensions the field models and which it never touches. A dimension nobody models is a population nobody simulates.</p>
+      <p><strong>Models and versions.</strong> Every model identifier (<code>claude-*</code>, <code>gpt-*</code>, <code>gemini-*</code>, <code>llama-*</code>, and others) is counted. Behavioral findings drift between model versions, and the version a study rests on is usually buried in a config file. Here it is on the card.</p>
+    </li>
+  </ol>
+
+  <h2>One taxonomy, two runtimes</h2>
+  <p>The scoring lives in <a href="https://github.com/Ethical-Tech-CoLab/agentic-behavior-observatory/blob/main/analyzer/signals.py"><code>analyzer/signals.py</code></a> and is exported to <a href="data/signals.json"><code>docs/data/signals.json</code></a>, which the browser analyzer loads. The Python CLI and this page therefore score identically — the dashboard is not an approximation of the real thing.</p>
+  <p>Teaching it a new framework is one line:</p>
+  <pre>("abm", "vadere", "dep", r"^vadere$", 10, "Vadere crowd simulation")
+#  axis   key      kind   pattern      weight  label</pre>
+  <p>Run <code>analyzer/build_index.py</code> and both runtimes pick it up.</p>
+
+  <h2>Browser runs versus committed runs</h2>
+  <p>An analysis you run here is yours: it appears in the grid marked <em>live</em> and is kept in this browser. It becomes part of the shared corpus only when its report is committed to <code>data/reports/</code> — download the JSON from the detail panel, or run the CLI:</p>
+  <pre>python analyzer/analyze.py https://github.com/owner/repo</pre>
+  <p>That writes the JSON and a Markdown brief, and rebuilds the index the dashboard reads.</p>
+
+  <h2>What this cannot tell you</h2>
+  <ul>
+    <li>Regular expressions match vocabulary, not meaning. A repository that <em>discusses</em> differential privacy without implementing it fires that signal. Evidence links exist precisely so you can check.</li>
+    <li>Large repositories are sampled, not read whole. A signal can be missed because its file ranked 121st.</li>
+    <li>Scores compare a repository against the taxonomy — never against another repository's scientific merit.</li>
+    <li>The demographic vocabulary is a fixed English list. It will under-report populations described in other terms, and that limit is itself a finding worth reading.</li>
+  </ul>
+</section>
 </main>
 
 <div id="sheet" class="sheet" hidden><div class="sheet-inner" role="dialog" aria-modal="true"></div></div>
 
 <footer class="wrap foot">
-  <p>Ethical Tech CoLab · <a href="https://github.com/Ethical-Tech-CoLab/reinforcement-learning">source</a> · scores are heuristic signal coverage, not a quality judgement.</p>
+  <p>Ethical Tech CoLab · <a href="https://github.com/Ethical-Tech-CoLab/agentic-behavior-observatory">source</a> · scores are heuristic signal coverage, not a quality judgement.</p>
 </footer>
-<script src="app.js"></script>
+<script type="module" src="app.js"></script>
 </body>
 </html>

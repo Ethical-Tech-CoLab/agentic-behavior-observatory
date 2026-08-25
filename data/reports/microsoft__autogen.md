@@ -2,17 +2,17 @@
 
 > A programming framework for agentic AI
 
-[https://github.com/microsoft/autogen](https://github.com/microsoft/autogen) · ★60627 · Python · analysed 2026-08-25
+[https://github.com/microsoft/autogen](https://github.com/microsoft/autogen) · ★60627 · Python · analyzed 2026-08-25
 
 ## Axis scores
 
 - **Agent-based simulation** `█·········` 13/100
 - **Synthetic data generation** `··········` 0/100
-- **LLM-based behavioural modelling** `███████···` 73/100
+- **LLM-based behavioral modeling** `███████···` 73/100
 - **Reinforcement learning / policy search** `█·········` 11/100
 - **Evaluation & validation rigour** `███████···` 72/100
 
-Agentic-behaviour relevance: **55/100** (primary axis: LLM-based behavioural modelling)
+Agentic-behavior relevance: **55/100** (primary axis: LLM-based behavioral modeling)
 
 ## Evidence
 
@@ -21,7 +21,7 @@ Agentic-behaviour relevance: **55/100** (primary axis: LLM-based behavioural mod
 - **Agent class defined in source** — `python/docs/src/user-guide/agentchat-user-guide/migration-guide.md:468`
 - **Multi-agent framing in prose** — `python/packages/magentic-one-cli/pyproject.toml:16`
 
-### LLM-based behavioural modelling
+### LLM-based behavioral modeling
 
 - **Anthropic SDK** — `dependencies`
 - **OpenAI SDK** — `dependencies`
@@ -45,7 +45,7 @@ Agentic-behaviour relevance: **55/100** (primary axis: LLM-based behavioural mod
 - **Seeded, reproducible runs** — `python/docs/src/user-guide/agentchat-user-guide/migration-guide.md:257`
 - **Documentation or write-up** — `docs/design/01 - Programming Model.md`
 
-## Population dimensions modelled
+## Population dimensions modeled
 
 `migration`, `party`, `age`, `education`
 

@@ -2,17 +2,17 @@
 
 > Synthetic data generation for tabular data
 
-[https://github.com/sdv-dev/SDV](https://github.com/sdv-dev/SDV) · ★3549 · Python · analysed 2026-08-25
+[https://github.com/sdv-dev/SDV](https://github.com/sdv-dev/SDV) · ★3549 · Python · analyzed 2026-08-25
 
 ## Axis scores
 
 - **Agent-based simulation** `··········` 0/100
 - **Synthetic data generation** `███·······` 33/100
-- **LLM-based behavioural modelling** `··········` 0/100
+- **LLM-based behavioral modeling** `··········` 0/100
 - **Reinforcement learning / policy search** `█·········` 11/100
 - **Evaluation & validation rigour** `█████·····` 48/100
 
-Agentic-behaviour relevance: **24/100** (primary axis: Synthetic data generation)
+Agentic-behavior relevance: **24/100** (primary axis: Synthetic data generation)
 
 ## Evidence
 
@@ -33,6 +33,6 @@ Agentic-behaviour relevance: **24/100** (primary axis: Synthetic data generation
 - **Seeded, reproducible runs** — `sdv/single_table/base.py:882`
 - **Documentation or write-up** — `docs/Makefile`
 
-## Population dimensions modelled
+## Population dimensions modeled
 
 `age`, `gender`, `region`, `sex`, `occupation`, `party`

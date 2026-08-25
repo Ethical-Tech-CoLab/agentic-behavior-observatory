@@ -1,38 +1,42 @@
-# Reinforcement Learning — Agentic Behaviour Observatory
+# Agentic Behavior Observatory
 
-Point it at a GitHub repository. It reads the repository through the GitHub API,
-scores what kind of agentic-behaviour research the code actually does, pulls out
-the population dimensions and model versions it works with, and publishes the
-result to a browsable dashboard.
+Paste a GitHub repository URL and get a live, evidence-linked analysis of how
+that repository models agentic behavior — agent-based simulation, synthetic
+populations, LLM-driven behavioral modeling — scored on five axes, with the
+demographic dimensions and model versions it rests on pulled out.
 
 The question it exists to answer: **when someone builds a system that generates or
-evaluates synthetic populations at scale, what are they actually modelling — and
+evaluates synthetic populations at scale, what are they actually modeling — and
 what are they leaving out?**
 
-- **Dashboard** → https://ethical-tech-colab.github.io/reinforcement-learning/
-- **Reports** → [`data/reports/`](data/reports/) (JSON + Markdown, one pair per repository)
+- **Dashboard** → https://ethical-tech-colab.github.io/agentic-behavior-observatory/
+- **Definitions** → what reinforcement behavior, agentic behavior, and synthetic populations mean here ([Definitions tab](https://ethical-tech-colab.github.io/agentic-behavior-observatory/#definitions))
+- **Methodology** → the full scoring method, in the open ([Methodology tab](https://ethical-tech-colab.github.io/agentic-behavior-observatory/))
+- **Reports** → [`data/reports/`](data/reports/), JSON + Markdown, one pair per repository
 
-## Analyse a repository
+## Two ways to run it
+
+**In the browser.** Open the dashboard, paste a URL, press Analyze. The analysis
+runs client-side: two calls to the GitHub API for metadata and the file tree,
+then every file body from `raw.githubusercontent.com`, which is CORS-open and not
+rate limited. That is about thirty repositories an hour with no token at all. A
+token (stored in your browser only) is needed only for private repositories or if
+you exhaust the unsigned limit. Results are kept in your browser and marked
+*live*; download the JSON to contribute one to the shared corpus.
+
+**From the CLI**, which is what writes the committed corpus:
 
 ```bash
 python analyzer/analyze.py https://github.com/owner/repo
-```
-
-Several at once:
-
-```bash
 python analyzer/analyze.py projectmesa/mesa sdv-dev/SDV joonspk-research/generative_agents
 ```
 
 Each run writes `data/reports/owner__repo.json` and `.md`, then rebuilds
-`docs/data/index.json` so the dashboard picks it up. No clone, no install —
-standard library only, Python 3.9+.
+`docs/data/index.json`. No clone, no dependencies — standard library only,
+Python 3.9+. It picks up a `GITHUB_TOKEN`, or the `gh` CLI's token automatically.
 
-Authentication is optional but the unauthenticated GitHub API allows only 60
-requests per hour, and one repository costs roughly 120. Set `GITHUB_TOKEN`, or
-just be logged in to the `gh` CLI and the token is picked up automatically.
-
-Preview the dashboard locally:
+Preview the dashboard locally (the browser analyzer is an ES module, so it needs
+a server rather than `file://`):
 
 ```bash
 python -m http.server -d docs 8000
@@ -47,35 +51,38 @@ set it covers.
 | --- | --- |
 | **Agent-based simulation** | Mesa, AgentPy, PettingZoo, NetLogo, Repast, SimPy; agent classes, schedulers, step loops, spatial environments |
 | **Synthetic data generation** | SDV, CTGAN, synthcity, Faker, Gretel; population synthesis and IPF, census/microdata seeds, differential privacy, generation at scale |
-| **LLM-based behavioural modelling** | Anthropic/OpenAI SDKs, LangGraph, AutoGen, CrewAI, DSPy, local runtimes; personas, memory streams, generative-agent architectures, silicon sampling |
+| **LLM-based behavioral modeling** | Anthropic/OpenAI SDKs, LangGraph, AutoGen, CrewAI, DSPy, local runtimes; personas, memory streams, generative-agent architectures, silicon sampling |
 | **Reinforcement learning** | Gymnasium, Stable-Baselines3, RLlib, TorchRL; named algorithms, reward machinery, RLHF/DPO, the reset/step contract |
 | **Evaluation & validation** | Tests, fidelity metrics (KS, Wasserstein, TSTR), sensitivity analysis and ablations, seeded runs, experiment tracking, bias and representativeness audits |
 
-The headline **relevance** score weights the strongest of the three subject axes
-(`0.6 × max + 0.4 × mean`), so a repository that is purely an ABM or purely a
-synthesiser still reads as squarely in scope, while work that spans them scores
-higher. Reinforcement learning and evaluation describe *how* the work is done,
-so they inform the profile without setting the headline.
+The headline **relevance** score uses only the three *subject* axes:
 
-Every point is traceable: each report lists the file and line where each signal
-fired, and the dashboard shows that evidence next to the score. A score is
-signal coverage, not a quality judgement — a small, sharp repository can and
-should score lower than a sprawling framework.
+```
+relevance = 0.6 × max(subject axes) + 0.4 × mean(subject axes)
+```
+
+The `max` term keeps a purely agent-based or purely synthetic-data repository
+squarely in scope; the `mean` term rewards work that spans them. Reinforcement
+learning and evaluation describe *how* the work is done, so they shape the
+profile without setting the headline.
+
+Every point is traceable: each report records the file and line where each signal
+fired, and the dashboard shows that evidence beside the score. A score is signal
+coverage, not a quality judgement — a small, sharp repository can and should
+score lower than a sprawling framework.
 
 ## Population lab
 
-Two things the dashboard surfaces across the whole analysed corpus:
+Two things the dashboard surfaces across the whole analyzed corpus:
 
-- **Dimensions modelled** — which demographic attributes (age, income, education,
-  region, migration, disability, caste, …) appear in the code and prose of each
-  repository. A dimension nobody models is a population nobody simulates.
+- **Dimensions modeled** — which demographic attributes (age, income, education,
+  region, migration, disability, caste, literacy, …) appear in the code and prose
+  of each repository. A dimension nobody models is a population nobody simulates,
+  and an unmodeled dimension is an implicit claim that it does not matter.
 - **Models & versions referenced** — every `claude-*`, `gpt-*`, `gemini-*`,
-  `llama-*` identifier found, with mention counts. Behavioural findings drift
+  `llama-*` identifier found, with mention counts. Behavioral findings drift
   between model versions; this makes the version each study rests on visible
   rather than buried in a config file.
-
-Filter by axis, search across dimensions and models, and open any repository for
-the full evidence trail.
 
 ## Teaching it something new
 
@@ -89,28 +96,33 @@ tuple:
 ```
 
 `kind` is `dep` (declared dependencies), `path` (file paths), or `text` (source
-and prose content). Nothing else needs to change — re-run the analyser and the
-dashboard reflects the new signal.
+and prose). `build_index.py` exports the taxonomy to `docs/data/signals.json`,
+which the browser analyzer loads — so the CLI and the dashboard score
+identically, and one edit updates both.
 
 ## Layout
 
 ```
 analyzer/analyze.py       fetch, score, and write reports
 analyzer/signals.py       the taxonomy — edit this to extend coverage
-analyzer/build_index.py   collect reports into docs/data/ for the dashboard
+analyzer/build_index.py   collect reports + export the taxonomy for the browser
 data/reports/             per-repository JSON + Markdown
-docs/                     static dashboard, served by GitHub Pages
+docs/                     static dashboard (Observatory · Definitions · Methodology)
+docs/analyzer.js          browser port of the analyzer, scoring identically
 ```
 
 ## Limits worth stating
 
-- It reads up to 120 files per repository, chosen by a heuristic that favours
-  manifests, prose, and modelling-core filenames. Large repositories are sampled,
+- Up to 120 files per repository are read, chosen by a heuristic favoring
+  manifests, prose, and modeling-core filenames. Large repositories are sampled,
   not read whole; `files_read` / `files_total` in every report says by how much.
 - Regular expressions match vocabulary, not meaning. A repository that discusses
-  differential privacy without implementing it will fire that signal.
-- Scores compare repositories against the taxonomy, never against each other's
-  scientific merit.
+  differential privacy without implementing it fires that signal — which is why
+  every signal links to its evidence.
+- Scores compare a repository against the taxonomy, never against another
+  repository's scientific merit.
+- The demographic vocabulary is a fixed English list, so it under-reports
+  populations described in other terms. That limit is itself a finding.
 
 ---
 

@@ -2,17 +2,17 @@
 
 > 🐫 CAMEL: The first and the best multi-agent framework. Finding the Scaling Law of Agents. https://www.camel-ai.org
 
-[https://github.com/camel-ai/camel](https://github.com/camel-ai/camel) · ★17638 · Python · analysed 2026-08-25
+[https://github.com/camel-ai/camel](https://github.com/camel-ai/camel) · ★17639 · Python · analyzed 2026-08-25
 
 ## Axis scores
 
 - **Agent-based simulation** `██········` 18/100
 - **Synthetic data generation** `█·········` 13/100
-- **LLM-based behavioural modelling** `██████····` 62/100
+- **LLM-based behavioral modeling** `██████····` 62/100
 - **Reinforcement learning / policy search** `███·······` 32/100
 - **Evaluation & validation rigour** `███████···` 72/100
 
-Agentic-behaviour relevance: **50/100** (primary axis: LLM-based behavioural modelling)
+Agentic-behavior relevance: **50/100** (primary axis: LLM-based behavioral modeling)
 
 ## Evidence
 
@@ -27,7 +27,7 @@ Agentic-behaviour relevance: **50/100** (primary axis: LLM-based behavioural mod
 - **Sampling machinery** — `docs/cookbooks/data_generation/self_improving_cot_generation.md:315`
 - **Generation at population scale** — `docs/cookbooks/multi_agent_society/azure_openai_claude_society.md:519`
 
-### LLM-based behavioural modelling
+### LLM-based behavioral modeling
 
 - **Anthropic SDK** — `dependencies`
 - **OpenAI SDK** — `dependencies`
@@ -52,7 +52,7 @@ Agentic-behaviour relevance: **50/100** (primary axis: LLM-based behavioural mod
 - **Seeded, reproducible runs** — `docs/key_modules/datagen.md:314`
 - **Documentation or write-up** — `docs/Makefile`
 
-## Population dimensions modelled
+## Population dimensions modeled
 
 `age`, `education`, `occupation`, `region`, `party`
 
@@ -63,8 +63,6 @@ Agentic-behaviour relevance: **50/100** (primary axis: LLM-based behavioural mod
 - `o4-mini` (9 mentions)
 - `llama3` (5 mentions)
 - `qwen2` (5 mentions)
-- `o1` (4 mentions)
-- `o3` (4 mentions)
 - `gpt-4o` (3 mentions)
 - `o3-mini` (3 mentions)
 - `gpt-4.1` (3 mentions)
@@ -77,4 +75,6 @@ Agentic-behaviour relevance: **50/100** (primary axis: LLM-based behavioural mod
 - `gpt-4.5-preview` (2 mentions)
 - `o1-preview` (2 mentions)
 - `o1-mini` (2 mentions)
+- `o3-pro` (2 mentions)
 - `gpt-4.1-mini-2025-04-14` (2 mentions)
+- `gpt-4.1-nano-2025-04-14` (2 mentions)

@@ -6,7 +6,7 @@
   "language": "Jupyter Notebook",
   "license": "NOASSERTION",
   "pushed_at": "2026-08-01T03:00:47Z",
-  "analysed_at": "2026-08-25T19:04:31+00:00",
+  "analyzed_at": "2026-08-25T19:18:13+00:00",
   "files_total": 399,
   "files_read": 120,
   "dependencies": [
@@ -55,11 +55,11 @@
   "scores": {
     "abm": 18,
     "synth": 22,
-    "llm_behaviour": 28,
+    "llm_behavior": 28,
     "rl": 32,
     "eval": 84
   },
-  "primary_axis": "llm_behaviour",
+  "primary_axis": "llm_behavior",
   "relevance": 26,
   "signals": {
     "abm": [
@@ -101,13 +101,13 @@
         "evidence": "population and household data for a specified region using census data. We\u2019ll use a `CensusDataLoader` class to handle the da"
       }
     ],
-    "llm_behaviour": [
+    "llm_behavior": [
       {
         "signal": "orchestration",
         "label": "LLM agent orchestration framework",
         "weight": 10,
         "where": "dependencies",
-        "evidence": "dspy"
+        "evidence": "langchain"
       },
       {
         "signal": "persona",

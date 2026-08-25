@@ -8,13 +8,13 @@
   "scores": {
    "abm": 13,
    "synth": 0,
-   "llm_behaviour": 73,
+   "llm_behavior": 73,
    "rl": 11,
    "eval": 72
   },
-  "primary_axis": "llm_behaviour",
+  "primary_axis": "llm_behavior",
   "relevance": 55,
-  "analysed_at": "2026-08-25T19:05:44+00:00",
+  "analyzed_at": "2026-08-25T19:19:19+00:00",
   "dimensions": [
    "migration",
    "party",
@@ -37,18 +37,18 @@
   "repo": "camel-ai/camel",
   "url": "https://github.com/camel-ai/camel",
   "description": "\ud83d\udc2b CAMEL: The first and the best multi-agent framework. Finding the Scaling Law of Agents. https://www.camel-ai.org",
-  "stars": 17638,
+  "stars": 17639,
   "language": "Python",
   "scores": {
    "abm": 18,
    "synth": 13,
-   "llm_behaviour": 62,
+   "llm_behavior": 62,
    "rl": 32,
    "eval": 72
   },
-  "primary_axis": "llm_behaviour",
+  "primary_axis": "llm_behavior",
   "relevance": 50,
-  "analysed_at": "2026-08-25T19:05:17+00:00",
+  "analyzed_at": "2026-08-25T19:18:57+00:00",
   "dimensions": [
    "age",
    "education",
@@ -62,9 +62,9 @@
    "o4-mini",
    "llama3",
    "qwen2",
-   "o1",
-   "o3",
-   "gpt-4o"
+   "gpt-4o",
+   "o3-mini",
+   "gpt-4.1"
   ],
   "file": "camel-ai__camel.json"
  },
@@ -77,13 +77,13 @@
   "scores": {
    "abm": 63,
    "synth": 0,
-   "llm_behaviour": 6,
+   "llm_behavior": 6,
    "rl": 18,
    "eval": 69
   },
   "primary_axis": "abm",
   "relevance": 47,
-  "analysed_at": "2026-08-25T19:03:04+00:00",
+  "analyzed_at": "2026-08-25T19:17:02+00:00",
   "dimensions": [
    "wealth",
    "migration",
@@ -98,9 +98,7 @@
    "region",
    "urban"
   ],
-  "models": [
-   "o1"
-  ],
+  "models": [],
   "file": "projectmesa__mesa.json"
  },
  {
@@ -112,13 +110,13 @@
   "scores": {
    "abm": 0,
    "synth": 0,
-   "llm_behaviour": 43,
+   "llm_behavior": 43,
    "rl": 0,
    "eval": 0
   },
-  "primary_axis": "llm_behaviour",
+  "primary_axis": "llm_behavior",
   "relevance": 32,
-  "analysed_at": "2026-08-25T19:03:56+00:00",
+  "analyzed_at": "2026-08-25T19:17:51+00:00",
   "dimensions": [
    "party",
    "age",
@@ -136,13 +134,13 @@
   "scores": {
    "abm": 18,
    "synth": 22,
-   "llm_behaviour": 28,
+   "llm_behavior": 28,
    "rl": 32,
    "eval": 84
   },
-  "primary_axis": "llm_behaviour",
+  "primary_axis": "llm_behavior",
   "relevance": 26,
-  "analysed_at": "2026-08-25T19:04:31+00:00",
+  "analyzed_at": "2026-08-25T19:18:13+00:00",
   "dimensions": [
    "age",
    "region",
@@ -172,13 +170,13 @@
   "scores": {
    "abm": 0,
    "synth": 33,
-   "llm_behaviour": 0,
+   "llm_behavior": 0,
    "rl": 11,
    "eval": 48
   },
   "primary_axis": "synth",
   "relevance": 24,
-  "analysed_at": "2026-08-25T19:03:31+00:00",
+  "analyzed_at": "2026-08-25T19:17:27+00:00",
   "dimensions": [
    "age",
    "gender",
@@ -199,13 +197,13 @@
   "scores": {
    "abm": 23,
    "synth": 7,
-   "llm_behaviour": 20,
+   "llm_behavior": 20,
    "rl": 87,
    "eval": 45
   },
   "primary_axis": "abm",
   "relevance": 20,
-  "analysed_at": "2026-08-25T19:04:54+00:00",
+  "analyzed_at": "2026-08-25T19:18:36+00:00",
   "dimensions": [
    "party",
    "race",

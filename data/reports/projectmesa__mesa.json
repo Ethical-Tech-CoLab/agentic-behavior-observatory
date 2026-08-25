@@ -6,7 +6,7 @@
   "language": "Python",
   "license": "Apache-2.0",
   "pushed_at": "2026-08-25T08:50:29Z",
-  "analysed_at": "2026-08-25T19:03:04+00:00",
+  "analyzed_at": "2026-08-25T19:17:02+00:00",
   "files_total": 237,
   "files_read": 120,
   "dependencies": [
@@ -84,7 +84,7 @@
   "scores": {
     "abm": 63,
     "synth": 0,
-    "llm_behaviour": 6,
+    "llm_behavior": 6,
     "rl": 18,
     "eval": 69
   },
@@ -94,7 +94,7 @@
     "abm": [
       {
         "signal": "mesa",
-        "label": "Mesa agent-based modelling framework",
+        "label": "Mesa agent-based modeling framework",
         "weight": 12,
         "where": "dependencies",
         "evidence": "mesa"
@@ -150,7 +150,7 @@
       }
     ],
     "synth": [],
-    "llm_behaviour": [
+    "llm_behavior": [
       {
         "signal": "memory",
         "label": "Memory/retrieval layer",
@@ -344,10 +344,5 @@
       ]
     }
   },
-  "models": [
-    {
-      "model": "o1",
-      "mentions": 7
-    }
-  ]
+  "models": []
 }

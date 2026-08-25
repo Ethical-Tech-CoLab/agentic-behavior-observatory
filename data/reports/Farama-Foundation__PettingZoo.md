@@ -2,17 +2,17 @@
 
 > A standard API for multi-agent reinforcement learning environments, with popular reference environments and related utilities
 
-[https://github.com/Farama-Foundation/PettingZoo](https://github.com/Farama-Foundation/PettingZoo) · ★3496 · Python · analysed 2026-08-25
+[https://github.com/Farama-Foundation/PettingZoo](https://github.com/Farama-Foundation/PettingZoo) · ★3496 · Python · analyzed 2026-08-25
 
 ## Axis scores
 
 - **Agent-based simulation** `██········` 23/100
 - **Synthetic data generation** `█·········` 7/100
-- **LLM-based behavioural modelling** `██········` 20/100
+- **LLM-based behavioral modeling** `██········` 20/100
 - **Reinforcement learning / policy search** `█████████·` 87/100
 - **Evaluation & validation rigour** `████······` 45/100
 
-Agentic-behaviour relevance: **20/100** (primary axis: Agent-based simulation)
+Agentic-behavior relevance: **20/100** (primary axis: Agent-based simulation)
 
 ## Evidence
 
@@ -26,7 +26,7 @@ Agentic-behaviour relevance: **20/100** (primary axis: Agent-based simulation)
 
 - **Sampling machinery** — `docs/tutorials/agilerl/DQN.md:638`
 
-### LLM-based behavioural modelling
+### LLM-based behavioral modeling
 
 - **OpenAI SDK** — `dependencies`
 - **LLM agent orchestration framework** — `dependencies`
@@ -48,6 +48,6 @@ Agentic-behaviour relevance: **20/100** (primary axis: Agent-based simulation)
 - **Experiment tracking / sweeps** — `docs/tutorials/agilerl/DQN.md:60`
 - **Documentation or write-up** — `docs/.gitignore`
 
-## Population dimensions modelled
+## Population dimensions modeled
 
 `party`, `race`, `migration`, `age`, `gender`, `region`, `religion`, `disability`

@@ -6,7 +6,7 @@
   "language": "Python",
   "license": "CC-BY-4.0",
   "pushed_at": "2026-04-15T11:59:09Z",
-  "analysed_at": "2026-08-25T19:05:44+00:00",
+  "analyzed_at": "2026-08-25T19:19:19+00:00",
   "files_total": 1837,
   "files_read": 120,
   "dependencies": [
@@ -214,11 +214,11 @@
   "scores": {
     "abm": 13,
     "synth": 0,
-    "llm_behaviour": 73,
+    "llm_behavior": 73,
     "rl": 11,
     "eval": 72
   },
-  "primary_axis": "llm_behaviour",
+  "primary_axis": "llm_behavior",
   "relevance": 55,
   "signals": {
     "abm": [
@@ -238,7 +238,7 @@
       }
     ],
     "synth": [],
-    "llm_behaviour": [
+    "llm_behavior": [
       {
         "signal": "anthropic",
         "label": "Anthropic SDK",
@@ -258,7 +258,7 @@
         "label": "LLM agent orchestration framework",
         "weight": 10,
         "where": "dependencies",
-        "evidence": "llama-index"
+        "evidence": "langgraph"
       },
       {
         "signal": "local_models",

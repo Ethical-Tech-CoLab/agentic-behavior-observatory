@@ -6,7 +6,7 @@
   "language": null,
   "license": "Apache-2.0",
   "pushed_at": "2024-08-05T21:38:56Z",
-  "analysed_at": "2026-08-25T19:03:56+00:00",
+  "analyzed_at": "2026-08-25T19:17:51+00:00",
   "files_total": 44016,
   "files_read": 120,
   "dependencies": [
@@ -82,16 +82,16 @@
   "scores": {
     "abm": 0,
     "synth": 0,
-    "llm_behaviour": 43,
+    "llm_behavior": 43,
     "rl": 0,
     "eval": 0
   },
-  "primary_axis": "llm_behaviour",
+  "primary_axis": "llm_behavior",
   "relevance": 32,
   "signals": {
     "abm": [],
     "synth": [],
-    "llm_behaviour": [
+    "llm_behavior": [
       {
         "signal": "openai",
         "label": "OpenAI SDK",

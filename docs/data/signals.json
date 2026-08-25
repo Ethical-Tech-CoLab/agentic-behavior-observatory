@@ -1,0 +1,437 @@
+{
+ "axes": {
+  "abm": "Agent-based simulation",
+  "synth": "Synthetic data generation",
+  "llm_behavior": "LLM-based behavioral modeling",
+  "rl": "Reinforcement learning / policy search",
+  "eval": "Evaluation & validation rigour"
+ },
+ "signals": [
+  {
+   "axis": "abm",
+   "key": "mesa",
+   "kind": "dep",
+   "pattern": "^mesa$",
+   "weight": 12,
+   "label": "Mesa agent-based modeling framework"
+  },
+  {
+   "axis": "abm",
+   "key": "agentpy",
+   "kind": "dep",
+   "pattern": "^agentpy$",
+   "weight": 12,
+   "label": "AgentPy ABM framework"
+  },
+  {
+   "axis": "abm",
+   "key": "pettingzoo",
+   "kind": "dep",
+   "pattern": "^pettingzoo$",
+   "weight": 10,
+   "label": "PettingZoo multi-agent environments"
+  },
+  {
+   "axis": "abm",
+   "key": "netlogo",
+   "kind": "text",
+   "pattern": "\\bnetlogo\\b",
+   "weight": 10,
+   "label": "NetLogo model referenced"
+  },
+  {
+   "axis": "abm",
+   "key": "repast",
+   "kind": "text",
+   "pattern": "\\brepast\\b",
+   "weight": 10,
+   "label": "Repast ABM toolkit referenced"
+  },
+  {
+   "axis": "abm",
+   "key": "gama",
+   "kind": "text",
+   "pattern": "\\bGAMA platform\\b",
+   "weight": 8,
+   "label": "GAMA simulation platform"
+  },
+  {
+   "axis": "abm",
+   "key": "simpy",
+   "kind": "dep",
+   "pattern": "^simpy$",
+   "weight": 8,
+   "label": "SimPy discrete-event simulation"
+  },
+  {
+   "axis": "abm",
+   "key": "agent_class",
+   "kind": "text",
+   "pattern": "class\\s+\\w*Agent\\w*\\s*[\\(:]",
+   "weight": 8,
+   "label": "Agent class defined in source"
+  },
+  {
+   "axis": "abm",
+   "key": "step_loop",
+   "kind": "text",
+   "pattern": "def\\s+(step|tick|advance)\\s*\\(",
+   "weight": 6,
+   "label": "Simulation step/tick loop"
+  },
+  {
+   "axis": "abm",
+   "key": "scheduler",
+   "kind": "text",
+   "pattern": "\\b(RandomActivation|SimultaneousActivation|StagedActivation)\\b",
+   "weight": 8,
+   "label": "ABM scheduler"
+  },
+  {
+   "axis": "abm",
+   "key": "grid_space",
+   "kind": "text",
+   "pattern": "\\b(MultiGrid|SingleGrid|ContinuousSpace|NetworkGrid)\\b",
+   "weight": 6,
+   "label": "Spatial environment"
+  },
+  {
+   "axis": "abm",
+   "key": "mas_terms",
+   "kind": "text",
+   "pattern": "\\b(multi-?agent system|emergent behaviou?r|agent interaction)\\b",
+   "weight": 5,
+   "label": "Multi-agent framing in prose"
+  },
+  {
+   "axis": "synth",
+   "key": "sdv",
+   "kind": "dep",
+   "pattern": "^sdv$",
+   "weight": 12,
+   "label": "SDV synthetic data vault"
+  },
+  {
+   "axis": "synth",
+   "key": "ctgan",
+   "kind": "dep",
+   "pattern": "^(ctgan|sdmetrics|copulas)$",
+   "weight": 10,
+   "label": "Tabular synthesis (CTGAN family)"
+  },
+  {
+   "axis": "synth",
+   "key": "synthcity",
+   "kind": "dep",
+   "pattern": "^synthcity$",
+   "weight": 10,
+   "label": "synthcity generative library"
+  },
+  {
+   "axis": "synth",
+   "key": "faker",
+   "kind": "dep",
+   "pattern": "^(faker|mimesis)$",
+   "weight": 8,
+   "label": "Faker/Mimesis record fabrication"
+  },
+  {
+   "axis": "synth",
+   "key": "gretel",
+   "kind": "text",
+   "pattern": "\\bgretel\\b",
+   "weight": 8,
+   "label": "Gretel synthetic data platform"
+  },
+  {
+   "axis": "synth",
+   "key": "population_synth",
+   "kind": "text",
+   "pattern": "\\b(population synthesis|synthetic population|iterative proportional fitting|\\bIPF\\b)\\b",
+   "weight": 12,
+   "label": "Explicit population synthesis"
+  },
+  {
+   "axis": "synth",
+   "key": "census_source",
+   "kind": "text",
+   "pattern": "\\b(census|IPUMS|microdata|PUMS|household survey|DHS)\\b",
+   "weight": 8,
+   "label": "Real microdata used as a seed"
+  },
+  {
+   "axis": "synth",
+   "key": "privacy",
+   "kind": "text",
+   "pattern": "\\b(differential privacy|k-anonymity|epsilon budget|re-?identification)\\b",
+   "weight": 10,
+   "label": "Privacy protection of synthetic output"
+  },
+  {
+   "axis": "synth",
+   "key": "sampling",
+   "kind": "text",
+   "pattern": "\\b(stratified sampl|rejection sampl|importance sampl|bootstrap resampl)",
+   "weight": 6,
+   "label": "Sampling machinery"
+  },
+  {
+   "axis": "synth",
+   "key": "scale",
+   "kind": "text",
+   "pattern": "\\b(at scale|batch generat|\\d{4,}\\s+(agents|personas|records|individuals))\\b",
+   "weight": 6,
+   "label": "Generation at population scale"
+  },
+  {
+   "axis": "llm_behavior",
+   "key": "anthropic",
+   "kind": "dep",
+   "pattern": "^anthropic$",
+   "weight": 10,
+   "label": "Anthropic SDK"
+  },
+  {
+   "axis": "llm_behavior",
+   "key": "openai",
+   "kind": "dep",
+   "pattern": "^openai$",
+   "weight": 8,
+   "label": "OpenAI SDK"
+  },
+  {
+   "axis": "llm_behavior",
+   "key": "orchestration",
+   "kind": "dep",
+   "pattern": "^(langchain|langgraph|autogen|pyautogen|crewai|llama-index|llama_index|dspy|dspy-ai)$",
+   "weight": 10,
+   "label": "LLM agent orchestration framework"
+  },
+  {
+   "axis": "llm_behavior",
+   "key": "local_models",
+   "kind": "dep",
+   "pattern": "^(transformers|vllm|ollama|llama-cpp-python)$",
+   "weight": 8,
+   "label": "Local/self-hosted model runtime"
+  },
+  {
+   "axis": "llm_behavior",
+   "key": "persona",
+   "kind": "text",
+   "pattern": "\\b(persona|backstory|character sheet|agent profile|system prompt)\\b",
+   "weight": 10,
+   "label": "Persona/profile conditioning"
+  },
+  {
+   "axis": "llm_behavior",
+   "key": "generative_agents",
+   "kind": "text",
+   "pattern": "\\b(generative agents?|memory stream|reflection module|believable agents?)\\b",
+   "weight": 12,
+   "label": "Generative-agents architecture"
+  },
+  {
+   "axis": "llm_behavior",
+   "key": "silicon_sample",
+   "kind": "text",
+   "pattern": "\\b(silicon sampl|LLM (respondents?|participants?|subjects?)|simulated (survey|respondents?))\\b",
+   "weight": 12,
+   "label": "LLMs standing in for human respondents"
+  },
+  {
+   "axis": "llm_behavior",
+   "key": "prompt_assets",
+   "kind": "path",
+   "pattern": "(^|/)(prompts?|personas?|characters?)/",
+   "weight": 8,
+   "label": "Prompt/persona asset directory"
+  },
+  {
+   "axis": "llm_behavior",
+   "key": "tool_use",
+   "kind": "text",
+   "pattern": "\\b(tool[_ ]use|function calling|tool_choice|tools=\\[)",
+   "weight": 6,
+   "label": "Tool-using agents"
+  },
+  {
+   "axis": "llm_behavior",
+   "key": "memory",
+   "kind": "text",
+   "pattern": "\\b(vector ?store|embedding|retrieval|episodic memory)\\b",
+   "weight": 5,
+   "label": "Memory/retrieval layer"
+  },
+  {
+   "axis": "rl",
+   "key": "gym",
+   "kind": "dep",
+   "pattern": "^(gym|gymnasium)$",
+   "weight": 10,
+   "label": "Gym/Gymnasium environments"
+  },
+  {
+   "axis": "rl",
+   "key": "sb3",
+   "kind": "dep",
+   "pattern": "^(stable-baselines3|sb3-contrib)$",
+   "weight": 12,
+   "label": "Stable-Baselines3 agents"
+  },
+  {
+   "axis": "rl",
+   "key": "rllib",
+   "kind": "dep",
+   "pattern": "^(ray|rllib)$",
+   "weight": 10,
+   "label": "Ray RLlib"
+  },
+  {
+   "axis": "rl",
+   "key": "torchrl",
+   "kind": "dep",
+   "pattern": "^(torchrl|tianshou|cleanrl|acme|dopamine-rl)$",
+   "weight": 10,
+   "label": "RL research library"
+  },
+  {
+   "axis": "rl",
+   "key": "algorithms",
+   "kind": "text",
+   "pattern": "\\b(PPO|DQN|SAC|TD3|A2C|A3C|Q-learning|policy gradient|actor-critic)\\b",
+   "weight": 10,
+   "label": "Named RL algorithm"
+  },
+  {
+   "axis": "rl",
+   "key": "reward",
+   "kind": "text",
+   "pattern": "\\b(reward (function|shaping|signal)|def\\s+reward|return_|discount factor|gamma\\s*=)",
+   "weight": 8,
+   "label": "Reward machinery"
+  },
+  {
+   "axis": "rl",
+   "key": "rlhf",
+   "kind": "text",
+   "pattern": "\\b(RLHF|DPO|preference model|reward model|constitutional AI)\\b",
+   "weight": 10,
+   "label": "Preference-based alignment training"
+  },
+  {
+   "axis": "rl",
+   "key": "env_api",
+   "kind": "text",
+   "pattern": "def\\s+(reset|step)\\s*\\(self",
+   "weight": 6,
+   "label": "Environment reset/step API"
+  },
+  {
+   "axis": "eval",
+   "key": "tests",
+   "kind": "path",
+   "pattern": "(^|/)(tests?|spec)/",
+   "weight": 8,
+   "label": "Test suite present"
+  },
+  {
+   "axis": "eval",
+   "key": "notebooks",
+   "kind": "path",
+   "pattern": "\\.ipynb$",
+   "weight": 5,
+   "label": "Analysis notebooks"
+  },
+  {
+   "axis": "eval",
+   "key": "metrics",
+   "kind": "text",
+   "pattern": "\\b(KS test|Kolmogorov|Wasserstein|Jensen-Shannon|TSTR|fidelity|calibration|coverage)\\b",
+   "weight": 10,
+   "label": "Distributional fidelity metrics"
+  },
+  {
+   "axis": "eval",
+   "key": "validation",
+   "kind": "text",
+   "pattern": "\\b(face validity|sensitivity analysis|ablation|held-?out|ground truth|baseline comparison)\\b",
+   "weight": 10,
+   "label": "Validation practice"
+  },
+  {
+   "axis": "eval",
+   "key": "seeds",
+   "kind": "text",
+   "pattern": "\\b(random_state|set_seed|seed\\s*=\\s*\\d+|np\\.random\\.seed)\\b",
+   "weight": 8,
+   "label": "Seeded, reproducible runs"
+  },
+  {
+   "axis": "eval",
+   "key": "sweeps",
+   "kind": "text",
+   "pattern": "\\b(wandb|mlflow|hydra|optuna|parameter sweep|grid search)\\b",
+   "weight": 8,
+   "label": "Experiment tracking / sweeps"
+  },
+  {
+   "axis": "eval",
+   "key": "bias",
+   "kind": "text",
+   "pattern": "\\b(bias audit|fairness|demographic parity|disparate impact|representativeness)\\b",
+   "weight": 10,
+   "label": "Fairness/representativeness checking"
+  },
+  {
+   "axis": "eval",
+   "key": "docs",
+   "kind": "path",
+   "pattern": "(^|/)(docs?|paper|report)/",
+   "weight": 5,
+   "label": "Documentation or write-up"
+  }
+ ],
+ "demographics": [
+  "age",
+  "age_group",
+  "cohort",
+  "gender",
+  "sex",
+  "race",
+  "ethnicity",
+  "income",
+  "wealth",
+  "education",
+  "occupation",
+  "employment",
+  "household",
+  "region",
+  "geography",
+  "urban",
+  "rural",
+  "religion",
+  "literacy",
+  "political",
+  "party",
+  "ideology",
+  "marital",
+  "disability",
+  "migration",
+  "nationality",
+  "caste",
+  "social class",
+  "mother tongue",
+  "citizenship"
+ ],
+ "model_patterns": [
+  "claude-[a-z0-9.\\-]+",
+  "gpt-[0-9a-z.\\-]+",
+  "\\bo[1-4]-(?:mini|preview|pro)\\b",
+  "gemini-[0-9a-z.\\-]+",
+  "llama-?[0-9][0-9a-z.\\-]*",
+  "mistral-[a-z0-9.\\-]+",
+  "qwen[0-9a-z.\\-]*",
+  "deepseek-[a-z0-9.\\-]+"
+ ]
+}

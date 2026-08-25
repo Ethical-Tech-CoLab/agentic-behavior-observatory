@@ -1,10 +1,10 @@
-"""Signal taxonomy for agentic-behaviour research analysis.
+"""Signal taxonomy for agentic-behavior research analysis.
 
 Each axis holds named signals. A signal fires when any of its patterns is seen
 in dependency manifests, file paths, or source text. Weights are the points a
-signal contributes to its axis score (axis scores are normalised to 0-100).
+signal contributes to its axis score (axis scores are normalized to 0-100).
 
-Edit this file to teach the analyser about a new framework or practice: nothing
+Edit this file to teach the analyzer about a new framework or practice: nothing
 else needs to change.
 """
 
@@ -15,7 +15,7 @@ import re
 AXES = {
     "abm": "Agent-based simulation",
     "synth": "Synthetic data generation",
-    "llm_behaviour": "LLM-based behavioural modelling",
+    "llm_behavior": "LLM-based behavioral modeling",
     "rl": "Reinforcement learning / policy search",
     "eval": "Evaluation & validation rigour",
 }
@@ -26,7 +26,7 @@ AXES = {
 #       "text" -> matched against source/prose content
 SIGNALS = [
     # agent-based simulation
-    ("abm", "mesa", "dep", r"^mesa$", 12, "Mesa agent-based modelling framework"),
+    ("abm", "mesa", "dep", r"^mesa$", 12, "Mesa agent-based modeling framework"),
     ("abm", "agentpy", "dep", r"^agentpy$", 12, "AgentPy ABM framework"),
     ("abm", "pettingzoo", "dep", r"^pettingzoo$", 10, "PettingZoo multi-agent environments"),
     ("abm", "netlogo", "text", r"\bnetlogo\b", 10, "NetLogo model referenced"),
@@ -51,17 +51,17 @@ SIGNALS = [
     ("synth", "sampling", "text", r"\b(stratified sampl|rejection sampl|importance sampl|bootstrap resampl)", 6, "Sampling machinery"),
     ("synth", "scale", "text", r"\b(at scale|batch generat|\d{4,}\s+(agents|personas|records|individuals))\b", 6, "Generation at population scale"),
 
-    # LLM-based behavioural modelling
-    ("llm_behaviour", "anthropic", "dep", r"^anthropic$", 10, "Anthropic SDK"),
-    ("llm_behaviour", "openai", "dep", r"^openai$", 8, "OpenAI SDK"),
-    ("llm_behaviour", "orchestration", "dep", r"^(langchain|langgraph|autogen|pyautogen|crewai|llama-index|llama_index|dspy|dspy-ai)$", 10, "LLM agent orchestration framework"),
-    ("llm_behaviour", "local_models", "dep", r"^(transformers|vllm|ollama|llama-cpp-python)$", 8, "Local/self-hosted model runtime"),
-    ("llm_behaviour", "persona", "text", r"\b(persona|backstory|character sheet|agent profile|system prompt)\b", 10, "Persona/profile conditioning"),
-    ("llm_behaviour", "generative_agents", "text", r"\b(generative agents?|memory stream|reflection module|believable agents?)\b", 12, "Generative-agents architecture"),
-    ("llm_behaviour", "silicon_sample", "text", r"\b(silicon sampl|LLM (respondents?|participants?|subjects?)|simulated (survey|respondents?))\b", 12, "LLMs standing in for human respondents"),
-    ("llm_behaviour", "prompt_assets", "path", r"(^|/)(prompts?|personas?|characters?)/", 8, "Prompt/persona asset directory"),
-    ("llm_behaviour", "tool_use", "text", r"\b(tool[_ ]use|function calling|tool_choice|tools=\[)", 6, "Tool-using agents"),
-    ("llm_behaviour", "memory", "text", r"\b(vector ?store|embedding|retrieval|episodic memory)\b", 5, "Memory/retrieval layer"),
+    # LLM-based behavioral modeling
+    ("llm_behavior", "anthropic", "dep", r"^anthropic$", 10, "Anthropic SDK"),
+    ("llm_behavior", "openai", "dep", r"^openai$", 8, "OpenAI SDK"),
+    ("llm_behavior", "orchestration", "dep", r"^(langchain|langgraph|autogen|pyautogen|crewai|llama-index|llama_index|dspy|dspy-ai)$", 10, "LLM agent orchestration framework"),
+    ("llm_behavior", "local_models", "dep", r"^(transformers|vllm|ollama|llama-cpp-python)$", 8, "Local/self-hosted model runtime"),
+    ("llm_behavior", "persona", "text", r"\b(persona|backstory|character sheet|agent profile|system prompt)\b", 10, "Persona/profile conditioning"),
+    ("llm_behavior", "generative_agents", "text", r"\b(generative agents?|memory stream|reflection module|believable agents?)\b", 12, "Generative-agents architecture"),
+    ("llm_behavior", "silicon_sample", "text", r"\b(silicon sampl|LLM (respondents?|participants?|subjects?)|simulated (survey|respondents?))\b", 12, "LLMs standing in for human respondents"),
+    ("llm_behavior", "prompt_assets", "path", r"(^|/)(prompts?|personas?|characters?)/", 8, "Prompt/persona asset directory"),
+    ("llm_behavior", "tool_use", "text", r"\b(tool[_ ]use|function calling|tool_choice|tools=\[)", 6, "Tool-using agents"),
+    ("llm_behavior", "memory", "text", r"\b(vector ?store|embedding|retrieval|episodic memory)\b", 5, "Memory/retrieval layer"),
 
     # reinforcement learning
     ("rl", "gym", "dep", r"^(gym|gymnasium)$", 10, "Gym/Gymnasium environments"),
@@ -84,7 +84,7 @@ SIGNALS = [
     ("eval", "docs", "path", r"(^|/)(docs?|paper|report)/", 5, "Documentation or write-up"),
 ]
 
-# Demographic / stratification attributes the analyser looks for, so a reader
+# Demographic / stratification attributes the analyzer looks for, so a reader
 # can see which population dimensions a repo actually models.
 DEMOGRAPHIC_TERMS = [
     "age", "age_group", "cohort", "gender", "sex", "race", "ethnicity",
@@ -98,7 +98,7 @@ DEMOGRAPHIC_TERMS = [
 MODEL_PATTERNS = [
     r"claude-[a-z0-9.\-]+",
     r"gpt-[0-9a-z.\-]+",
-    r"o[1-4]-(?:mini|preview)|\bo[1-4]\b",
+    r"\bo[1-4]-(?:mini|preview|pro)\b",
     r"gemini-[0-9a-z.\-]+",
     r"llama-?[0-9][0-9a-z.\-]*",
     r"mistral-[a-z0-9.\-]+",

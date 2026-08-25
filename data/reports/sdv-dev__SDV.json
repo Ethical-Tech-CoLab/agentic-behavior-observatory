@@ -6,7 +6,7 @@
   "language": "Python",
   "license": "NOASSERTION",
   "pushed_at": "2026-08-25T16:42:58Z",
-  "analysed_at": "2026-08-25T19:03:31+00:00",
+  "analyzed_at": "2026-08-25T19:17:27+00:00",
   "files_total": 289,
   "files_read": 120,
   "dependencies": [
@@ -133,7 +133,7 @@
   "scores": {
     "abm": 0,
     "synth": 33,
-    "llm_behaviour": 0,
+    "llm_behavior": 0,
     "rl": 11,
     "eval": 48
   },
@@ -164,7 +164,7 @@
         "evidence": "PremierLeague_v1      |        4 |   11308 |       250 | | census                |        1 |   32561 |        15 | | FNHK_v1"
       }
     ],
-    "llm_behaviour": [],
+    "llm_behavior": [],
     "rl": [
       {
         "signal": "reward",

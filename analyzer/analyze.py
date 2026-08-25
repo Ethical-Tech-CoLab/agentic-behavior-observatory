@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Analyse a GitHub repository for agentic-behaviour research signals.
+"""Analyze a GitHub repository for agentic-behavior research signals.
 
     python analyzer/analyze.py https://github.com/owner/repo
 
@@ -163,7 +163,7 @@ def extract_models(blobs):
 
 # --- report -------------------------------------------------------------
 
-def analyse(url, tok):
+def analyze(url, tok):
     owner, name = parse_url(url)
     meta = api(f"/repos/{owner}/{name}", tok)
     branch = meta.get("default_branch", "main")
@@ -177,7 +177,7 @@ def analyse(url, tok):
     sizes = {e["path"]: e.get("size", 0) for e in tree.get("tree", [])}
 
     # Manifests first, then prose, then source. Within the source tier, prefer
-    # paths whose names suggest the modelling core, then larger files over
+    # paths whose names suggest the modeling core, then larger files over
     # near-empty ones — the opposite of alphabetical, which reads __init__.py.
     core = re.compile(r"(agent|persona|character|model|simul|popul|synth|"
                       r"generat|behavio|env|reward|policy|prompt|survey)", re.I)
@@ -204,11 +204,11 @@ def analyse(url, tok):
     scores, hits = score(paths, blobs, deps)
     # The headline axis is the strongest *subject* axis; RL and evaluation
     # describe how the work is done, not what it is about.
-    primary = max(("abm", "synth", "llm_behaviour"), key=lambda a: scores[a])
+    primary = max(("abm", "synth", "llm_behavior"), key=lambda a: scores[a])
     # Relevance leans on the strongest of the three core axes — a repo may be
     # purely an ABM or purely a synthesiser and still be squarely in scope —
     # while still rewarding work that spans them.
-    core_scores = [scores[a] for a in ("abm", "synth", "llm_behaviour")]
+    core_scores = [scores[a] for a in ("abm", "synth", "llm_behavior")]
     overall = round(0.6 * max(core_scores) + 0.4 * (sum(core_scores) / 3))
 
     return {
@@ -219,7 +219,7 @@ def analyse(url, tok):
         "language": meta.get("language"),
         "license": (meta.get("license") or {}).get("spdx_id"),
         "pushed_at": meta.get("pushed_at"),
-        "analysed_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "analyzed_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "files_total": len(paths),
         "files_read": len(blobs),
         "dependencies": sorted(deps)[:200],
@@ -238,11 +238,11 @@ def to_markdown(r):
     if r["description"]:
         out += [f"> {r['description']}", ""]
     out += [f"[{r['url']}]({r['url']}) · ★{r['stars']} · {r['language'] or 'n/a'}"
-            f" · analysed {r['analysed_at'][:10]}", "",
+            f" · analyzed {r['analyzed_at'][:10]}", "",
             "## Axis scores", ""]
     for axis, label in AXES.items():
         out.append(f"- **{label}** `{bar(r['scores'][axis])}` {r['scores'][axis]}/100")
-    out += ["", f"Agentic-behaviour relevance: **{r['relevance']}/100** "
+    out += ["", f"Agentic-behavior relevance: **{r['relevance']}/100** "
             f"(primary axis: {AXES[r['primary_axis']]})", "", "## Evidence", ""]
     for axis, label in AXES.items():
         hs = r["signals"][axis]
@@ -253,7 +253,7 @@ def to_markdown(r):
             out.append(f"- **{h['label']}** — `{h['where']}`")
         out.append("")
     if r["dimensions"]:
-        out += ["## Population dimensions modelled", "",
+        out += ["## Population dimensions modeled", "",
                 ", ".join(f"`{k}`" for k in list(r["dimensions"])[:20]), ""]
     if r["models"]:
         out += ["## Models referenced", ""]
@@ -281,7 +281,7 @@ def main():
     for url in args.urls:
         print(f"→ {url}")
         try:
-            report = analyse(url, tok)
+            report = analyze(url, tok)
         except urllib.error.HTTPError as e:
             print(f"  ! GitHub returned {e.code} — skipped", file=sys.stderr)
             continue
