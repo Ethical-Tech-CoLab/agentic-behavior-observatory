@@ -6,13 +6,13 @@
 
 ## Axis scores
 
-- **Agent-based simulation** `██········` 23/100
+- **Agent-based simulation** `███·······` 34/100
 - **Synthetic data generation** `█·········` 7/100
 - **LLM-based behavioral modeling** `██········` 20/100
 - **Reinforcement learning / policy search** `█████████·` 87/100
 - **Evaluation & validation rigor** `████······` 45/100
 
-Agentic-behavior relevance: **20/100** (primary axis: Agent-based simulation)
+Agentic-behavior relevance: **29/100** (primary axis: Agent-based simulation)
 
 ## Evidence
 
@@ -21,6 +21,9 @@ Agentic-behavior relevance: **20/100** (primary axis: Agent-based simulation)
 - **PettingZoo multi-agent environments** — `dependencies`
 - **Agent class defined in source** — `pettingzoo/sisl/pursuit/utils/discrete_agent.py:11`
 - **Simulation step/tick loop** — `docs/tutorials/agilerl/DQN.md:406`
+- **A population of agents held and iterated** — `docs/content/environment_creation.md:89`
+- **Simulation constructor** — `docs/tutorials/agilerl/DQN.md:669`
+- **Discrete simulation time** — `docs/tutorials/agilerl/DQN.md:742`
 
 ### Synthetic data generation
 

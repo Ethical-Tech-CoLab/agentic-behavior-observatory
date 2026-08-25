@@ -4,7 +4,7 @@
   "synth": "Synthetic data generation",
   "llm_behavior": "LLM-based behavioral modeling",
   "rl": "Reinforcement learning / policy search",
-  "eval": "Evaluation & validation rigour"
+  "eval": "Evaluation & validation rigor"
  },
  "signals": [
   {
@@ -67,7 +67,7 @@
    "axis": "abm",
    "key": "agent_class",
    "kind": "text",
-   "pattern": "class\\s+\\w*Agent\\w*\\s*[\\(:]",
+   "pattern": "(class|struct)\\s+\\w*Agent\\w*\\s*[\\({:<]",
    "weight": 8,
    "label": "Agent class defined in source"
   },
@@ -75,9 +75,41 @@
    "axis": "abm",
    "key": "step_loop",
    "kind": "text",
-   "pattern": "def\\s+(step|tick|advance)\\s*\\(",
+   "pattern": "(def|function|fn)\\s+(step|tick|advance|update)\\s*\\(|(const|let|var)\\s+(step|tick|update)\\s*=\\s*(\\(|function|async)",
    "weight": 6,
    "label": "Simulation step/tick loop"
+  },
+  {
+   "axis": "abm",
+   "key": "agent_population",
+   "kind": "text",
+   "pattern": "\\b(agents|population|households|individuals|members|families|residents|persons|people|citizens|vehicles|actors|entities|pedestrians)\\s*(=\\s*\\[|\\.push\\(|\\.forEach\\(|\\.map\\(|\\.filter\\()",
+   "weight": 6,
+   "label": "A population of agents held and iterated"
+  },
+  {
+   "axis": "abm",
+   "key": "sim_builder",
+   "kind": "text",
+   "pattern": "\\b(build|init|create|run|make|setup)\\w*(Simulation|Sim|Model|World|Scenario|Population)\\s*\\(",
+   "weight": 8,
+   "label": "Simulation constructor"
+  },
+  {
+   "axis": "abm",
+   "key": "tick_time",
+   "kind": "text",
+   "pattern": "\\b(ticks?|timesteps?|time[_ ]steps?|epochs?)\\b",
+   "weight": 6,
+   "label": "Discrete simulation time"
+  },
+  {
+   "axis": "abm",
+   "key": "heterogeneous_agents",
+   "kind": "text",
+   "pattern": "\\b(elder|child|senior|adult|youth|female|male|pregnant|disabled|unaccompanied|elderly|infant)\\w*(Pct|Percent|Share|Ratio|Frac|Prop)",
+   "weight": 8,
+   "label": "Agents differentiated by demographic mix"
   },
   {
    "axis": "abm",
@@ -363,7 +395,7 @@
    "axis": "eval",
    "key": "seeds",
    "kind": "text",
-   "pattern": "\\b(random_state|set_seed|seed\\s*=\\s*\\d+|np\\.random\\.seed)\\b",
+   "pattern": "\\b(random_state|set_seed|np\\.random\\.seed|mulberry32|xorshift|seedrandom|\\bPRNG\\b)\\b|seed\\s*[=:]\\s*[\\w\\d]",
    "weight": 8,
    "label": "Seeded, reproducible runs"
   },
@@ -422,7 +454,16 @@
   "caste",
   "social class",
   "mother tongue",
-  "citizenship"
+  "citizenship",
+  "elderly",
+  "child",
+  "pregnant",
+  "family size",
+  "mobility",
+  "vulnerability",
+  "displacement",
+  "refugee",
+  "disabled"
  ],
  "model_patterns": [
   "claude-[a-z0-9.\\-]+",

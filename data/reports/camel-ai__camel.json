@@ -6,8 +6,9 @@
   "language": "Python",
   "license": "Apache-2.0",
   "pushed_at": "2026-08-21T11:36:45Z",
-  "analyzed_at": "2026-08-25T19:18:57+00:00",
+  "analyzed_at": "2026-08-25T20:26:14+00:00",
   "files_total": 2234,
+  "files_eligible": 1485,
   "files_read": 120,
   "dependencies": [
     "@types/jest",
@@ -212,7 +213,7 @@
     "rag"
   ],
   "scores": {
-    "abm": 18,
+    "abm": 19,
     "synth": 13,
     "llm_behavior": 62,
     "rl": 32,
@@ -235,6 +236,13 @@
         "weight": 6,
         "where": "docs/reference/camel.agents.chat_agent.md:1148",
         "evidence": "agents.chat_agent.ChatAgent.step\"></a>  ### step  ```python def step(     self,     input_message: Union[BaseMessage, str],     r"
+      },
+      {
+        "signal": "tick_time",
+        "label": "Discrete simulation time",
+        "weight": 6,
+        "where": "docs/key_modules/browsertoolkit.md:388",
+        "evidence": "es for click and type operations.  The rulers show: - Major tick marks every 100 pixels with numeric labels - Medium tick ma"
       },
       {
         "signal": "mas_terms",
@@ -368,7 +376,7 @@
         "label": "Seeded, reproducible runs",
         "weight": 8,
         "where": "docs/key_modules/datagen.md:314",
-        "evidence": "# Create configuration   config = ProcessorConfig(       seed=42,       min_length=50,       max_length=1000,       complexi"
+        "evidence": "# Create configuration   config = ProcessorConfig(       seed=42,       min_length=50,       max_length=1000,       complex"
       },
       {
         "signal": "docs",
@@ -380,12 +388,30 @@
     ]
   },
   "dimensions": {
+    "disabled": {
+      "count": 5,
+      "files": [
+        "docs/cookbooks/multi_agent_society/azure_openai_claude_society.md",
+        "docs/reference/camel.agents.chat_agent.md",
+        "docs/reference/camel.societies.workforce.single_agent_worker.md",
+        "docs/reference/camel.societies.workforce.workforce.md",
+        "docs/reference/camel.toolkits.video_analysis_toolkit.md"
+      ]
+    },
     "age": {
       "count": 3,
       "files": [
         "docs/key_modules/agents.md",
         "docs/key_modules/prompts.md",
         "docs/reference/camel.toolkits.search_toolkit.md"
+      ]
+    },
+    "child": {
+      "count": 3,
+      "files": [
+        "docs/key_modules/embeddings.md",
+        "docs/key_modules/tasks.md",
+        "docs/reference/camel.societies.workforce.workforce.md"
       ]
     },
     "education": {

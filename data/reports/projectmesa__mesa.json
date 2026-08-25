@@ -6,8 +6,9 @@
   "language": "Python",
   "license": "Apache-2.0",
   "pushed_at": "2026-08-25T08:50:29Z",
-  "analyzed_at": "2026-08-25T19:17:02+00:00",
+  "analyzed_at": "2026-08-25T20:24:45+00:00",
   "files_total": 237,
+  "files_eligible": 221,
   "files_read": 120,
   "dependencies": [
     "abm",
@@ -82,14 +83,14 @@
     "viz"
   ],
   "scores": {
-    "abm": 63,
+    "abm": 65,
     "synth": 0,
     "llm_behavior": 6,
     "rl": 18,
     "eval": 69
   },
   "primary_axis": "abm",
-  "relevance": 47,
+  "relevance": 48,
   "signals": {
     "abm": [
       {
@@ -126,6 +127,27 @@
         "weight": 6,
         "where": "docs/overview.md:28",
         "evidence": "super().__init__(model)         self.age = age      def step(self):         self.age += 1         print(f\"Agent {self.uni"
+      },
+      {
+        "signal": "agent_population",
+        "label": "A population of agents held and iterated",
+        "weight": 6,
+        "where": "tests/test_agentset.py:62",
+        "evidence": "set class.\"\"\"     # create agentset     model = Model()     agents = [AgentTest(model) for _ in range(10)]      agentset = AgentSe"
+      },
+      {
+        "signal": "sim_builder",
+        "label": "Simulation constructor",
+        "weight": 8,
+        "where": "mesa/model.py:296",
+        "evidence": "registered agent with agent_id {agent.unique_id}\")      def run_model(self) -> None:         \"\"\"Run the model until the end condit"
+      },
+      {
+        "signal": "tick_time",
+        "label": "Discrete simulation time",
+        "weight": 6,
+        "where": "mesa/examples/experimental/tram_model/Readme.md:7",
+        "evidence": "nuous states:** Most agent-based models advance in discrete ticks, and anything that changes smoothly -- a position, a temper"
       },
       {
         "signal": "scheduler",
@@ -201,8 +223,8 @@
         "signal": "seeds",
         "label": "Seeded, reproducible runs",
         "weight": 8,
-        "where": "docs/migration_guide.md:49",
-        "evidence": "y or through a `Scenario`.  ```python # Old model = MyModel(seed=42)  # New model = MyModel(rng=42) ```  - Ref: [PR #3318](http"
+        "where": "HISTORY.md:837",
+        "evidence": "ting random number generation determinism when using `Model(seed=something)`, ensuring both `model.random` and `model.rng` now"
       },
       {
         "signal": "sweeps",
@@ -261,6 +283,15 @@
         "mesa/datacollection.py"
       ]
     },
+    "disabled": {
+      "count": 4,
+      "files": [
+        ".github/styles/Mesa/README.md",
+        "HISTORY.md",
+        "mesa/visualization/solara_viz.py",
+        "tests/experimental/test_datarecorder.py"
+      ]
+    },
     "race": {
       "count": 3,
       "files": [
@@ -281,6 +312,13 @@
       "files": [
         "docs/tutorials/4_adding_space.ipynb",
         "mesa/discrete_space/cell_agent.py"
+      ]
+    },
+    "child": {
+      "count": 2,
+      "files": [
+        "tests/experimental/test_scenarios.py",
+        "tests/test_agentset.py"
       ]
     },
     "gender": {

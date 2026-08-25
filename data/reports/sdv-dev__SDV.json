@@ -6,8 +6,9 @@
   "language": "Python",
   "license": "NOASSERTION",
   "pushed_at": "2026-08-25T16:42:58Z",
-  "analyzed_at": "2026-08-25T19:17:27+00:00",
+  "analyzed_at": "2026-08-25T20:25:03+00:00",
   "files_total": 289,
+  "files_eligible": 253,
   "files_read": 120,
   "dependencies": [
     "addopts",
@@ -131,16 +132,24 @@
     "wheel"
   ],
   "scores": {
-    "abm": 0,
+    "abm": 5,
     "synth": 33,
     "llm_behavior": 0,
     "rl": 11,
     "eval": 48
   },
   "primary_axis": "synth",
-  "relevance": 24,
+  "relevance": 25,
   "signals": {
-    "abm": [],
+    "abm": [
+      {
+        "signal": "tick_time",
+        "label": "Discrete simulation time",
+        "weight": 6,
+        "where": "tests/unit/sequential/test_par.py:76",
+        "evidence": "olumns=['gender'],             segment_size=10,             epochs=10,             sample_size=5,             cuda=False,"
+      }
+    ],
     "synth": [
       {
         "signal": "sdv",
@@ -193,8 +202,8 @@
         "signal": "seeds",
         "label": "Seeded, reproducible runs",
         "weight": 8,
-        "where": "sdv/single_table/base.py:882",
-        "evidence": "able synthesizers.     \"\"\"      def _set_random_state(self, random_state):         \"\"\"Set the random state of the model's random num"
+        "where": "tests/unit/single_table/test_base.py:1653",
+        "evidence": "to assign it to it.         \"\"\"         # Setup         rng_seed = Mock()         metadata = Metadata()         metadata.add_tab"
       },
       {
         "signal": "docs",
@@ -206,6 +215,16 @@
     ]
   },
   "dimensions": {
+    "child": {
+      "count": 31,
+      "files": [
+        "HISTORY.md",
+        "sdv/_utils.py",
+        "sdv/evaluation/multi_table.py",
+        "sdv/metadata/multi_table.py",
+        "sdv/multi_table/dayz.py"
+      ]
+    },
     "age": {
       "count": 12,
       "files": [

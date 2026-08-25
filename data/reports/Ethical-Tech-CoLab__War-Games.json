@@ -1,0 +1,193 @@
+{
+  "repo": "Ethical-Tech-CoLab/War-Games",
+  "url": "https://github.com/Ethical-Tech-CoLab/War-Games",
+  "description": "A WarGames (1983)-inspired terminal thriller with a modern AI-agent framing, plus a Monte Carlo simulation harness and case study.",
+  "stars": 1,
+  "language": "JavaScript",
+  "license": null,
+  "pushed_at": "2026-08-21T21:10:43Z",
+  "analyzed_at": "2026-08-25T20:27:04+00:00",
+  "files_total": 73,
+  "files_eligible": 45,
+  "files_read": 45,
+  "dependencies": [],
+  "scores": {
+    "abm": 5,
+    "synth": 7,
+    "llm_behavior": 11,
+    "rl": 0,
+    "eval": 59
+  },
+  "primary_axis": "llm_behavior",
+  "relevance": 10,
+  "signals": {
+    "abm": [
+      {
+        "signal": "tick_time",
+        "label": "Discrete simulation time",
+        "weight": 6,
+        "where": "DESIGN-IDEA-NORAD-SCENE.md:156",
+        "evidence": "as it    approaches zero (color shifts amber \u2192 red, faster tick). 5. Respect `prefers-reduced-motion`: drop the churn to a"
+      }
+    ],
+    "synth": [
+      {
+        "signal": "scale",
+        "label": "Generation at population scale",
+        "weight": 6,
+        "where": "GAME-DESIGN.md:294",
+        "evidence": "he futility experiment themselves before the climax does it at scale. Reuses the tic-tac-toe engine wholesale. | Low | | **8** |"
+      }
+    ],
+    "llm_behavior": [
+      {
+        "signal": "persona",
+        "label": "Persona/profile conditioning",
+        "weight": 10,
+        "where": "Simulation-Output.md:216",
+        "evidence": "ame on owned hardware. - **\"Thinking\" models break the JSON persona contract.** `qwen3:14b`, `deepseek-r1:8b`, and   `Qwen3-27B"
+      }
+    ],
+    "rl": [],
+    "eval": [
+      {
+        "signal": "metrics",
+        "label": "Distributional fidelity metrics",
+        "weight": 10,
+        "where": "Simulation-Output.md:18",
+        "evidence": "he three endings   **35.2% / 34.0% / 30.8%** with full node coverage \u2014 no dead content, no dead ends. - **Real hosted models mak"
+      },
+      {
+        "signal": "validation",
+        "label": "Validation practice",
+        "weight": 10,
+        "where": "how-to-guide.md:197",
+        "evidence": "> tracks give statistical breadth; the **real** track gives ground truth on named models.  ### 7.4 Interpreting the output  `sim/ana"
+      },
+      {
+        "signal": "seeds",
+        "label": "Seeded, reproducible runs",
+        "weight": 8,
+        "where": "DESIGN-IDEA-NORAD-SCENE.md:429",
+        "evidence": "shared start time (unix ms), for deterministic timelines   seed: 48271,            // seeds the PRNG so lock order matches on"
+      },
+      {
+        "signal": "bias",
+        "label": "Fairness/representativeness checking",
+        "weight": 10,
+        "where": "GAME-DESIGN.md:327",
+        "evidence": "tic and legible, or it costs more than it gives. - **Puzzle fairness.** The locked room must be solvable from information the ga"
+      }
+    ]
+  },
+  "dimensions": {
+    "disabled": {
+      "count": 4,
+      "files": [
+        "CHESS-DESIGN.md",
+        "js/chess-ui.js",
+        "js/engine.js",
+        "js/tictactoe-ui.js"
+      ]
+    },
+    "age": {
+      "count": 3,
+      "files": [
+        "PAPER.md",
+        "js/engine.js",
+        "js/wiki.js"
+      ]
+    },
+    "race": {
+      "count": 3,
+      "files": [
+        "DESIGN-IDEA-NORAD-SCENE.md",
+        "DESIGN-IDEA.md",
+        "GAME-DESIGN.md"
+      ]
+    },
+    "party": {
+      "count": 3,
+      "files": [
+        "PAPER.md",
+        "SECURITY.md",
+        "Simulation-Output.md"
+      ]
+    },
+    "child": {
+      "count": 2,
+      "files": [
+        "js/tictactoe-ui.js",
+        "js/wiki.js"
+      ]
+    },
+    "vulnerability": {
+      "count": 2,
+      "files": [
+        "SECURITY.md",
+        "js/wiki.js"
+      ]
+    },
+    "refugee": {
+      "count": 2,
+      "files": [
+        "js/engine.js",
+        "js/llm.js"
+      ]
+    }
+  },
+  "models": [
+    {
+      "model": "gpt-4o-mini",
+      "mentions": 36
+    },
+    {
+      "model": "gpt-4o",
+      "mentions": 33
+    },
+    {
+      "model": "deepseek-r1",
+      "mentions": 30
+    },
+    {
+      "model": "qwen3",
+      "mentions": 29
+    },
+    {
+      "model": "qwen3.6-27b-gguf",
+      "mentions": 13
+    },
+    {
+      "model": "llama-3.3-70b",
+      "mentions": 12
+    },
+    {
+      "model": "qwen3-27b",
+      "mentions": 12
+    },
+    {
+      "model": "llama-3.3-70b-instruct",
+      "mentions": 9
+    },
+    {
+      "model": "mistral-nemo",
+      "mentions": 4
+    },
+    {
+      "model": "mistral-ai",
+      "mentions": 2
+    },
+    {
+      "model": "o3-mini",
+      "mentions": 2
+    },
+    {
+      "model": "gpt-4",
+      "mentions": 1
+    },
+    {
+      "model": "llama-3",
+      "mentions": 1
+    }
+  ]
+}

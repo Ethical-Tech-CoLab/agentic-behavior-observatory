@@ -6,8 +6,9 @@
   "language": "Jupyter Notebook",
   "license": "NOASSERTION",
   "pushed_at": "2026-08-01T03:00:47Z",
-  "analyzed_at": "2026-08-25T19:18:13+00:00",
+  "analyzed_at": "2026-08-25T20:25:42+00:00",
   "files_total": 399,
+  "files_eligible": 241,
   "files_read": 120,
   "dependencies": [
     "asyncio",
@@ -53,14 +54,14 @@
     "version_pattern"
   ],
   "scores": {
-    "abm": 18,
+    "abm": 30,
     "synth": 22,
     "llm_behavior": 28,
     "rl": 32,
     "eval": 84
   },
-  "primary_axis": "llm_behavior",
-  "relevance": 26,
+  "primary_axis": "abm",
+  "relevance": 29,
   "signals": {
     "abm": [
       {
@@ -74,8 +75,29 @@
         "signal": "step_loop",
         "label": "Simulation step/tick loop",
         "weight": 6,
-        "where": "agent_torch/core/runner.py:112",
-        "evidence": "self.state_trajectory.append([to_cpu(self.state)])      def step(self, num_steps=None):         r\"\"\"         Execute a single"
+        "where": "docs/tutorials/creating-a-model/index.md:783",
+        "evidence": "max_x - 1)     plotter.ylim(0, max_y - 1)     self.i = 0    def update(self, state):     graph = state['network']['agent_agent']['p"
+      },
+      {
+        "signal": "agent_population",
+        "label": "A population of agents held and iterated",
+        "weight": 6,
+        "where": "agent_torch/data/census/generate/base_pop.py:34",
+        "evidence": "reate_base_pop(df_age_gender, df_ethnicity, age, area):     population = []     # number_of_individuals = area_data[number_of_individu"
+      },
+      {
+        "signal": "sim_builder",
+        "label": "Simulation constructor",
+        "weight": 8,
+        "where": "docs/tutorials/simulation-and-calibration/index.md:34",
+        "evidence": "torch.populations import sample2  # Example population  def setup_simulation(model, population):     # Create a population loader     loa"
+      },
+      {
+        "signal": "tick_time",
+        "label": "Discrete simulation time",
+        "weight": 6,
+        "where": "docs/tutorials/calibrating-a-model/index.md:167",
+        "evidence": "calibrate_model(method='internal', num_epochs=10):     for epoch in range(num_epochs):         if method == 'internal':"
       },
       {
         "signal": "mas_terms",
@@ -120,8 +142,8 @@
         "signal": "memory",
         "label": "Memory/retrieval layer",
         "weight": 5,
-        "where": "docs/tutorials/using-simulation-analyzer/simulation-analysis-tutorial.ipynb:54",
-        "evidence": "pop_loader=nyc_population)\\n\",     \"\\n\",     \"# Set up the embedding function and vector store\\n\",     \"embedding_function = Sen"
+        "where": "agent_torch/core/analyzer/agent_helpers.py:19",
+        "evidence": "estion to a better version that is optimized \\n         for vectorstore retrieval. Look at the input and try to reason about the un"
       }
     ],
     "rl": [
@@ -201,7 +223,7 @@
   },
   "dimensions": {
     "age": {
-      "count": 35,
+      "count": 33,
       "files": [
         "CODE_OF_CONDUCT.md",
         "agent_torch/config/example_usage.py",
@@ -211,7 +233,7 @@
       ]
     },
     "region": {
-      "count": 27,
+      "count": 25,
       "files": [
         "agent_torch/core/analyzer/retriever.py",
         "agent_torch/core/analyzer/utils.py",
@@ -221,7 +243,7 @@
       ]
     },
     "gender": {
-      "count": 21,
+      "count": 20,
       "files": [
         "CODE_OF_CONDUCT.md",
         "agent_torch/core/analyzer/utils.py",
@@ -231,7 +253,7 @@
       ]
     },
     "ethnicity": {
-      "count": 14,
+      "count": 13,
       "files": [
         "CODE_OF_CONDUCT.md",
         "agent_torch/core/analyzer/utils.py",
@@ -241,7 +263,7 @@
       ]
     },
     "household": {
-      "count": 13,
+      "count": 12,
       "files": [
         "LICENSE.md",
         "agent_torch/data/census/census_loader.py",
@@ -261,12 +283,11 @@
       ]
     },
     "income": {
-      "count": 4,
+      "count": 3,
       "files": [
         "agent_torch/core/analyzer/agent_helpers.py",
         "agent_torch/core/dataloader.py",
-        "agent_torch/models/macro_economics/model_card.md",
-        "docs/tutorials/using-simulation-analyzer/simulation-analysis-tutorial.ipynb"
+        "agent_torch/models/macro_economics/model_card.md"
       ]
     },
     "urban": {
@@ -282,6 +303,27 @@
       "files": [
         "CODE_OF_CONDUCT.md",
         "agent_torch/populations/mock_test_18/mapping_pydantic.py"
+      ]
+    },
+    "child": {
+      "count": 2,
+      "files": [
+        "agent_torch/data/census/generate/household.py",
+        "agent_torch/models/covid/substeps/utils.py"
+      ]
+    },
+    "mobility": {
+      "count": 2,
+      "files": [
+        "agent_torch/data/census/census_loader.py",
+        "agent_torch/models/covid/model_card.md"
+      ]
+    },
+    "disabled": {
+      "count": 2,
+      "files": [
+        "agent_torch/models/predator_prey/vmap_simulation.py",
+        "docs/tutorials/vectorizing-predator-prey-model/run_vectorized_predator_prey.py"
       ]
     },
     "sex": {
@@ -337,6 +379,12 @@
       "files": [
         "CODE_OF_CONDUCT.md"
       ]
+    },
+    "elderly": {
+      "count": 1,
+      "files": [
+        "agent_torch/models/covid/substeps/utils.py"
+      ]
     }
   },
   "models": [
@@ -346,7 +394,7 @@
     },
     {
       "model": "gpt-4o-mini",
-      "mentions": 4
+      "mentions": 3
     }
   ]
 }

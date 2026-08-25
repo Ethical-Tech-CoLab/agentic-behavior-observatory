@@ -8,14 +8,17 @@
  * The taxonomy is loaded from data/signals.json, generated from
  * analyzer/signals.py, so the browser and the CLI score identically. */
 
-const TEXT_EXT = new Set(["py", "md", "txt", "ipynb", "r", "jl", "js", "ts", "yaml",
-  "yml", "toml", "cfg", "json", "nlogo", "java", "rst"]);
+const TEXT_EXT = new Set(["py", "md", "txt", "ipynb", "r", "jl", "js", "mjs", "ts",
+  "jsx", "tsx", "svelte", "vue", "html", "htm", "yaml", "yml", "toml", "cfg",
+  "json", "nlogo", "java", "go", "rb", "rst"]);
 const SKIP_DIR = /(^|\/)(node_modules|\.git|dist|build|vendor|\.venv|venv|site-packages|__pycache__|\.next)\//;
 const MANIFESTS = new Set(["requirements.txt", "pyproject.toml", "setup.py",
   "environment.yml", "package.json", "Pipfile", "setup.cfg", "renv.lock", "Project.toml"]);
 const CORE = /(agent|persona|character|model|simul|popul|synth|generat|behavio|env|reward|policy|prompt|survey)/i;
 const MAX_FILES = 120;
-const MAX_BYTES = 200000;
+const MAX_BYTES = 1000000;   // single-file HTML apps are routinely >200KB
+const MINIFIED_LINE = 5000;  // a line this long means generated, not authored, code
+const SKIP_FILE = /(\.min\.(js|css)$|(^|\/)assets\/index-[\w-]{6,}\.|(^|\/)(package-lock\.json|yarn\.lock|poetry\.lock)$)/;
 const CONCURRENCY = 8;
 
 let TAXONOMY = null;
@@ -112,15 +115,16 @@ export async function analyzeRepo(input, onProgress = () => {}) {
   const sizes = Object.fromEntries(blobsList.map((e) => [e.path, e.size || 0]));
 
   const readable = paths
-    .filter((p) => TEXT_EXT.has((p.split(".").pop() || "").toLowerCase()) && sizes[p] <= MAX_BYTES)
+    .filter((p) => TEXT_EXT.has((p.split(".").pop() || "").toLowerCase())
+      && sizes[p] <= MAX_BYTES && !SKIP_FILE.test(p))
     .map((p) => {
       const base = p.split("/").pop();
       const tier = MANIFESTS.has(base) ? 0 : /\.(md|rst)$/i.test(p) ? 1 : 2;
       return { p, key: [tier, CORE.test(p) ? 0 : 1, -sizes[p]] };
     })
     .sort((a, b) => a.key[0] - b.key[0] || a.key[1] - b.key[1] || a.key[2] - b.key[2])
-    .slice(0, MAX_FILES)
-    .map((x) => x.p);
+    .slice(0, MAX_FILES * 2)   // over-fetch: generated blobs are dropped below,
+    .map((x) => x.p);          // and must not consume the quota of kept files
 
   onProgress(`Reading ${readable.length} of ${paths.length} files…`);
   let done = 0;
@@ -139,7 +143,9 @@ export async function analyzeRepo(input, onProgress = () => {}) {
   const blobs = new Map();
   const deps = new Set();
   for (const { p, text } of fetched) {
+    if (blobs.size >= MAX_FILES) break;
     if (text == null) continue;
+    if (text.split("\n").reduce((m, ln) => Math.max(m, ln.length), 0) > MINIFIED_LINE) continue;
     blobs.set(p, text);
     const base = p.split("/").pop();
     if (MANIFESTS.has(base)) depsFrom(base, text).forEach((d) => deps.add(d));
@@ -213,6 +219,7 @@ export async function analyzeRepo(input, onProgress = () => {}) {
     pushed_at: meta.pushed_at,
     analyzed_at: new Date().toISOString().slice(0, 19) + "+00:00",
     files_total: paths.length,
+    files_eligible: readable.length,
     files_read: blobs.size,
     dependencies: [...deps].sort().slice(0, 200),
     scores,

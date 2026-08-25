@@ -6,20 +6,23 @@
   "stars": 60627,
   "language": "Python",
   "scores": {
-   "abm": 13,
+   "abm": 15,
    "synth": 0,
    "llm_behavior": 73,
    "rl": 11,
    "eval": 72
   },
   "primary_axis": "llm_behavior",
-  "relevance": 55,
-  "analyzed_at": "2026-08-25T19:19:19+00:00",
+  "relevance": 56,
+  "analyzed_at": "2026-08-25T20:26:31+00:00",
   "dimensions": [
    "migration",
    "party",
+   "disabled",
    "age",
-   "education"
+   "education",
+   "child",
+   "vulnerability"
   ],
   "models": [
    "gpt-4o",
@@ -34,13 +37,55 @@
   "file": "microsoft__autogen.json"
  },
  {
+  "repo": "Ethical-Tech-CoLab/agentic-behavior-observatory",
+  "url": "https://github.com/Ethical-Tech-CoLab/agentic-behavior-observatory",
+  "description": "Agentic Behavior Observatory - paste a GitHub repo URL and get a live, evidence-linked analysis of how it models agentic behavior: agent-based simulation, synthetic populations, LLM-based behavioral modeling, reinforcement learning and evaluation rigor, plus the demographic dimensions and model versions it rests on.",
+  "stars": 0,
+  "language": "Python",
+  "scores": {
+   "abm": 45,
+   "synth": 56,
+   "llm_behavior": 51,
+   "rl": 45,
+   "eval": 80
+  },
+  "primary_axis": "synth",
+  "relevance": 54,
+  "analyzed_at": "2026-08-25T20:28:17+00:00",
+  "dimensions": [
+   "age",
+   "party",
+   "region",
+   "education",
+   "migration",
+   "gender",
+   "income",
+   "occupation",
+   "disability",
+   "sex",
+   "race",
+   "religion"
+  ],
+  "models": [
+   "gpt-4o-mini",
+   "gpt-3.5-turbo",
+   "gpt-4o",
+   "o3-mini",
+   "gpt-4.1",
+   "qwen",
+   "llama3",
+   "gpt-4"
+  ],
+  "file": "Ethical-Tech-CoLab__agentic-behavior-observatory.json"
+ },
+ {
   "repo": "camel-ai/camel",
   "url": "https://github.com/camel-ai/camel",
   "description": "\ud83d\udc2b CAMEL: The first and the best multi-agent framework. Finding the Scaling Law of Agents. https://www.camel-ai.org",
   "stars": 17639,
   "language": "Python",
   "scores": {
-   "abm": 18,
+   "abm": 19,
    "synth": 13,
    "llm_behavior": 62,
    "rl": 32,
@@ -48,9 +93,11 @@
   },
   "primary_axis": "llm_behavior",
   "relevance": 50,
-  "analyzed_at": "2026-08-25T19:18:57+00:00",
+  "analyzed_at": "2026-08-25T20:26:14+00:00",
   "dimensions": [
+   "disabled",
    "age",
+   "child",
    "education",
    "occupation",
    "region",
@@ -75,28 +122,28 @@
   "stars": 3806,
   "language": "Python",
   "scores": {
-   "abm": 63,
+   "abm": 65,
    "synth": 0,
    "llm_behavior": 6,
    "rl": 18,
    "eval": 69
   },
   "primary_axis": "abm",
-  "relevance": 47,
-  "analyzed_at": "2026-08-25T19:17:02+00:00",
+  "relevance": 48,
+  "analyzed_at": "2026-08-25T20:24:45+00:00",
   "dimensions": [
    "wealth",
    "migration",
    "income",
    "age",
+   "disabled",
    "race",
    "ethnicity",
    "occupation",
+   "child",
    "gender",
    "sex",
-   "education",
-   "region",
-   "urban"
+   "education"
   ],
   "models": [],
   "file": "projectmesa__mesa.json"
@@ -116,14 +163,56 @@
   },
   "primary_axis": "llm_behavior",
   "relevance": 32,
-  "analyzed_at": "2026-08-25T19:17:51+00:00",
+  "analyzed_at": "2026-08-25T20:25:25+00:00",
   "dimensions": [
-   "party",
    "age",
+   "party",
    "income"
   ],
   "models": [],
   "file": "joonspk-research__generative_agents.json"
+ },
+ {
+  "repo": "Ethical-Tech-CoLab/race-condition-mod",
+  "url": "https://github.com/Ethical-Tech-CoLab/race-condition-mod",
+  "description": "Race Condition fork: DTSF twin backend, GitHub Pages frontend workflow, self-hosted system design",
+  "stars": 0,
+  "language": null,
+  "scores": {
+   "abm": 15,
+   "synth": 16,
+   "llm_behavior": 37,
+   "rl": 11,
+   "eval": 48
+  },
+  "primary_axis": "llm_behavior",
+  "relevance": 31,
+  "analyzed_at": "2026-08-25T20:27:19+00:00",
+  "dimensions": [
+   "race",
+   "child",
+   "disabled",
+   "education",
+   "region",
+   "household",
+   "cohort",
+   "elderly",
+   "age",
+   "gender",
+   "ethnicity",
+   "geography"
+  ],
+  "models": [
+   "gemini-3-flash-preview",
+   "gemini-3.1-flash-lite-preview",
+   "gemini-embedding-001",
+   "gemini-3.1-pro-preview",
+   "gemini-flash-lite-latest",
+   "gemini-backed",
+   "gemini-api",
+   "llama3.2"
+  ],
+  "file": "Ethical-Tech-CoLab__race-condition-mod.json"
  },
  {
   "repo": "AgentTorch/AgentTorch",
@@ -132,15 +221,15 @@
   "stars": 643,
   "language": "Jupyter Notebook",
   "scores": {
-   "abm": 18,
+   "abm": 30,
    "synth": 22,
    "llm_behavior": 28,
    "rl": 32,
    "eval": 84
   },
-  "primary_axis": "llm_behavior",
-  "relevance": 26,
-  "analyzed_at": "2026-08-25T19:18:13+00:00",
+  "primary_axis": "abm",
+  "relevance": 29,
+  "analyzed_at": "2026-08-25T20:25:42+00:00",
   "dimensions": [
    "age",
    "region",
@@ -151,9 +240,9 @@
    "income",
    "urban",
    "education",
-   "sex",
-   "race",
-   "rural"
+   "child",
+   "mobility",
+   "disabled"
   ],
   "models": [
    "gpt-3.5-turbo",
@@ -162,48 +251,21 @@
   "file": "AgentTorch__AgentTorch.json"
  },
  {
-  "repo": "sdv-dev/SDV",
-  "url": "https://github.com/sdv-dev/SDV",
-  "description": "Synthetic data generation for tabular data",
-  "stars": 3549,
-  "language": "Python",
-  "scores": {
-   "abm": 0,
-   "synth": 33,
-   "llm_behavior": 0,
-   "rl": 11,
-   "eval": 48
-  },
-  "primary_axis": "synth",
-  "relevance": 24,
-  "analyzed_at": "2026-08-25T19:17:27+00:00",
-  "dimensions": [
-   "age",
-   "gender",
-   "region",
-   "sex",
-   "occupation",
-   "party"
-  ],
-  "models": [],
-  "file": "sdv-dev__SDV.json"
- },
- {
   "repo": "Farama-Foundation/PettingZoo",
   "url": "https://github.com/Farama-Foundation/PettingZoo",
   "description": "A standard API for multi-agent reinforcement learning environments, with popular reference environments and related utilities",
   "stars": 3496,
   "language": "Python",
   "scores": {
-   "abm": 23,
+   "abm": 34,
    "synth": 7,
    "llm_behavior": 20,
    "rl": 87,
    "eval": 45
   },
   "primary_axis": "abm",
-  "relevance": 20,
-  "analyzed_at": "2026-08-25T19:18:36+00:00",
+  "relevance": 29,
+  "analyzed_at": "2026-08-25T20:25:58+00:00",
   "dimensions": [
    "party",
    "race",
@@ -216,5 +278,465 @@
   ],
   "models": [],
   "file": "Farama-Foundation__PettingZoo.json"
+ },
+ {
+  "repo": "Ethical-Tech-CoLab/ercf",
+  "url": "https://github.com/Ethical-Tech-CoLab/ercf",
+  "description": "ERCF \u2014 Evacuation Risk and Cost Framework: decision-support tool estimating the human and financial cost of civilian evacuation in armed conflict",
+  "stars": 0,
+  "language": "Python",
+  "scores": {
+   "abm": 20,
+   "synth": 27,
+   "llm_behavior": 18,
+   "rl": 13,
+   "eval": 52
+  },
+  "primary_axis": "synth",
+  "relevance": 25,
+  "analyzed_at": "2026-08-25T20:27:33+00:00",
+  "dimensions": [
+   "displacement",
+   "region",
+   "vulnerability",
+   "mobility",
+   "nationality",
+   "cohort",
+   "migration",
+   "elderly",
+   "refugee",
+   "disabled",
+   "urban",
+   "child"
+  ],
+  "models": [
+   "claude-haiku-4-5",
+   "claude-haiku-4-5-20251001"
+  ],
+  "file": "Ethical-Tech-CoLab__ercf.json"
+ },
+ {
+  "repo": "sdv-dev/SDV",
+  "url": "https://github.com/sdv-dev/SDV",
+  "description": "Synthetic data generation for tabular data",
+  "stars": 3549,
+  "language": "Python",
+  "scores": {
+   "abm": 5,
+   "synth": 33,
+   "llm_behavior": 0,
+   "rl": 11,
+   "eval": 48
+  },
+  "primary_axis": "synth",
+  "relevance": 25,
+  "analyzed_at": "2026-08-25T20:25:03+00:00",
+  "dimensions": [
+   "child",
+   "age",
+   "gender",
+   "region",
+   "sex",
+   "occupation",
+   "party"
+  ],
+  "models": [],
+  "file": "sdv-dev__SDV.json"
+ },
+ {
+  "repo": "Ethical-Tech-CoLab/AI-Models-Research",
+  "url": "https://github.com/Ethical-Tech-CoLab/AI-Models-Research",
+  "description": "Research knowledge base on AI models: architecture, training, evaluation, inference, hardware, and model profiles \u2014 an Ethical Tech CoLab project",
+  "stars": 0,
+  "language": "Python",
+  "scores": {
+   "abm": 5,
+   "synth": 16,
+   "llm_behavior": 24,
+   "rl": 24,
+   "eval": 62
+  },
+  "primary_axis": "llm_behavior",
+  "relevance": 20,
+  "analyzed_at": "2026-08-25T20:28:13+00:00",
+  "dimensions": [
+   "region",
+   "party",
+   "age",
+   "disabled",
+   "race",
+   "child",
+   "vulnerability"
+  ],
+  "models": [
+   "gpt-5.6",
+   "qwen",
+   "gpt-5.6-sol",
+   "gemini-3-1-pro",
+   "qwen.md",
+   "claude-fable-5",
+   "claude-opus-4-8",
+   "claude-sonnet-5"
+  ],
+  "file": "Ethical-Tech-CoLab__AI-Models-Research.json"
+ },
+ {
+  "repo": "Ethical-Tech-CoLab/Exodus",
+  "url": "https://github.com/Ethical-Tech-CoLab/Exodus",
+  "description": "Civilian Evacuation Risk Platform \u2014 one FastAPI app unifying the EII crisis map, ERCF scenario model, and CERAI risk assessment",
+  "stars": 0,
+  "language": "HTML",
+  "scores": {
+   "abm": 21,
+   "synth": 16,
+   "llm_behavior": 18,
+   "rl": 13,
+   "eval": 44
+  },
+  "primary_axis": "abm",
+  "relevance": 20,
+  "analyzed_at": "2026-08-25T20:27:52+00:00",
+  "dimensions": [
+   "mobility",
+   "vulnerability",
+   "political",
+   "child",
+   "household",
+   "region",
+   "rural",
+   "party",
+   "displacement",
+   "urban",
+   "migration",
+   "elderly"
+  ],
+  "models": [
+   "claude-assisted",
+   "claude-haiku-4-5-20251001",
+   "claude-haiku-4-5"
+  ],
+  "file": "Ethical-Tech-CoLab__Exodus.json"
+ },
+ {
+  "repo": "Ethical-Tech-CoLab/Evac-Sim-Melanie",
+  "url": "https://github.com/Ethical-Tech-CoLab/Evac-Sim-Melanie",
+  "description": "Evacuation Simulator \u2014 an agent-based model of how information spread and demographics shape community evacuation behavior",
+  "stars": 0,
+  "language": "JavaScript",
+  "scores": {
+   "abm": 21,
+   "synth": 0,
+   "llm_behavior": 0,
+   "rl": 0,
+   "eval": 36
+  },
+  "primary_axis": "abm",
+  "relevance": 15,
+  "analyzed_at": "2026-08-25T20:26:34+00:00",
+  "dimensions": [
+   "household",
+   "child",
+   "pregnant",
+   "mobility",
+   "vulnerability",
+   "displacement",
+   "age",
+   "party",
+   "family size",
+   "migration",
+   "elderly",
+   "disabled"
+  ],
+  "models": [],
+  "file": "Ethical-Tech-CoLab__Evac-Sim-Melanie.json"
+ },
+ {
+  "repo": "Ethical-Tech-CoLab/agentic-language-development",
+  "url": "https://github.com/Ethical-Tech-CoLab/agentic-language-development",
+  "description": "Researching grounded, auditable language emergence between isolated artificial agents",
+  "stars": 1,
+  "language": "HTML",
+  "scores": {
+   "abm": 5,
+   "synth": 0,
+   "llm_behavior": 17,
+   "rl": 24,
+   "eval": 28
+  },
+  "primary_axis": "llm_behavior",
+  "relevance": 13,
+  "analyzed_at": "2026-08-25T20:26:38+00:00",
+  "dimensions": [
+   "age",
+   "child",
+   "disabled",
+   "party"
+  ],
+  "models": [],
+  "file": "Ethical-Tech-CoLab__agentic-language-development.json"
+ },
+ {
+  "repo": "Ethical-Tech-CoLab/responsible-ai-evals",
+  "url": "https://github.com/Ethical-Tech-CoLab/responsible-ai-evals",
+  "description": "Shared ASSERT and B3IQ responsible AI evaluation tooling for Ethical Tech CoLab",
+  "stars": 0,
+  "language": "Python",
+  "scores": {
+   "abm": 4,
+   "synth": 0,
+   "llm_behavior": 17,
+   "rl": 0,
+   "eval": 44
+  },
+  "primary_axis": "llm_behavior",
+  "relevance": 13,
+  "analyzed_at": "2026-08-25T20:27:54+00:00",
+  "dimensions": [
+   "age"
+  ],
+  "models": [
+   "gpt-4o-mini"
+  ],
+  "file": "Ethical-Tech-CoLab__responsible-ai-evals.json"
+ },
+ {
+  "repo": "Ethical-Tech-CoLab/War-Games",
+  "url": "https://github.com/Ethical-Tech-CoLab/War-Games",
+  "description": "A WarGames (1983)-inspired terminal thriller with a modern AI-agent framing, plus a Monte Carlo simulation harness and case study.",
+  "stars": 1,
+  "language": "JavaScript",
+  "scores": {
+   "abm": 5,
+   "synth": 7,
+   "llm_behavior": 11,
+   "rl": 0,
+   "eval": 59
+  },
+  "primary_axis": "llm_behavior",
+  "relevance": 10,
+  "analyzed_at": "2026-08-25T20:27:04+00:00",
+  "dimensions": [
+   "disabled",
+   "age",
+   "race",
+   "party",
+   "child",
+   "vulnerability",
+   "refugee"
+  ],
+  "models": [
+   "gpt-4o-mini",
+   "gpt-4o",
+   "deepseek-r1",
+   "qwen3",
+   "qwen3.6-27b-gguf",
+   "llama-3.3-70b",
+   "qwen3-27b",
+   "llama-3.3-70b-instruct"
+  ],
+  "file": "Ethical-Tech-CoLab__War-Games.json"
+ },
+ {
+  "repo": "Ethical-Tech-CoLab/diplomatic-simulator",
+  "url": "https://github.com/Ethical-Tech-CoLab/diplomatic-simulator",
+  "description": "Diplomatic Simulator \u2014 interactive multi-party diplomatic negotiation simulation (Ethical Tech CoLab)",
+  "stars": 0,
+  "language": "HTML",
+  "scores": {
+   "abm": 9,
+   "synth": 9,
+   "llm_behavior": 11,
+   "rl": 0,
+   "eval": 47
+  },
+  "primary_axis": "llm_behavior",
+  "relevance": 10,
+  "analyzed_at": "2026-08-25T20:26:55+00:00",
+  "dimensions": [
+   "party",
+   "region",
+   "political",
+   "citizenship",
+   "refugee",
+   "child",
+   "disabled",
+   "occupation",
+   "geography",
+   "vulnerability",
+   "gender",
+   "ethnicity"
+  ],
+  "models": [
+   "claude-opus-4-8"
+  ],
+  "file": "Ethical-Tech-CoLab__diplomatic-simulator.json"
+ },
+ {
+  "repo": "Ethical-Tech-CoLab/CERAI_AR",
+  "url": "https://github.com/Ethical-Tech-CoLab/CERAI_AR",
+  "description": "Alana's CERAI Evacuation Model ",
+  "stars": 0,
+  "language": "HTML",
+  "scores": {
+   "abm": 12,
+   "synth": 0,
+   "llm_behavior": 0,
+   "rl": 0,
+   "eval": 31
+  },
+  "primary_axis": "abm",
+  "relevance": 9,
+  "analyzed_at": "2026-08-25T20:27:36+00:00",
+  "dimensions": [
+   "vulnerability",
+   "displacement",
+   "refugee",
+   "party",
+   "political",
+   "elderly",
+   "gender",
+   "occupation",
+   "child",
+   "mobility",
+   "ethnicity",
+   "household"
+  ],
+  "models": [
+   "claude-assisted"
+  ],
+  "file": "Ethical-Tech-CoLab__CERAI_AR.json"
+ },
+ {
+  "repo": "Ethical-Tech-CoLab/India-EvacSimulation",
+  "url": "https://github.com/Ethical-Tech-CoLab/India-EvacSimulation",
+  "description": "Evacuation Readiness & Uncertainty Simulator \u2014 models how field-intelligence uncertainty degrades civilian evacuation decisions in armed conflict",
+  "stars": 0,
+  "language": "HTML",
+  "scores": {
+   "abm": 11,
+   "synth": 0,
+   "llm_behavior": 7,
+   "rl": 0,
+   "eval": 56
+  },
+  "primary_axis": "abm",
+  "relevance": 9,
+  "analyzed_at": "2026-08-25T20:26:37+00:00",
+  "dimensions": [
+   "mobility",
+   "vulnerability",
+   "elderly",
+   "pregnant",
+   "refugee",
+   "child",
+   "household",
+   "region",
+   "political",
+   "party",
+   "disability",
+   "displacement"
+  ],
+  "models": [],
+  "file": "Ethical-Tech-CoLab__India-EvacSimulation.json"
+ },
+ {
+  "repo": "Ethical-Tech-CoLab/arts-provenance-agent",
+  "url": "https://github.com/Ethical-Tech-CoLab/arts-provenance-agent",
+  "description": "Digital Provenance Passport \u2014 an x402-native agent that traces artwork provenance, flags looting/repatriation risk, and issues a signed tamper-evident passport",
+  "stars": 0,
+  "language": "TypeScript",
+  "scores": {
+   "abm": 0,
+   "synth": 0,
+   "llm_behavior": 12,
+   "rl": 0,
+   "eval": 31
+  },
+  "primary_axis": "llm_behavior",
+  "relevance": 9,
+  "analyzed_at": "2026-08-25T20:28:00+00:00",
+  "dimensions": [
+   "region",
+   "party",
+   "child",
+   "age",
+   "household",
+   "elderly",
+   "vulnerability",
+   "disabled"
+  ],
+  "models": [
+   "claude-joseph"
+  ],
+  "file": "Ethical-Tech-CoLab__arts-provenance-agent.json"
+ },
+ {
+  "repo": "Ethical-Tech-CoLab/diplomacy-table-live",
+  "url": "https://github.com/Ethical-Tech-CoLab/diplomacy-table-live",
+  "description": "Diplomacy Table - configuration & teaching console for the DTSF multi-party AI negotiation simulator. Static, reference-only build.",
+  "stars": 0,
+  "language": "HTML",
+  "scores": {
+   "abm": 9,
+   "synth": 0,
+   "llm_behavior": 11,
+   "rl": 0,
+   "eval": 47
+  },
+  "primary_axis": "llm_behavior",
+  "relevance": 9,
+  "analyzed_at": "2026-08-25T20:26:58+00:00",
+  "dimensions": [
+   "party",
+   "disabled",
+   "race",
+   "education",
+   "political",
+   "child"
+  ],
+  "models": [
+   "gpt-4o-mini",
+   "gpt-5-mini-class",
+   "gpt-5-nano-class",
+   "gpt-5",
+   "llama3.2",
+   "gpt-5-mini",
+   "gpt-5-nano",
+   "llama-3.3-70b-versatile"
+  ],
+  "file": "Ethical-Tech-CoLab__diplomacy-table-live.json"
+ },
+ {
+  "repo": "Ethical-Tech-CoLab/mariupol-evacuation-model",
+  "url": "https://github.com/Ethical-Tech-CoLab/mariupol-evacuation-model",
+  "description": "Daily severity model for civilian evacuation during the siege of Mariupol (Mar\u2013May 2022) \u2014 open data, IHL-anchored, interactive briefing tool.",
+  "stars": 0,
+  "language": "HTML",
+  "scores": {
+   "abm": 11,
+   "synth": 9,
+   "llm_behavior": 0,
+   "rl": 0,
+   "eval": 52
+  },
+  "primary_axis": "abm",
+  "relevance": 9,
+  "analyzed_at": "2026-08-25T20:27:23+00:00",
+  "dimensions": [
+   "vulnerability",
+   "party",
+   "elderly",
+   "disabled",
+   "child",
+   "political",
+   "disability",
+   "geography",
+   "urban",
+   "literacy",
+   "displacement",
+   "refugee"
+  ],
+  "models": [],
+  "file": "Ethical-Tech-CoLab__mariupol-evacuation-model.json"
  }
 ]

@@ -33,12 +33,18 @@ ROOT = Path(__file__).resolve().parent.parent
 API = "https://api.github.com"
 
 # Files worth reading in full. Everything else is judged by its path alone.
-TEXT_EXT = {".py", ".md", ".txt", ".ipynb", ".r", ".jl", ".js", ".ts", ".yaml",
-            ".yml", ".toml", ".cfg", ".json", ".nlogo", ".java", ".rst"}
+TEXT_EXT = {".py", ".md", ".txt", ".ipynb", ".r", ".jl", ".js", ".mjs", ".ts",
+            ".jsx", ".tsx", ".svelte", ".vue", ".html", ".htm", ".yaml", ".yml",
+            ".toml", ".cfg", ".json", ".nlogo", ".java", ".go", ".rb", ".rst"}
 SKIP_DIR = re.compile(r"(^|/)(node_modules|\.git|dist|build|vendor|\.venv|venv|"
                       r"site-packages|__pycache__|\.next)/")
 MAX_FILES = 120          # files fetched for content
-MAX_BYTES = 200_000      # per file
+MAX_BYTES = 1_000_000    # per file — single-file HTML apps are routinely >200KB
+# Built bundles are machine-written and would fire signals their authors never
+# wrote, so skip them by name and, below, by the shape of their contents.
+SKIP_FILE = re.compile(r"(\.min\.(js|css)$|(^|/)assets/index-[\w-]{6,}\.|"
+                       r"(^|/)(package-lock\.json|yarn\.lock|poetry\.lock)$)")
+MINIFIED_LINE = 5000     # a line this long means generated, not authored, code
 MANIFESTS = ("requirements.txt", "pyproject.toml", "setup.py", "environment.yml",
              "package.json", "Pipfile", "setup.cfg", "renv.lock", "Project.toml")
 
@@ -57,6 +63,25 @@ def token():
     except (OSError, subprocess.SubprocessError):
         pass
     return None
+
+
+def raw(owner, name, branch, path, tok):
+    """Fetch a file body from raw.githubusercontent.com, which is not subject to
+    the API's hourly limit. Falls back to the contents API for private repos,
+    where the raw host needs a session cookie rather than a bearer token."""
+    quoted = "/".join(urllib.parse.quote(seg) for seg in path.split("/"))
+    req = urllib.request.Request(
+        f"https://raw.githubusercontent.com/{owner}/{name}/{branch}/{quoted}",
+        headers={"User-Agent": "etc-abo-analyzer"})
+    if tok:
+        req.add_header("Authorization", f"Bearer {tok}")
+    try:
+        with urllib.request.urlopen(req, timeout=45) as r:
+            return r.read().decode("utf-8", "replace")
+    except (urllib.error.HTTPError, urllib.error.URLError):
+        pass
+    obj = api(f"/repos/{owner}/{name}/contents/{quoted}?ref={branch}", tok)
+    return base64.b64decode(obj.get("content", "")).decode("utf-8", "replace")
 
 
 def api(path, tok):
@@ -187,16 +212,22 @@ def analyze(url, tok):
         return (tier, 0 if core.search(p) else 1, -sizes.get(p, 0))
 
     readable = [p for p in paths if os.path.splitext(p)[1].lower() in TEXT_EXT
-                and sizes.get(p, 0) <= MAX_BYTES]
+                and sizes.get(p, 0) <= MAX_BYTES and not SKIP_FILE.search(p)]
     readable.sort(key=rank)
 
+    # The quota counts files actually kept, not files attempted — otherwise a
+    # repository carrying large generated blobs spends its budget on files that
+    # are then discarded, and its real source is never read.
     blobs, deps = {}, set()
-    for p in readable[:MAX_FILES]:
+    for p in readable[:MAX_FILES * 3]:
+        if len(blobs) >= MAX_FILES:
+            break
         try:
-            obj = api(f"/repos/{owner}/{name}/contents/{urllib.parse.quote(p)}?ref={branch}", tok)
-            text = base64.b64decode(obj.get("content", "")).decode("utf-8", "replace")
+            text = raw(owner, name, branch, p, tok)
         except (urllib.error.HTTPError, urllib.error.URLError, ValueError):
             continue
+        if max((len(ln) for ln in text.split("\n")), default=0) > MINIFIED_LINE:
+            continue          # minified or bundled: not what anyone wrote
         blobs[p] = text
         if os.path.basename(p) in MANIFESTS:
             deps |= deps_from(os.path.basename(p), text)
@@ -221,6 +252,7 @@ def analyze(url, tok):
         "pushed_at": meta.get("pushed_at"),
         "analyzed_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "files_total": len(paths),
+        "files_eligible": len(readable),   # text files under the size cap
         "files_read": len(blobs),
         "dependencies": sorted(deps)[:200],
         "scores": scores,
@@ -290,7 +322,8 @@ def main():
         (outdir / f"{slug}.md").write_text(to_markdown(report))
         print(f"  relevance {report['relevance']}/100 · "
               f"primary {AXES[report['primary_axis']]} · "
-              f"{report['files_read']}/{report['files_total']} files read")
+              f"{report['files_read']} of {report['files_eligible']} readable "
+              f"({report['files_total']} in repo)")
 
     if not args.no_index:
         subprocess.run([sys.executable, str(Path(__file__).parent / "build_index.py")],

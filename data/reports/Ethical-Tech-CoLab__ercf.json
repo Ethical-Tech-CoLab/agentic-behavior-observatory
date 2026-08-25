@@ -1,0 +1,375 @@
+{
+  "repo": "Ethical-Tech-CoLab/ercf",
+  "url": "https://github.com/Ethical-Tech-CoLab/ercf",
+  "description": "ERCF \u2014 Evacuation Risk and Cost Framework: decision-support tool estimating the human and financial cost of civilian evacuation in armed conflict",
+  "stars": 0,
+  "language": "Python",
+  "license": null,
+  "pushed_at": "2026-07-23T18:45:10Z",
+  "analyzed_at": "2026-08-25T20:27:33+00:00",
+  "files_total": 82,
+  "files_eligible": 73,
+  "files_read": 72,
+  "dependencies": [
+    "anthropic",
+    "fastapi",
+    "pydantic",
+    "python-dotenv",
+    "requests",
+    "uvicorn"
+  ],
+  "scores": {
+    "abm": 20,
+    "synth": 27,
+    "llm_behavior": 18,
+    "rl": 13,
+    "eval": 52
+  },
+  "primary_axis": "synth",
+  "relevance": 25,
+  "signals": {
+    "abm": [
+      {
+        "signal": "step_loop",
+        "label": "Simulation step/tick loop",
+        "weight": 6,
+        "where": "rics/main.py:141",
+        "evidence": "found\")     return c   @app.put(\"/api/cohorts/{cid}\") async def update(cid: int, body: CohortIn):     updated = update_cohort(cid,"
+      },
+      {
+        "signal": "agent_population",
+        "label": "A population of agents held and iterated",
+        "weight": 6,
+        "where": "rics/static/app.js:253",
+        "evidence": "t('div');     col.className = 'col-md-4';      const rows = members.map(([pid, p]) => {       const badge = sourcingBadge(p.overall_"
+      },
+      {
+        "signal": "sim_builder",
+        "label": "Simulation constructor",
+        "weight": 8,
+        "where": "reference/india-evac/ARCHITECTURE.md:37",
+        "evidence": "at each own one DOM region and are called in sequence from `runSimulation()`. None of them mutate simulation state \u2014 they only read `s"
+      },
+      {
+        "signal": "tick_time",
+        "label": "Discrete simulation time",
+        "weight": 6,
+        "where": "reference/india-evac/ARCHITECTURE.md:31",
+        "evidence": "and the gatekeeper cap. Called on every uncertainty-slider tick and, with status overrides, inside every Monte Carlo trial."
+      }
+    ],
+    "synth": [
+      {
+        "signal": "census_source",
+        "label": "Real microdata used as a seed",
+        "weight": 8,
+        "where": "docs/snapshot/index.json:415",
+        "evidence": "ated\",     \"vulnerable_pct_source\": \"Syria HNAP Demographic Household Survey 2019: children and youth aged 14 and under make up 37% of t"
+      },
+      {
+        "signal": "privacy",
+        "label": "Privacy protection of synthetic output",
+        "weight": 10,
+        "where": "rics/DESIGN.md:182",
+        "evidence": "nt                INTEGER NOT NULL CHECK (count >= 20),  -- k-anonymity floor, see below     source                TEXT,     tag"
+      },
+      {
+        "signal": "scale",
+        "label": "Generation at population scale",
+        "weight": 6,
+        "where": "docs/snapshot/index.json:2128",
+        "evidence": "\"out_of_scope_reason\": \"Deliberate systematic massacre at scale (Japanese forces) + massed artillery (US forces). 20% civil"
+      }
+    ],
+    "llm_behavior": [
+      {
+        "signal": "anthropic",
+        "label": "Anthropic SDK",
+        "weight": 10,
+        "where": "dependencies",
+        "evidence": "anthropic"
+      },
+      {
+        "signal": "tool_use",
+        "label": "Tool-using agents",
+        "weight": 6,
+        "where": "reference/india-evac/index.html:499",
+        "evidence": "\">8</span> Data Sources &amp; References</h4>       <p>This tool uses <strong>no real-world datasets</strong> \u2014 every destinatio"
+      }
+    ],
+    "rl": [
+      {
+        "signal": "algorithms",
+        "label": "Named RL algorithm",
+        "weight": 10,
+        "where": "world_risk.py:93",
+        "evidence": "aints\",         \"crisis\": \"Military coup 2021 + civil war \u2014 SAC vs PDF/EAOs across all regions\",         \"conflict_type\": \""
+      }
+    ],
+    "eval": [
+      {
+        "signal": "metrics",
+        "label": "Distributional fidelity metrics",
+        "weight": 10,
+        "where": "ERCF-Paper.md:75",
+        "evidence": "ines of working Python, a browser interface, a reproducible calibration pipeline, a database of thirty-one documented historical co"
+      },
+      {
+        "signal": "validation",
+        "label": "Validation practice",
+        "weight": 10,
+        "where": "ERCF-Paper.md:705",
+        "evidence": "the remaining points in logarithmic space and predicts the held-out point from that line. It therefore measures how stable the"
+      },
+      {
+        "signal": "seeds",
+        "label": "Seeded, reproducible runs",
+        "weight": 8,
+        "where": "reference/india-evac/ARCHITECTURE.md:33",
+        "evidence": "en re-scores readiness. Seeded deterministically per pair (`seed = groupIndex \u00d7 1000 + destIndex + 1`) so results are reproducib"
+      },
+      {
+        "signal": "docs",
+        "label": "Documentation or write-up",
+        "weight": 5,
+        "where": "docs/after-the-corridor.pdf",
+        "evidence": "docs/after-the-corridor.pdf"
+      }
+    ]
+  },
+  "dimensions": {
+    "displacement": {
+      "count": 32,
+      "files": [
+        "BACKLOG.md",
+        "CONCEPT.md",
+        "ERCF-Paper.md",
+        "calculators.py",
+        "calibration/calibrate.py"
+      ]
+    },
+    "region": {
+      "count": 26,
+      "files": [
+        "calculators.py",
+        "docs/app.js",
+        "docs/index.html",
+        "docs/snapshot/cases/1.json",
+        "docs/snapshot/cases/10.json"
+      ]
+    },
+    "vulnerability": {
+      "count": 18,
+      "files": [
+        "CONCEPT.md",
+        "ERCF-Paper.md",
+        "SECURITY.md",
+        "calculators.py",
+        "demographic_data.py"
+      ]
+    },
+    "mobility": {
+      "count": 16,
+      "files": [
+        "ERCF-Paper.md",
+        "README.md",
+        "calculators.py",
+        "context_ai.py",
+        "demographic_data.py"
+      ]
+    },
+    "nationality": {
+      "count": 15,
+      "files": [
+        "docs/app.js",
+        "docs/index.html",
+        "docs/refugees-idp-syllabus.md",
+        "rics/DESIGN.md",
+        "rics/cohorts.py"
+      ]
+    },
+    "cohort": {
+      "count": 14,
+      "files": [
+        "rics/DESIGN.md",
+        "rics/PARAMETER_REGISTRY.md",
+        "rics/cohorts.py",
+        "rics/cost-dashboard/app.js",
+        "rics/cost-dashboard/index.html"
+      ]
+    },
+    "migration": {
+      "count": 12,
+      "files": [
+        "ARCHITECTURE.md",
+        "ERCF-Paper.md",
+        "database.py",
+        "docs/index.html",
+        "docs/refugees-idp-syllabus.md"
+      ]
+    },
+    "elderly": {
+      "count": 12,
+      "files": [
+        "CONCEPT.md",
+        "ERCF-Paper.md",
+        "README.md",
+        "demographic_data.py",
+        "docs/index.html"
+      ]
+    },
+    "refugee": {
+      "count": 12,
+      "files": [
+        "ERCF-Paper.md",
+        "docs/refugees-idp-syllabus.md",
+        "docs/snapshot/cases/15.json",
+        "docs/snapshot/index.json",
+        "historical_data.py"
+      ]
+    },
+    "disabled": {
+      "count": 12,
+      "files": [
+        "CONCEPT.md",
+        "ERCF-Paper.md",
+        "README.md",
+        "docs/app.js",
+        "docs/index.html"
+      ]
+    },
+    "urban": {
+      "count": 11,
+      "files": [
+        "BACKLOG.md",
+        "ERCF-Paper.md",
+        "README.md",
+        "calculators.py",
+        "docs/app.js"
+      ]
+    },
+    "child": {
+      "count": 11,
+      "files": [
+        "ERCF-Paper.md",
+        "demographic_data.py",
+        "docs/index.html",
+        "docs/snapshot/index.json",
+        "historical_data.py"
+      ]
+    },
+    "party": {
+      "count": 10,
+      "files": [
+        "ERCF-Paper.md",
+        "SECURITY.md",
+        "calculators.py",
+        "docs/app.js",
+        "docs/index.html"
+      ]
+    },
+    "disability": {
+      "count": 10,
+      "files": [
+        "BACKLOG.md",
+        "CONCEPT.md",
+        "ERCF-Paper.md",
+        "README.md",
+        "calculators.py"
+      ]
+    },
+    "political": {
+      "count": 8,
+      "files": [
+        "CONCEPT.md",
+        "calculators.py",
+        "docs/index.html",
+        "docs/snapshot/index.json",
+        "historical_data.py"
+      ]
+    },
+    "rural": {
+      "count": 6,
+      "files": [
+        "calculators.py",
+        "docs/index.html",
+        "docs/snapshot/index.json",
+        "historical_data.py",
+        "static/index.html"
+      ]
+    },
+    "age": {
+      "count": 3,
+      "files": [
+        "docs/snapshot/index.json",
+        "historical_data.py",
+        "walking_evac.py"
+      ]
+    },
+    "household": {
+      "count": 3,
+      "files": [
+        "docs/snapshot/index.json",
+        "historical_data.py",
+        "rics/cohorts.py"
+      ]
+    },
+    "pregnant": {
+      "count": 3,
+      "files": [
+        "docs/index.html",
+        "reference/india-evac/index.html",
+        "static/index.html"
+      ]
+    },
+    "income": {
+      "count": 2,
+      "files": [
+        "docs/app.js",
+        "static/app.js"
+      ]
+    },
+    "education": {
+      "count": 2,
+      "files": [
+        "rics/DESIGN.md",
+        "rics/pathways.py"
+      ]
+    },
+    "occupation": {
+      "count": 2,
+      "files": [
+        "docs/snapshot/index.json",
+        "historical_data.py"
+      ]
+    },
+    "gender": {
+      "count": 1,
+      "files": [
+        "docs/refugees-idp-syllabus.md"
+      ]
+    },
+    "race": {
+      "count": 1,
+      "files": [
+        "BACKLOG.md"
+      ]
+    },
+    "citizenship": {
+      "count": 1,
+      "files": [
+        "rics/pathways.py"
+      ]
+    }
+  },
+  "models": [
+    {
+      "model": "claude-haiku-4-5",
+      "mentions": 3
+    },
+    {
+      "model": "claude-haiku-4-5-20251001",
+      "mentions": 1
+    }
+  ]
+}

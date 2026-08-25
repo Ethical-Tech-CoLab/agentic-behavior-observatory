@@ -1,0 +1,227 @@
+{
+  "repo": "Ethical-Tech-CoLab/CERAI_AR",
+  "url": "https://github.com/Ethical-Tech-CoLab/CERAI_AR",
+  "description": "Alana's CERAI Evacuation Model ",
+  "stars": 0,
+  "language": "HTML",
+  "license": null,
+  "pushed_at": "2026-08-04T21:31:52Z",
+  "analyzed_at": "2026-08-25T20:27:36+00:00",
+  "files_total": 12,
+  "files_eligible": 8,
+  "files_read": 8,
+  "dependencies": [],
+  "scores": {
+    "abm": 12,
+    "synth": 0,
+    "llm_behavior": 0,
+    "rl": 0,
+    "eval": 31
+  },
+  "primary_axis": "abm",
+  "relevance": 9,
+  "signals": {
+    "abm": [
+      {
+        "signal": "sim_builder",
+        "label": "Simulation constructor",
+        "weight": 8,
+        "where": "index.html:539",
+        "evidence": "<button class=\"mc-run-btn\" id=\"mc-run-btn\" onclick=\"runMonteCarloSim()\">Run Simulation</button>           <div class=\"mc-loading\""
+      },
+      {
+        "signal": "heterogeneous_agents",
+        "label": "Agents differentiated by demographic mix",
+        "weight": 8,
+        "where": "index.html:958",
+        "evidence": "s.\">?</span>           <select class=\"src-cred\" data-field=\"childrenPct\"><option value=\"0.9\" selected>NGO Field Report</option><opt"
+      }
+    ],
+    "synth": [],
+    "llm_behavior": [],
+    "rl": [],
+    "eval": [
+      {
+        "signal": "metrics",
+        "label": "Distributional fidelity metrics",
+        "weight": 10,
+        "where": "index.html:1236",
+        "evidence": "function as a face-validity assessment, not as statistical calibration. Calibration in the statistical sense requires independent"
+      },
+      {
+        "signal": "validation",
+        "label": "Validation practice",
+        "weight": 10,
+        "where": "CERAI-Paper.md:257",
+        "evidence": "ptions: Sensitivity and \"What-If\" Analysis  6.1 Monte Carlo sensitivity analysis. Because many inputs are uncertain, CERAI can run a simulat"
+      }
+    ]
+  },
+  "dimensions": {
+    "vulnerability": {
+      "count": 7,
+      "files": [
+        "CERAI-Paper.md",
+        "CERAI.html",
+        "PEER-REVIEW.md",
+        "README.md",
+        "SECURITY.md"
+      ]
+    },
+    "displacement": {
+      "count": 7,
+      "files": [
+        "BACKLOG.md",
+        "CERAI-Paper.md",
+        "CERAI.html",
+        "PEER-REVIEW.md",
+        "README.md"
+      ]
+    },
+    "refugee": {
+      "count": 7,
+      "files": [
+        "BACKLOG.md",
+        "CERAI-Paper.md",
+        "CERAI.html",
+        "PEER-REVIEW.md",
+        "README.md"
+      ]
+    },
+    "party": {
+      "count": 6,
+      "files": [
+        "CERAI-Paper.md",
+        "CERAI.html",
+        "PEER-REVIEW.md",
+        "SECURITY.md",
+        "index.html"
+      ]
+    },
+    "political": {
+      "count": 5,
+      "files": [
+        "CERAI-Paper.md",
+        "CERAI.html",
+        "PEER-REVIEW.md",
+        "index.html",
+        "peer-review/cerai-Peer-Review.md"
+      ]
+    },
+    "elderly": {
+      "count": 4,
+      "files": [
+        "BACKLOG.md",
+        "CERAI-Paper.md",
+        "CERAI.html",
+        "index.html"
+      ]
+    },
+    "gender": {
+      "count": 3,
+      "files": [
+        "CERAI-Paper.md",
+        "CERAI.html",
+        "index.html"
+      ]
+    },
+    "occupation": {
+      "count": 3,
+      "files": [
+        "PEER-REVIEW.md",
+        "index.html",
+        "peer-review/cerai-Peer-Review.md"
+      ]
+    },
+    "child": {
+      "count": 3,
+      "files": [
+        "BACKLOG.md",
+        "CERAI.html",
+        "index.html"
+      ]
+    },
+    "mobility": {
+      "count": 3,
+      "files": [
+        "CERAI-Paper.md",
+        "CERAI.html",
+        "index.html"
+      ]
+    },
+    "ethnicity": {
+      "count": 2,
+      "files": [
+        "CERAI.html",
+        "index.html"
+      ]
+    },
+    "household": {
+      "count": 2,
+      "files": [
+        "CERAI.html",
+        "index.html"
+      ]
+    },
+    "region": {
+      "count": 2,
+      "files": [
+        "CERAI.html",
+        "index.html"
+      ]
+    },
+    "urban": {
+      "count": 2,
+      "files": [
+        "CERAI.html",
+        "index.html"
+      ]
+    },
+    "religion": {
+      "count": 2,
+      "files": [
+        "CERAI.html",
+        "index.html"
+      ]
+    },
+    "nationality": {
+      "count": 2,
+      "files": [
+        "CERAI.html",
+        "index.html"
+      ]
+    },
+    "pregnant": {
+      "count": 2,
+      "files": [
+        "CERAI.html",
+        "index.html"
+      ]
+    },
+    "disabled": {
+      "count": 2,
+      "files": [
+        "CERAI.html",
+        "index.html"
+      ]
+    },
+    "age": {
+      "count": 1,
+      "files": [
+        "CERAI-Paper.md"
+      ]
+    },
+    "migration": {
+      "count": 1,
+      "files": [
+        "CERAI-Paper.md"
+      ]
+    }
+  },
+  "models": [
+    {
+      "model": "claude-assisted",
+      "mentions": 2
+    }
+  ]
+}

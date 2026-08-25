@@ -33,8 +33,24 @@ SIGNALS = [
     ("abm", "repast", "text", r"\brepast\b", 10, "Repast ABM toolkit referenced"),
     ("abm", "gama", "text", r"\bGAMA platform\b", 8, "GAMA simulation platform"),
     ("abm", "simpy", "dep", r"^simpy$", 8, "SimPy discrete-event simulation"),
-    ("abm", "agent_class", "text", r"class\s+\w*Agent\w*\s*[\(:]", 8, "Agent class defined in source"),
-    ("abm", "step_loop", "text", r"def\s+(step|tick|advance)\s*\(", 6, "Simulation step/tick loop"),
+    ("abm", "agent_class", "text", r"(class|struct)\s+\w*Agent\w*\s*[\({:<]", 8, "Agent class defined in source"),
+    ("abm", "step_loop", "text", r"(def|function|fn)\s+(step|tick|advance|update)\s*\(|"
+                                 r"(const|let|var)\s+(step|tick|update)\s*=\s*(\(|function|async)", 6,
+     "Simulation step/tick loop"),
+    ("abm", "agent_population", "text", r"\b(agents|population|households|individuals|members|"
+                                        r"families|residents|persons|people|citizens|vehicles|"
+                                        r"actors|entities|pedestrians)\s*"
+                                        r"(=\s*\[|\.push\(|\.forEach\(|\.map\(|\.filter\()", 6,
+     "A population of agents held and iterated"),
+    ("abm", "sim_builder", "text", r"\b(build|init|create|run|make|setup)\w*"
+                                   r"(Simulation|Sim|Model|World|Scenario|Population)\s*\(", 8,
+     "Simulation constructor"),
+    ("abm", "tick_time", "text", r"\b(ticks?|timesteps?|time[_ ]steps?|epochs?)\b", 6,
+     "Discrete simulation time"),
+    ("abm", "heterogeneous_agents", "text", r"\b(elder|child|senior|adult|youth|female|male|"
+                                            r"pregnant|disabled|unaccompanied|elderly|infant)\w*"
+                                            r"(Pct|Percent|Share|Ratio|Frac|Prop)", 8,
+     "Agents differentiated by demographic mix"),
     ("abm", "scheduler", "text", r"\b(RandomActivation|SimultaneousActivation|StagedActivation)\b", 8, "ABM scheduler"),
     ("abm", "grid_space", "text", r"\b(MultiGrid|SingleGrid|ContinuousSpace|NetworkGrid)\b", 6, "Spatial environment"),
     ("abm", "mas_terms", "text", r"\b(multi-?agent system|emergent behaviou?r|agent interaction)\b", 5, "Multi-agent framing in prose"),
@@ -78,7 +94,9 @@ SIGNALS = [
     ("eval", "notebooks", "path", r"\.ipynb$", 5, "Analysis notebooks"),
     ("eval", "metrics", "text", r"\b(KS test|Kolmogorov|Wasserstein|Jensen-Shannon|TSTR|fidelity|calibration|coverage)\b", 10, "Distributional fidelity metrics"),
     ("eval", "validation", "text", r"\b(face validity|sensitivity analysis|ablation|held-?out|ground truth|baseline comparison)\b", 10, "Validation practice"),
-    ("eval", "seeds", "text", r"\b(random_state|set_seed|seed\s*=\s*\d+|np\.random\.seed)\b", 8, "Seeded, reproducible runs"),
+    ("eval", "seeds", "text", r"\b(random_state|set_seed|np\.random\.seed|"
+                              r"mulberry32|xorshift|seedrandom|\bPRNG\b)\b|"
+                              r"seed\s*[=:]\s*[\w\d]", 8, "Seeded, reproducible runs"),
     ("eval", "sweeps", "text", r"\b(wandb|mlflow|hydra|optuna|parameter sweep|grid search)\b", 8, "Experiment tracking / sweeps"),
     ("eval", "bias", "text", r"\b(bias audit|fairness|demographic parity|disparate impact|representativeness)\b", 10, "Fairness/representativeness checking"),
     ("eval", "docs", "path", r"(^|/)(docs?|paper|report)/", 5, "Documentation or write-up"),
@@ -92,6 +110,8 @@ DEMOGRAPHIC_TERMS = [
     "region", "geography", "urban", "rural", "religion", "literacy",
     "political", "party", "ideology", "marital", "disability", "migration",
     "nationality", "caste", "social class", "mother tongue", "citizenship",
+    "elderly", "child", "pregnant", "family size", "mobility", "vulnerability",
+    "displacement", "refugee", "disabled",
 ]
 
 # Model identifiers, so version drift between studies is visible.

@@ -1,0 +1,102 @@
+{
+  "repo": "Ethical-Tech-CoLab/responsible-ai-evals",
+  "url": "https://github.com/Ethical-Tech-CoLab/responsible-ai-evals",
+  "description": "Shared ASSERT and B3IQ responsible AI evaluation tooling for Ethical Tech CoLab",
+  "stars": 0,
+  "language": "Python",
+  "license": "MIT",
+  "pushed_at": "2026-08-14T17:55:29Z",
+  "analyzed_at": "2026-08-25T20:27:54+00:00",
+  "files_total": 19,
+  "files_eligible": 17,
+  "files_read": 17,
+  "dependencies": [
+    "authors",
+    "build-backend",
+    "colab-evals-inventory",
+    "dependencies",
+    "description",
+    "license",
+    "name",
+    "readme",
+    "requires",
+    "requires-python",
+    "version",
+    "where"
+  ],
+  "scores": {
+    "abm": 4,
+    "synth": 0,
+    "llm_behavior": 17,
+    "rl": 0,
+    "eval": 44
+  },
+  "primary_axis": "llm_behavior",
+  "relevance": 13,
+  "signals": {
+    "abm": [
+      {
+        "signal": "mas_terms",
+        "label": "Multi-agent framing in prose",
+        "weight": 5,
+        "where": "RESPONSIBLEAI-HOW-TO-GUIDE.md:80",
+        "evidence": "| ASSERT route | Guidance | |---|---|---| | Python agent or multi-agent system | `target.callable` + OTel trace | Preferred. The judge can"
+      }
+    ],
+    "synth": [],
+    "llm_behavior": [
+      {
+        "signal": "persona",
+        "label": "Persona/profile conditioning",
+        "weight": 10,
+        "where": "RESPONSIBLEAI-HOW-TO-GUIDE.md:84",
+        "evidence": "pter | Use the B3IQ adapter pattern in this repository. | | System prompt and tool schema, no orchestration | Prompt Agent target | G"
+      },
+      {
+        "signal": "memory",
+        "label": "Memory/retrieval layer",
+        "weight": 5,
+        "where": "RESPONSIBLEAI-HOW-TO-GUIDE.md:251",
+        "evidence": "ystem prompt, message construction, output parsing, and any retrieval context. Evaluating only the raw proxy model does not evalu"
+      }
+    ],
+    "rl": [],
+    "eval": [
+      {
+        "signal": "tests",
+        "label": "Test suite present",
+        "weight": 8,
+        "where": "tests/test_b3iq_proxy.py",
+        "evidence": "tests/test_b3iq_proxy.py"
+      },
+      {
+        "signal": "metrics",
+        "label": "Distributional fidelity metrics",
+        "weight": 10,
+        "where": "RESPONSIBLEAI-HOW-TO-GUIDE.md:22",
+        "evidence": "ed baseline, then onboard AI projects    by risk and target fidelity. 5. Do not label a non-AI repository \"ASSERT covered.\" ASSE"
+      },
+      {
+        "signal": "validation",
+        "label": "Validation practice",
+        "weight": 10,
+        "where": "RESPONSIBLEAI-HOW-TO-GUIDE.md:343",
+        "evidence": "le passing cases for human review; automated judges are not ground truth.  ## 9. Baselines, artifacts, and decision rules  - A first"
+      }
+    ]
+  },
+  "dimensions": {
+    "age": {
+      "count": 1,
+      "files": [
+        "RESPONSIBLEAI-HOW-TO-GUIDE.md"
+      ]
+    }
+  },
+  "models": [
+    {
+      "model": "gpt-4o-mini",
+      "mentions": 3
+    }
+  ]
+}

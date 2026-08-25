@@ -6,8 +6,9 @@
   "language": "Python",
   "license": "MIT",
   "pushed_at": "2026-08-13T18:03:26Z",
-  "analyzed_at": "2026-08-25T19:18:36+00:00",
+  "analyzed_at": "2026-08-25T20:25:58+00:00",
   "files_total": 620,
+  "files_eligible": 330,
   "files_read": 120,
   "dependencies": [
     "addopts",
@@ -96,14 +97,14 @@
     "unresolved-import"
   ],
   "scores": {
-    "abm": 23,
+    "abm": 34,
     "synth": 7,
     "llm_behavior": 20,
     "rl": 87,
     "eval": 45
   },
   "primary_axis": "abm",
-  "relevance": 20,
+  "relevance": 29,
   "signals": {
     "abm": [
       {
@@ -126,6 +127,27 @@
         "weight": 6,
         "where": "docs/tutorials/agilerl/DQN.md:406",
         "evidence": "env last method.\"\"\"          return self.env.last()        def step(self, action):          \"\"\"Wrapper around PettingZoo env ste"
+      },
+      {
+        "signal": "agent_population",
+        "label": "A population of agents held and iterated",
+        "weight": 6,
+        "where": "docs/content/environment_creation.md:89",
+        "evidence": "ents:  ```python from pettingzoo.utils import AgentSelector agents = [\"agent_1\", \"agent_2\", \"agent_3\"] selector = AgentSelector(ag"
+      },
+      {
+        "signal": "sim_builder",
+        "label": "Simulation constructor",
+        "weight": 8,
+        "where": "docs/tutorials/agilerl/DQN.md:669",
+        "evidence": "tion_spaces[0])    action_space = action_spaces[0]    pop = create_population(       INIT_HP[\"ALGO\"],       observation_space,       actio"
+      },
+      {
+        "signal": "tick_time",
+        "label": "Discrete simulation time",
+        "weight": 6,
+        "where": "docs/tutorials/agilerl/DQN.md:742",
+        "evidence": "# Train on randomly collected samples             for epoch in trange(LESSON[\"agent_warm_up\"]):                experien"
       }
     ],
     "synth": [
@@ -166,7 +188,7 @@
         "label": "Stable-Baselines3 agents",
         "weight": 12,
         "where": "dependencies",
-        "evidence": "sb3-contrib"
+        "evidence": "stable-baselines3"
       },
       {
         "signal": "rllib",
@@ -217,7 +239,7 @@
         "label": "Seeded, reproducible runs",
         "weight": 8,
         "where": "docs/environments/atari.md:60",
-        "evidence": ", \"atari/space_invaders-v2\", render_mode=\"human\") env.reset(seed=42)  for agent in env.agent_iter():     observation, reward, t"
+        "evidence": ", \"atari/space_invaders-v2\", render_mode=\"human\") env.reset(seed=42)  for agent in env.agent_iter():     observation, reward,"
       },
       {
         "signal": "sweeps",

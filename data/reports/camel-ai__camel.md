@@ -6,7 +6,7 @@
 
 ## Axis scores
 
-- **Agent-based simulation** `██········` 18/100
+- **Agent-based simulation** `██········` 19/100
 - **Synthetic data generation** `█·········` 13/100
 - **LLM-based behavioral modeling** `██████····` 62/100
 - **Reinforcement learning / policy search** `███·······` 32/100
@@ -20,6 +20,7 @@ Agentic-behavior relevance: **50/100** (primary axis: LLM-based behavioral model
 
 - **Agent class defined in source** — `docs/reference/camel.agents.chat_agent.md:115`
 - **Simulation step/tick loop** — `docs/reference/camel.agents.chat_agent.md:1148`
+- **Discrete simulation time** — `docs/key_modules/browsertoolkit.md:388`
 - **Multi-agent framing in prose** — `docs/cookbooks/multi_agent_society/workforce_judge_committee.md:367`
 
 ### Synthetic data generation
@@ -54,7 +55,7 @@ Agentic-behavior relevance: **50/100** (primary axis: LLM-based behavioral model
 
 ## Population dimensions modeled
 
-`age`, `education`, `occupation`, `region`, `party`
+`disabled`, `age`, `child`, `education`, `occupation`, `region`, `party`
 
 ## Models referenced
 

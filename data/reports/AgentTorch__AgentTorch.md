@@ -6,20 +6,23 @@
 
 ## Axis scores
 
-- **Agent-based simulation** `██········` 18/100
+- **Agent-based simulation** `███·······` 30/100
 - **Synthetic data generation** `██········` 22/100
 - **LLM-based behavioral modeling** `███·······` 28/100
 - **Reinforcement learning / policy search** `███·······` 32/100
 - **Evaluation & validation rigor** `████████··` 84/100
 
-Agentic-behavior relevance: **26/100** (primary axis: LLM-based behavioral modeling)
+Agentic-behavior relevance: **29/100** (primary axis: Agent-based simulation)
 
 ## Evidence
 
 ### Agent-based simulation
 
 - **Agent class defined in source** — `agent_torch/core/analyzer/agent_graph.py:47`
-- **Simulation step/tick loop** — `agent_torch/core/runner.py:112`
+- **Simulation step/tick loop** — `docs/tutorials/creating-a-model/index.md:783`
+- **A population of agents held and iterated** — `agent_torch/data/census/generate/base_pop.py:34`
+- **Simulation constructor** — `docs/tutorials/simulation-and-calibration/index.md:34`
+- **Discrete simulation time** — `docs/tutorials/calibrating-a-model/index.md:167`
 - **Multi-agent framing in prose** — `agent_torch/examples/models/boids/README.md:183`
 
 ### Synthetic data generation
@@ -31,7 +34,7 @@ Agentic-behavior relevance: **26/100** (primary axis: LLM-based behavioral model
 
 - **LLM agent orchestration framework** — `dependencies`
 - **Persona/profile conditioning** — `docs/tutorials/creating-archetypes/index.md:149`
-- **Memory/retrieval layer** — `docs/tutorials/using-simulation-analyzer/simulation-analysis-tutorial.ipynb:54`
+- **Memory/retrieval layer** — `agent_torch/core/analyzer/agent_helpers.py:19`
 
 ### Reinforcement learning / policy search
 
@@ -51,9 +54,9 @@ Agentic-behavior relevance: **26/100** (primary axis: LLM-based behavioral model
 
 ## Population dimensions modeled
 
-`age`, `region`, `gender`, `ethnicity`, `household`, `employment`, `income`, `urban`, `education`, `sex`, `race`, `rural`, `religion`, `political`, `party`, `disability`, `migration`, `nationality`
+`age`, `region`, `gender`, `ethnicity`, `household`, `employment`, `income`, `urban`, `education`, `child`, `mobility`, `disabled`, `sex`, `race`, `rural`, `religion`, `political`, `party`, `disability`, `migration`
 
 ## Models referenced
 
 - `gpt-3.5-turbo` (4 mentions)
-- `gpt-4o-mini` (4 mentions)
+- `gpt-4o-mini` (3 mentions)

@@ -25,4 +25,4 @@ Agentic-behavior relevance: **32/100** (primary axis: LLM-based behavioral model
 
 ## Population dimensions modeled
 
-`party`, `age`, `income`
+`age`, `party`, `income`

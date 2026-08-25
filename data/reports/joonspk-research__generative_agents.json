@@ -6,8 +6,9 @@
   "language": null,
   "license": "Apache-2.0",
   "pushed_at": "2024-08-05T21:38:56Z",
-  "analyzed_at": "2026-08-25T19:17:51+00:00",
+  "analyzed_at": "2026-08-25T20:25:25+00:00",
   "files_total": 44016,
+  "files_eligible": 42608,
   "files_read": 120,
   "dependencies": [
     "aiohttp",
@@ -125,16 +126,6 @@
     "eval": []
   },
   "dimensions": {
-    "party": {
-      "count": 10,
-      "files": [
-        "environment/frontend_server/storage/July1_the_ville_isabella_maria_klaus-step-3-10/personas/Isabella Rodriguez/bootstrap_memory/associative_memory/nodes.json",
-        "environment/frontend_server/storage/July1_the_ville_isabella_maria_klaus-step-3-10/personas/Isabella Rodriguez/bootstrap_memory/scratch.json",
-        "environment/frontend_server/storage/July1_the_ville_isabella_maria_klaus-step-3-10/personas/Klaus Mueller/bootstrap_memory/associative_memory/nodes.json",
-        "environment/frontend_server/storage/July1_the_ville_isabella_maria_klaus-step-3-10/personas/Klaus Mueller/bootstrap_memory/scratch.json",
-        "environment/frontend_server/storage/July1_the_ville_isabella_maria_klaus-step-3-11/personas/Isabella Rodriguez/bootstrap_memory/scratch.json"
-      ]
-    },
     "age": {
       "count": 9,
       "files": [
@@ -143,6 +134,16 @@
         "environment/frontend_server/storage/July1_the_ville_isabella_maria_klaus-step-3-10/personas/Maria Lopez/bootstrap_memory/scratch.json",
         "environment/frontend_server/storage/July1_the_ville_isabella_maria_klaus-step-3-11/personas/Isabella Rodriguez/bootstrap_memory/scratch.json",
         "environment/frontend_server/storage/July1_the_ville_isabella_maria_klaus-step-3-11/personas/Klaus Mueller/bootstrap_memory/scratch.json"
+      ]
+    },
+    "party": {
+      "count": 6,
+      "files": [
+        "environment/frontend_server/storage/July1_the_ville_isabella_maria_klaus-step-3-10/personas/Isabella Rodriguez/bootstrap_memory/scratch.json",
+        "environment/frontend_server/storage/July1_the_ville_isabella_maria_klaus-step-3-10/personas/Klaus Mueller/bootstrap_memory/scratch.json",
+        "environment/frontend_server/storage/July1_the_ville_isabella_maria_klaus-step-3-11/personas/Isabella Rodriguez/bootstrap_memory/scratch.json",
+        "environment/frontend_server/storage/July1_the_ville_isabella_maria_klaus-step-3-11/personas/Klaus Mueller/bootstrap_memory/scratch.json",
+        "environment/frontend_server/storage/July1_the_ville_isabella_maria_klaus-step-3-12/personas/Isabella Rodriguez/bootstrap_memory/scratch.json"
       ]
     },
     "income": {

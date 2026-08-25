@@ -1,0 +1,212 @@
+{
+  "repo": "Ethical-Tech-CoLab/mariupol-evacuation-model",
+  "url": "https://github.com/Ethical-Tech-CoLab/mariupol-evacuation-model",
+  "description": "Daily severity model for civilian evacuation during the siege of Mariupol (Mar\u2013May 2022) \u2014 open data, IHL-anchored, interactive briefing tool.",
+  "stars": 0,
+  "language": "HTML",
+  "license": null,
+  "pushed_at": "2026-07-26T04:10:58Z",
+  "analyzed_at": "2026-08-25T20:27:23+00:00",
+  "files_total": 19,
+  "files_eligible": 14,
+  "files_read": 13,
+  "dependencies": [],
+  "scores": {
+    "abm": 11,
+    "synth": 9,
+    "llm_behavior": 0,
+    "rl": 0,
+    "eval": 52
+  },
+  "primary_axis": "abm",
+  "relevance": 9,
+  "signals": {
+    "abm": [
+      {
+        "signal": "tick_time",
+        "label": "Discrete simulation time",
+        "weight": 6,
+        "where": "severity-standalone.html:480",
+        "evidence": "ext-anchor=\"end\">${v.toFixed(2)}</text>`).join('');   const ticks = (()=>{const o=[];for(let i=0;i<NDAYS;i++){const d=dayDate"
+      },
+      {
+        "signal": "heterogeneous_agents",
+        "label": "Agents differentiated by demographic mix",
+        "weight": 8,
+        "where": "teresa.html:421",
+        "evidence": "ax:99, // industrial + Soviet worker housing   occupancy:8, childPct:0.13, elderlyPct:0.18, disabledPct:0.04,   note:'Industrial"
+      }
+    ],
+    "synth": [
+      {
+        "signal": "census_source",
+        "label": "Real microdata used as a seed",
+        "weight": 8,
+        "where": "Mariupol-Severity-Model-Paper.md:475",
+        "evidence": "ople live in each small square of ground by taking official census totals for large areas and distributing them using satellit"
+      }
+    ],
+    "llm_behavior": [],
+    "rl": [],
+    "eval": [
+      {
+        "signal": "metrics",
+        "label": "Distributional fidelity metrics",
+        "weight": 10,
+        "where": "Mariupol-Severity-Model-Paper.md:482",
+        "evidence": "is candid that the 0.3 increments are placeholders pending calibration. They are chosen to mirror the categories of person given s"
+      },
+      {
+        "signal": "validation",
+        "label": "Validation practice",
+        "weight": 10,
+        "where": "Mariupol-Severity-Model-Paper.md:606",
+        "evidence": ", and asked the reader to hold both readings at once. **The sensitivity analysis in 11.13 settles the question, and it does not favour the s"
+      },
+      {
+        "signal": "seeds",
+        "label": "Seeded, reproducible runs",
+        "weight": 8,
+        "where": "teresa.html:298",
+        "evidence": ")return;  nlDotsBuilt=true;  // Seed a simple deterministic PRNG per point  lightRand=new Float32Array(lightsData.length);"
+      },
+      {
+        "signal": "docs",
+        "label": "Documentation or write-up",
+        "weight": 5,
+        "where": "docs/METHODOLOGY.md",
+        "evidence": "docs/METHODOLOGY.md"
+      }
+    ]
+  },
+  "dimensions": {
+    "vulnerability": {
+      "count": 10,
+      "files": [
+        "Mariupol-Severity-Model-Paper.md",
+        "PEER-REVIEW.md",
+        "README.md",
+        "SECURITY.md",
+        "docs/METHODOLOGY.md"
+      ]
+    },
+    "party": {
+      "count": 8,
+      "files": [
+        "Mariupol-Severity-Model-Paper.md",
+        "PEER-REVIEW.md",
+        "SECURITY.md",
+        "docs/METHODOLOGY.md",
+        "index.html"
+      ]
+    },
+    "elderly": {
+      "count": 6,
+      "files": [
+        "Mariupol-Severity-Model-Paper.md",
+        "docs/METHODOLOGY.md",
+        "index.html",
+        "severity-standalone.html",
+        "severity.html"
+      ]
+    },
+    "disabled": {
+      "count": 6,
+      "files": [
+        "Mariupol-Severity-Model-Paper.md",
+        "docs/METHODOLOGY.md",
+        "index.html",
+        "severity-standalone.html",
+        "severity.html"
+      ]
+    },
+    "child": {
+      "count": 5,
+      "files": [
+        "Mariupol-Severity-Model-Paper.md",
+        "docs/METHODOLOGY.md",
+        "severity-standalone.html",
+        "severity.html",
+        "teresa.html"
+      ]
+    },
+    "political": {
+      "count": 4,
+      "files": [
+        "Mariupol-Severity-Model-Paper.md",
+        "PEER-REVIEW.md",
+        "docs/METHODOLOGY.md",
+        "peer-review/mariupol-severity-model-Peer-Review.md"
+      ]
+    },
+    "disability": {
+      "count": 4,
+      "files": [
+        "Mariupol-Severity-Model-Paper.md",
+        "docs/METHODOLOGY.md",
+        "severity-standalone.html",
+        "severity.html"
+      ]
+    },
+    "geography": {
+      "count": 2,
+      "files": [
+        "severity-standalone.html",
+        "severity.html"
+      ]
+    },
+    "urban": {
+      "count": 2,
+      "files": [
+        "docs/METHODOLOGY.md",
+        "severity-standalone.html"
+      ]
+    },
+    "literacy": {
+      "count": 2,
+      "files": [
+        "PEER-REVIEW.md",
+        "peer-review/mariupol-severity-model-Peer-Review.md"
+      ]
+    },
+    "displacement": {
+      "count": 2,
+      "files": [
+        "README.md",
+        "docs/METHODOLOGY.md"
+      ]
+    },
+    "refugee": {
+      "count": 2,
+      "files": [
+        "PEER-REVIEW.md",
+        "peer-review/mariupol-severity-model-Peer-Review.md"
+      ]
+    },
+    "age": {
+      "count": 1,
+      "files": [
+        "docs/METHODOLOGY.md"
+      ]
+    },
+    "sex": {
+      "count": 1,
+      "files": [
+        "docs/METHODOLOGY.md"
+      ]
+    },
+    "occupation": {
+      "count": 1,
+      "files": [
+        "teresa.html"
+      ]
+    },
+    "religion": {
+      "count": 1,
+      "files": [
+        "Mariupol-Severity-Model-Paper.md"
+      ]
+    }
+  },
+  "models": []
+}

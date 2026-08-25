@@ -6,19 +6,20 @@
 
 ## Axis scores
 
-- **Agent-based simulation** `█·········` 13/100
+- **Agent-based simulation** `██········` 15/100
 - **Synthetic data generation** `··········` 0/100
 - **LLM-based behavioral modeling** `███████···` 73/100
 - **Reinforcement learning / policy search** `█·········` 11/100
 - **Evaluation & validation rigor** `███████···` 72/100
 
-Agentic-behavior relevance: **55/100** (primary axis: LLM-based behavioral modeling)
+Agentic-behavior relevance: **56/100** (primary axis: LLM-based behavioral modeling)
 
 ## Evidence
 
 ### Agent-based simulation
 
 - **Agent class defined in source** — `python/docs/src/user-guide/agentchat-user-guide/migration-guide.md:468`
+- **A population of agents held and iterated** — `python/pyproject.toml:48`
 - **Multi-agent framing in prose** — `python/packages/magentic-one-cli/pyproject.toml:16`
 
 ### LLM-based behavioral modeling
@@ -47,7 +48,7 @@ Agentic-behavior relevance: **55/100** (primary axis: LLM-based behavioral model
 
 ## Population dimensions modeled
 
-`migration`, `party`, `age`, `education`
+`migration`, `party`, `disabled`, `age`, `education`, `child`, `vulnerability`
 
 ## Models referenced
 

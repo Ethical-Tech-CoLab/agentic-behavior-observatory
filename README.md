@@ -71,6 +71,23 @@ fired, and the dashboard shows that evidence beside the score. A score is signal
 coverage, not a quality judgment — a small, sharp repository can and should
 score lower than a sprawling framework.
 
+## The CoLab's own corpus
+
+Fifteen Ethical Tech CoLab projects are analyzed alongside the reference
+frameworks, marked **ETC** on their cards and filterable with the *ETC work*
+chip. They are mostly evacuation and negotiation simulators — `Evac-Sim-Melanie`,
+`India-EvacSimulation`, `CERAI_AR`, `mariupol-evacuation-model`, `ercf`,
+`Exodus`, `diplomatic-simulator`, `War-Games` — plus the agent work
+(`agentic-language-development`, `arts-provenance-agent`, `race-condition-mod`)
+and the evaluation tooling (`responsible-ai-evals`). The observatory analyzes
+itself too, which is the honest test of whether the scoring means anything.
+
+Reading them exposed three real gaps in the taxonomy, all now fixed: HTML and
+JSX source was not being read at all, the size cap excluded single-file apps, and
+the agent-detection patterns assumed agents are called `agents` rather than
+`members`, `families`, or `residents`. Any repository analyzed before those fixes
+would have scored misleadingly low.
+
 ## Population lab
 
 Two things the dashboard surfaces across the whole analyzed corpus:
@@ -114,8 +131,11 @@ docs/analyzer.js          browser port of the analyzer, scoring identically
 ## Limits worth stating
 
 - Up to 120 files per repository are read, chosen by a heuristic favoring
-  manifests, prose, and modeling-core filenames. Large repositories are sampled,
-  not read whole; `files_read` / `files_total` in every report says by how much.
+  manifests, prose, and modeling-core filenames. Text source in any of ~25
+  extensions counts, including the single-file HTML apps much of the CoLab's work
+  ships as; generated bundles and lockfiles are skipped. Large repositories are
+  sampled, not read whole — every report carries `files_read`, `files_eligible`,
+  and `files_total`, so the sampling is never silent.
 - Regular expressions match vocabulary, not meaning. A repository that discusses
   differential privacy without implementing it fires that signal — which is why
   every signal links to its evidence.

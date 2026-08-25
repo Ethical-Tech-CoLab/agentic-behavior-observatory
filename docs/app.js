@@ -10,7 +10,8 @@ const AXES = {
 const LIVE_KEY = "abo-live-reports";
 
 const $ = (s) => document.querySelector(s);
-const state = { corpus: [], live: [], q: "", axis: null, sort: "relevance" };
+const state = { corpus: [], live: [], q: "", axis: null, etc: false, sort: "relevance" };
+const ETC = "Ethical-Tech-CoLab/";
 const fullReports = new Map();   // repo -> full report, for the detail sheet
 
 // --- theme --------------------------------------------------------------
@@ -109,7 +110,8 @@ const modelsOf = (r) => (r.models || []).map((m) => (typeof m === "string" ? m :
 
 function cardHTML(r, i) {
   return `<article class="card" data-i="${i}" tabindex="0">
-    <header><h3>${r.repo}${r.source === "browser" ? ' <span class="live">live</span>' : ""}</h3>
+    <header><h3>${r.repo.startsWith(ETC) ? `<span class="badge">ETC</span> ${r.repo.slice(ETC.length)}` : r.repo}${
+      r.source === "browser" ? ' <span class="live">live</span>' : ""}</h3>
       <span class="score" style="color:${AXES[r.primary_axis][1]}">${r.relevance}</span></header>
     <p>${r.description || "No description."}</p>
     <div class="axes">${Object.keys(AXES).map((a) =>
@@ -139,7 +141,8 @@ function render() {
   const q = state.q.toLowerCase();
   const rows = all.filter((r) => {
     const hay = [r.repo, r.description, ...dimsOf(r), ...modelsOf(r)].join(" ").toLowerCase();
-    return (!q || hay.includes(q)) && (!state.axis || r.primary_axis === state.axis);
+    return (!q || hay.includes(q)) && (!state.axis || r.primary_axis === state.axis)
+      && (!state.etc || r.repo.startsWith(ETC));
   });
   const s = state.sort;
   rows.sort((a, b) => (s === "repo" ? a.repo.localeCompare(b.repo)
@@ -158,6 +161,7 @@ function render() {
     ? [...all].sort((a, b) => a.relevance - b.relevance)[Math.floor(all.length / 2)].relevance : 0;
   $("#stats").innerHTML = [
     ["Repositories", all.length],
+    ["ETC projects", all.filter((r) => r.repo.startsWith(ETC)).length],
     ["Median relevance", median],
     ["Dimensions seen", new Set(all.flatMap(dimsOf)).size],
     ["Model versions", new Set(all.flatMap(modelsOf)).size],
@@ -201,7 +205,8 @@ async function openSheet(repo) {
     <p class="hint">${full.description || ""}</p>
     <p class="hint"><a href="${full.url}" target="_blank" rel="noopener">${full.url}</a> ·
       ★${full.stars} · ${full.language || "n/a"} · ${full.license || "no license"} ·
-      ${full.files_read}/${full.files_total} files read · analyzed ${String(full.analyzed_at).slice(0, 10)}</p>
+      ${full.files_read} of ${full.files_eligible ?? full.files_total} readable files
+      (${full.files_total} in repo) · analyzed ${String(full.analyzed_at).slice(0, 10)}</p>
     <div class="axes" style="margin:18px 0">${Object.keys(AXES).map((a) =>
       bar(AXES[a][0], full.scores[a], AXES[a][1])).join("")}</div>
     <p class="hint">Relevance <b>${full.relevance}/100</b> — 0.6 × strongest subject axis + 0.4 × their mean.</p>
@@ -246,6 +251,11 @@ $("#axisChips").onclick = (e) => {
   state.axis = state.axis === b.dataset.axis ? null : b.dataset.axis;
   [...$("#axisChips").children].forEach((c) =>
     c.setAttribute("aria-pressed", String(c.dataset.axis === state.axis)));
+  render();
+};
+$("#etcOnly").onclick = (e) => {
+  state.etc = !state.etc;
+  e.currentTarget.setAttribute("aria-pressed", String(state.etc));
   render();
 };
 $("#q").oninput = (e) => { state.q = e.target.value; render(); };

@@ -6,13 +6,13 @@
 
 ## Axis scores
 
-- **Agent-based simulation** `██████····` 63/100
+- **Agent-based simulation** `██████····` 65/100
 - **Synthetic data generation** `··········` 0/100
 - **LLM-based behavioral modeling** `█·········` 6/100
 - **Reinforcement learning / policy search** `██········` 18/100
 - **Evaluation & validation rigor** `███████···` 69/100
 
-Agentic-behavior relevance: **47/100** (primary axis: Agent-based simulation)
+Agentic-behavior relevance: **48/100** (primary axis: Agent-based simulation)
 
 ## Evidence
 
@@ -23,6 +23,9 @@ Agentic-behavior relevance: **47/100** (primary axis: Agent-based simulation)
 - **Repast ABM toolkit referenced** — `README.md:19`
 - **Agent class defined in source** — `docs/migration_guide.md:479`
 - **Simulation step/tick loop** — `docs/overview.md:28`
+- **A population of agents held and iterated** — `tests/test_agentset.py:62`
+- **Simulation constructor** — `mesa/model.py:296`
+- **Discrete simulation time** — `mesa/examples/experimental/tram_model/Readme.md:7`
 - **ABM scheduler** — `HISTORY.md:1099`
 - **Spatial environment** — `HISTORY.md:348`
 - **Multi-agent framing in prose** — `docs/tutorials/2_agent_activation.ipynb:138`
@@ -41,10 +44,10 @@ Agentic-behavior relevance: **47/100** (primary axis: Agent-based simulation)
 - **Test suite present** — `tests/__init__.py`
 - **Analysis notebooks** — `docs/tutorials/0_first_model.ipynb`
 - **Distributional fidelity metrics** — `pyproject.toml:98`
-- **Seeded, reproducible runs** — `docs/migration_guide.md:49`
+- **Seeded, reproducible runs** — `HISTORY.md:837`
 - **Experiment tracking / sweeps** — `docs/tutorials/5_collecting_data.ipynb:480`
 - **Documentation or write-up** — `docs/GSoC.md`
 
 ## Population dimensions modeled
 
-`wealth`, `migration`, `income`, `age`, `race`, `ethnicity`, `occupation`, `gender`, `sex`, `education`, `region`, `urban`, `religion`, `political`, `disability`, `nationality`, `caste`
+`wealth`, `migration`, `income`, `age`, `disabled`, `race`, `ethnicity`, `occupation`, `child`, `gender`, `sex`, `education`, `region`, `urban`, `religion`, `political`, `disability`, `nationality`, `caste`
