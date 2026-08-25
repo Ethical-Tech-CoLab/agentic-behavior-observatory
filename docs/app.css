@@ -10,13 +10,15 @@
   --abm:#0d9488; --synth:#4f46e5; --llm:#a21caf; --rl:#b45309; --eval:#0369a1;
 }
 *{box-sizing:border-box}
+/* Author display rules outrank the UA [hidden] rule, so state it once, loudly. */
+[hidden]{display:none !important}
 body{margin:0;background:var(--bg);color:var(--ink);
   font:15px/1.55 ui-sans-serif,-apple-system,"Segoe UI",Inter,system-ui,sans-serif;}
 code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em}
 a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 .wrap{max-width:1160px;margin:0 auto;padding:0 20px}
 .top{border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--panel),transparent);}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
+.top .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
 .brand{display:flex;gap:14px;align-items:center}
 .dot{width:34px;height:34px;border-radius:11px;flex:none;
   background:conic-gradient(from 210deg,var(--abm),var(--synth),var(--llm),var(--rl),var(--abm));

@@ -68,7 +68,7 @@ profile without setting the headline.
 
 Every point is traceable: each report records the file and line where each signal
 fired, and the dashboard shows that evidence beside the score. A score is signal
-coverage, not a quality judgement — a small, sharp repository can and should
+coverage, not a quality judgment — a small, sharp repository can and should
 score lower than a sprawling framework.
 
 ## Population lab

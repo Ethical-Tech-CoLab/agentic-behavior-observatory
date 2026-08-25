@@ -10,7 +10,7 @@
 - **Synthetic data generation** `███·······` 33/100
 - **LLM-based behavioral modeling** `··········` 0/100
 - **Reinforcement learning / policy search** `█·········` 11/100
-- **Evaluation & validation rigour** `█████·····` 48/100
+- **Evaluation & validation rigor** `█████·····` 48/100
 
 Agentic-behavior relevance: **24/100** (primary axis: Synthetic data generation)
 
@@ -26,7 +26,7 @@ Agentic-behavior relevance: **24/100** (primary axis: Synthetic data generation)
 
 - **Reward machinery** — `tests/unit/constraints/test_tabular.py:86`
 
-### Evaluation & validation rigour
+### Evaluation & validation rigor
 
 - **Test suite present** — `tests/__init__.py`
 - **Distributional fidelity metrics** — `pyproject.toml:113`

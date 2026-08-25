@@ -17,7 +17,7 @@ AXES = {
     "synth": "Synthetic data generation",
     "llm_behavior": "LLM-based behavioral modeling",
     "rl": "Reinforcement learning / policy search",
-    "eval": "Evaluation & validation rigour",
+    "eval": "Evaluation & validation rigor",
 }
 
 # --- signals ------------------------------------------------------------

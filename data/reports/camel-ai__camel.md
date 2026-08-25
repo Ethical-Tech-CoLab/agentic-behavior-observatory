@@ -10,7 +10,7 @@
 - **Synthetic data generation** `█·········` 13/100
 - **LLM-based behavioral modeling** `██████····` 62/100
 - **Reinforcement learning / policy search** `███·······` 32/100
-- **Evaluation & validation rigour** `███████···` 72/100
+- **Evaluation & validation rigor** `███████···` 72/100
 
 Agentic-behavior relevance: **50/100** (primary axis: LLM-based behavioral modeling)
 
@@ -43,7 +43,7 @@ Agentic-behavior relevance: **50/100** (primary axis: LLM-based behavioral model
 - **Preference-based alignment training** — `docs/cookbooks/multi_agent_society/azure_openai_claude_society.md:191`
 - **Environment reset/step API** — `docs/reference/camel.agents.chat_agent.md:319`
 
-### Evaluation & validation rigour
+### Evaluation & validation rigor
 
 - **Test suite present** — `apps/agents/test/test_agents.py`
 - **Analysis notebooks** — `docs/cookbooks/advanced_features/agent_generate_structured_output.ipynb`

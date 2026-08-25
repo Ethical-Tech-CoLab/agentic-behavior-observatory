@@ -10,7 +10,7 @@
 - **Synthetic data generation** `··········` 0/100
 - **LLM-based behavioral modeling** `████······` 43/100
 - **Reinforcement learning / policy search** `··········` 0/100
-- **Evaluation & validation rigour** `··········` 0/100
+- **Evaluation & validation rigor** `··········` 0/100
 
 Agentic-behavior relevance: **32/100** (primary axis: LLM-based behavioral modeling)
 

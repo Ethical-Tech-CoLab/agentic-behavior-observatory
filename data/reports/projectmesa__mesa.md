@@ -10,7 +10,7 @@
 - **Synthetic data generation** `··········` 0/100
 - **LLM-based behavioral modeling** `█·········` 6/100
 - **Reinforcement learning / policy search** `██········` 18/100
-- **Evaluation & validation rigour** `███████···` 69/100
+- **Evaluation & validation rigor** `███████···` 69/100
 
 Agentic-behavior relevance: **47/100** (primary axis: Agent-based simulation)
 
@@ -36,7 +36,7 @@ Agentic-behavior relevance: **47/100** (primary axis: Agent-based simulation)
 - **Reward machinery** — `tests/experimental/test_scenarios.py:426`
 - **Environment reset/step API** — `docs/overview.md:28`
 
-### Evaluation & validation rigour
+### Evaluation & validation rigor
 
 - **Test suite present** — `tests/__init__.py`
 - **Analysis notebooks** — `docs/tutorials/0_first_model.ipynb`

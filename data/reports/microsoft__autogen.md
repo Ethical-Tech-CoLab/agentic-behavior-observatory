@@ -10,7 +10,7 @@
 - **Synthetic data generation** `··········` 0/100
 - **LLM-based behavioral modeling** `███████···` 73/100
 - **Reinforcement learning / policy search** `█·········` 11/100
-- **Evaluation & validation rigour** `███████···` 72/100
+- **Evaluation & validation rigor** `███████···` 72/100
 
 Agentic-behavior relevance: **55/100** (primary axis: LLM-based behavioral modeling)
 
@@ -36,7 +36,7 @@ Agentic-behavior relevance: **55/100** (primary axis: LLM-based behavioral model
 
 - **Reward machinery** — `README.md:127`
 
-### Evaluation & validation rigour
+### Evaluation & validation rigor
 
 - **Test suite present** — `dotnet/test/.editorconfig`
 - **Analysis notebooks** — `python/docs/src/user-guide/agentchat-user-guide/custom-agents.ipynb`

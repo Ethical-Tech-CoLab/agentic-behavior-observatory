@@ -10,7 +10,7 @@
 - **Synthetic data generation** `█·········` 7/100
 - **LLM-based behavioral modeling** `██········` 20/100
 - **Reinforcement learning / policy search** `█████████·` 87/100
-- **Evaluation & validation rigour** `████······` 45/100
+- **Evaluation & validation rigor** `████······` 45/100
 
 Agentic-behavior relevance: **20/100** (primary axis: Agent-based simulation)
 
@@ -41,7 +41,7 @@ Agentic-behavior relevance: **20/100** (primary axis: Agent-based simulation)
 - **Reward machinery** — `docs/tutorials/agilerl/DQN.md:80`
 - **Environment reset/step API** — `docs/tutorials/agilerl/DQN.md:406`
 
-### Evaluation & validation rigour
+### Evaluation & validation rigor
 
 - **Test suite present** — `pettingzoo/test/__init__.py`
 - **Seeded, reproducible runs** — `docs/environments/atari.md:60`

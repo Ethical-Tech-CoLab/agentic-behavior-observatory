@@ -10,7 +10,7 @@
 - **Synthetic data generation** `██········` 22/100
 - **LLM-based behavioral modeling** `███·······` 28/100
 - **Reinforcement learning / policy search** `███·······` 32/100
-- **Evaluation & validation rigour** `████████··` 84/100
+- **Evaluation & validation rigor** `████████··` 84/100
 
 Agentic-behavior relevance: **26/100** (primary axis: LLM-based behavioral modeling)
 
@@ -39,7 +39,7 @@ Agentic-behavior relevance: **26/100** (primary axis: LLM-based behavioral model
 - **Reward machinery** — `docs/tutorials/optimizing-on-prompts/index.md:35`
 - **Environment reset/step API** — `agent_torch/core/runner.py:80`
 
-### Evaluation & validation rigour
+### Evaluation & validation rigor
 
 - **Test suite present** — `tests/fixtures/behavior.py`
 - **Analysis notebooks** — `agent_torch/models/macro_economics/scratch.ipynb`
