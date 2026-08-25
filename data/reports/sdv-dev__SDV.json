@@ -1,0 +1,256 @@
+{
+  "repo": "sdv-dev/SDV",
+  "url": "https://github.com/sdv-dev/SDV",
+  "description": "Synthetic data generation for tabular data",
+  "stars": 3549,
+  "language": "Python",
+  "license": "NOASSERTION",
+  "pushed_at": "2026-08-25T16:42:58Z",
+  "analysed_at": "2026-08-25T19:03:31+00:00",
+  "files_total": 289,
+  "files_read": 120,
+  "dependencies": [
+    "addopts",
+    "allow_dirty",
+    "authors",
+    "boto3",
+    "botocore",
+    "build",
+    "build-backend",
+    "bump-my-version",
+    "classifiers",
+    "cloudpickle",
+    "commit",
+    "commit_args",
+    "conf.py",
+    "contributing.rst",
+    "convention",
+    "copulas",
+    "coverage",
+    "ctgan",
+    "current_version",
+    "deepecho",
+    "dependencies",
+    "description",
+    "dev",
+    "docs",
+    "docstring-code-format",
+    "docstring-code-line-length",
+    "docutils",
+    "dynamic",
+    "excel",
+    "exclude",
+    "filename",
+    "first_value",
+    "gitpython",
+    "google-api-python-client",
+    "google-auth",
+    "google-auth-oauthlib",
+    "graphviz",
+    "history.md",
+    "i001",
+    "ignore",
+    "ignore_missing_version",
+    "include",
+    "include-package-data",
+    "indent-style",
+    "indent-width",
+    "invoke",
+    "jinja2",
+    "jupyter",
+    "keywords",
+    "known-first-party",
+    "license",
+    "license-files",
+    "line-length",
+    "lines-between-types",
+    "lxml_html_clean",
+    "make.bat",
+    "makefile",
+    "markupsafe",
+    "max-doc-length",
+    "max-line-length",
+    "message",
+    "name",
+    "namespaces",
+    "nbsphinx",
+    "npy201",
+    "numpy",
+    "optional_value",
+    "pandas",
+    "parse",
+    "pd",
+    "pd101",
+    "pip",
+    "platformdirs",
+    "pomegranate",
+    "preview",
+    "pyarrow",
+    "pydata-sphinx-theme",
+    "pytest",
+    "pytest-cov",
+    "pytest-rerunfailures",
+    "pytest-runner",
+    "pyyaml",
+    "quote-style",
+    "rdt",
+    "readme",
+    "readme.md",
+    "regex",
+    "release",
+    "replace",
+    "requests",
+    "requires",
+    "requires-python",
+    "ruff",
+    "sdmetrics",
+    "sdv",
+    "sdv_logger_config.yml",
+    "search",
+    "select",
+    "serialize",
+    "sign_tags",
+    "slack-sdk",
+    "sphinx",
+    "sphinx-reredirects",
+    "sphinx_toolbox",
+    "src",
+    "static_code_analysis.txt",
+    "t201",
+    "tag",
+    "tag_message",
+    "tag_name",
+    "tasks.py",
+    "test",
+    "tomli",
+    "tqdm",
+    "twine",
+    "values",
+    "version",
+    "watchdog",
+    "wheel"
+  ],
+  "scores": {
+    "abm": 0,
+    "synth": 33,
+    "llm_behaviour": 0,
+    "rl": 11,
+    "eval": 48
+  },
+  "primary_axis": "synth",
+  "relevance": 24,
+  "signals": {
+    "abm": [],
+    "synth": [
+      {
+        "signal": "sdv",
+        "label": "SDV synthetic data vault",
+        "weight": 12,
+        "where": "dependencies",
+        "evidence": "sdv"
+      },
+      {
+        "signal": "ctgan",
+        "label": "Tabular synthesis (CTGAN family)",
+        "weight": 10,
+        "where": "dependencies",
+        "evidence": "sdmetrics"
+      },
+      {
+        "signal": "census_source",
+        "label": "Real microdata used as a seed",
+        "weight": 8,
+        "where": "EVALUATION.md:128",
+        "evidence": "PremierLeague_v1      |        4 |   11308 |       250 | | census                |        1 |   32561 |        15 | | FNHK_v1"
+      }
+    ],
+    "llm_behaviour": [],
+    "rl": [
+      {
+        "signal": "reward",
+        "label": "Reward machinery",
+        "weight": 8,
+        "where": "tests/unit/constraints/test_tabular.py:86",
+        "evidence": "ss:             pass          create_custom_constraint_mock.return_value = MockClass          # Run         recreated_class = c"
+      }
+    ],
+    "eval": [
+      {
+        "signal": "tests",
+        "label": "Test suite present",
+        "weight": 8,
+        "where": "tests/__init__.py",
+        "evidence": "tests/__init__.py"
+      },
+      {
+        "signal": "metrics",
+        "label": "Distributional fidelity metrics",
+        "weight": 10,
+        "where": "pyproject.toml:113",
+        "evidence": "=1.10.0',     'wheel>=0.30.0',      # Advanced testing     'coverage>=4.5.12,<8',     'invoke' ] readme = ['rundoc>=0.4.3,<0.5',"
+      },
+      {
+        "signal": "seeds",
+        "label": "Seeded, reproducible runs",
+        "weight": 8,
+        "where": "sdv/single_table/base.py:882",
+        "evidence": "able synthesizers.     \"\"\"      def _set_random_state(self, random_state):         \"\"\"Set the random state of the model's random num"
+      },
+      {
+        "signal": "docs",
+        "label": "Documentation or write-up",
+        "weight": 5,
+        "where": "docs/Makefile",
+        "evidence": "docs/Makefile"
+      }
+    ]
+  },
+  "dimensions": {
+    "age": {
+      "count": 12,
+      "files": [
+        "tests/integration/metadata/test_metadata.py",
+        "tests/integration/metadata/test_single_table.py",
+        "tests/integration/multi_table/conftest.py",
+        "tests/integration/multi_table/test_hma.py",
+        "tests/integration/single_table/test_constraints.py"
+      ]
+    },
+    "gender": {
+      "count": 5,
+      "files": [
+        "tests/integration/data_processing/test_data_processor.py",
+        "tests/integration/evaluation/test_utils.py",
+        "tests/integration/metadata/test_metadata.py",
+        "tests/unit/evaluation/test_utils.py",
+        "tests/unit/sequential/test_par.py"
+      ]
+    },
+    "region": {
+      "count": 2,
+      "files": [
+        "tests/integration/metadata/test_multi_table.py",
+        "tests/integration/sequential/test_par.py"
+      ]
+    },
+    "sex": {
+      "count": 1,
+      "files": [
+        "tests/integration/metadata/test_single_table.py"
+      ]
+    },
+    "occupation": {
+      "count": 1,
+      "files": [
+        "tests/integration/data_processing/test_data_processor.py"
+      ]
+    },
+    "party": {
+      "count": 1,
+      "files": [
+        "pyproject.toml"
+      ]
+    }
+  },
+  "models": []
+}

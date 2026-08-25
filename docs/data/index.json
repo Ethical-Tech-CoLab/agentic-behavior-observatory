@@ -1,0 +1,222 @@
+[
+ {
+  "repo": "microsoft/autogen",
+  "url": "https://github.com/microsoft/autogen",
+  "description": "A programming framework for agentic AI",
+  "stars": 60627,
+  "language": "Python",
+  "scores": {
+   "abm": 13,
+   "synth": 0,
+   "llm_behaviour": 73,
+   "rl": 11,
+   "eval": 72
+  },
+  "primary_axis": "llm_behaviour",
+  "relevance": 55,
+  "analysed_at": "2026-08-25T19:05:44+00:00",
+  "dimensions": [
+   "migration",
+   "party",
+   "age",
+   "education"
+  ],
+  "models": [
+   "gpt-4o",
+   "gpt-4o-mini",
+   "gpt-4",
+   "gpt-3.5-turbo",
+   "gpt-4.1",
+   "o3-mini",
+   "deepseek-r1",
+   "gpt-3.5-turbo-0613"
+  ],
+  "file": "microsoft__autogen.json"
+ },
+ {
+  "repo": "camel-ai/camel",
+  "url": "https://github.com/camel-ai/camel",
+  "description": "\ud83d\udc2b CAMEL: The first and the best multi-agent framework. Finding the Scaling Law of Agents. https://www.camel-ai.org",
+  "stars": 17638,
+  "language": "Python",
+  "scores": {
+   "abm": 18,
+   "synth": 13,
+   "llm_behaviour": 62,
+   "rl": 32,
+   "eval": 72
+  },
+  "primary_axis": "llm_behaviour",
+  "relevance": 50,
+  "analysed_at": "2026-08-25T19:05:17+00:00",
+  "dimensions": [
+   "age",
+   "education",
+   "occupation",
+   "region",
+   "party"
+  ],
+  "models": [
+   "qwen",
+   "gpt-4o-mini",
+   "o4-mini",
+   "llama3",
+   "qwen2",
+   "o1",
+   "o3",
+   "gpt-4o"
+  ],
+  "file": "camel-ai__camel.json"
+ },
+ {
+  "repo": "projectmesa/mesa",
+  "url": "https://github.com/mesa/mesa",
+  "description": "Mesa is an open-source Python library for agent-based modeling, ideal for simulating complex systems and exploring emergent behaviors.",
+  "stars": 3806,
+  "language": "Python",
+  "scores": {
+   "abm": 63,
+   "synth": 0,
+   "llm_behaviour": 6,
+   "rl": 18,
+   "eval": 69
+  },
+  "primary_axis": "abm",
+  "relevance": 47,
+  "analysed_at": "2026-08-25T19:03:04+00:00",
+  "dimensions": [
+   "wealth",
+   "migration",
+   "income",
+   "age",
+   "race",
+   "ethnicity",
+   "occupation",
+   "gender",
+   "sex",
+   "education",
+   "region",
+   "urban"
+  ],
+  "models": [
+   "o1"
+  ],
+  "file": "projectmesa__mesa.json"
+ },
+ {
+  "repo": "joonspk-research/generative_agents",
+  "url": "https://github.com/joonspk-research/generative_agents",
+  "description": "Generative Agents: Interactive Simulacra of Human Behavior",
+  "stars": 21987,
+  "language": null,
+  "scores": {
+   "abm": 0,
+   "synth": 0,
+   "llm_behaviour": 43,
+   "rl": 0,
+   "eval": 0
+  },
+  "primary_axis": "llm_behaviour",
+  "relevance": 32,
+  "analysed_at": "2026-08-25T19:03:56+00:00",
+  "dimensions": [
+   "party",
+   "age",
+   "income"
+  ],
+  "models": [],
+  "file": "joonspk-research__generative_agents.json"
+ },
+ {
+  "repo": "AgentTorch/AgentTorch",
+  "url": "https://github.com/AgentTorch/AgentTorch",
+  "description": "large population models",
+  "stars": 643,
+  "language": "Jupyter Notebook",
+  "scores": {
+   "abm": 18,
+   "synth": 22,
+   "llm_behaviour": 28,
+   "rl": 32,
+   "eval": 84
+  },
+  "primary_axis": "llm_behaviour",
+  "relevance": 26,
+  "analysed_at": "2026-08-25T19:04:31+00:00",
+  "dimensions": [
+   "age",
+   "region",
+   "gender",
+   "ethnicity",
+   "household",
+   "employment",
+   "income",
+   "urban",
+   "education",
+   "sex",
+   "race",
+   "rural"
+  ],
+  "models": [
+   "gpt-3.5-turbo",
+   "gpt-4o-mini"
+  ],
+  "file": "AgentTorch__AgentTorch.json"
+ },
+ {
+  "repo": "sdv-dev/SDV",
+  "url": "https://github.com/sdv-dev/SDV",
+  "description": "Synthetic data generation for tabular data",
+  "stars": 3549,
+  "language": "Python",
+  "scores": {
+   "abm": 0,
+   "synth": 33,
+   "llm_behaviour": 0,
+   "rl": 11,
+   "eval": 48
+  },
+  "primary_axis": "synth",
+  "relevance": 24,
+  "analysed_at": "2026-08-25T19:03:31+00:00",
+  "dimensions": [
+   "age",
+   "gender",
+   "region",
+   "sex",
+   "occupation",
+   "party"
+  ],
+  "models": [],
+  "file": "sdv-dev__SDV.json"
+ },
+ {
+  "repo": "Farama-Foundation/PettingZoo",
+  "url": "https://github.com/Farama-Foundation/PettingZoo",
+  "description": "A standard API for multi-agent reinforcement learning environments, with popular reference environments and related utilities",
+  "stars": 3496,
+  "language": "Python",
+  "scores": {
+   "abm": 23,
+   "synth": 7,
+   "llm_behaviour": 20,
+   "rl": 87,
+   "eval": 45
+  },
+  "primary_axis": "abm",
+  "relevance": 20,
+  "analysed_at": "2026-08-25T19:04:54+00:00",
+  "dimensions": [
+   "party",
+   "race",
+   "migration",
+   "age",
+   "gender",
+   "region",
+   "religion",
+   "disability"
+  ],
+  "models": [],
+  "file": "Farama-Foundation__PettingZoo.json"
+ }
+]

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agentic Behaviour Observatory — Ethical Tech CoLab</title>
+<meta name="description" content="Automated analysis of GitHub repositories that build agent-based simulations, synthetic populations, and LLM-based behavioural models.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <span class="dot"></span>
+      <div>
+        <h1>Agentic Behaviour Observatory</h1>
+        <p>Ethical Tech CoLab · repository analysis for agent-based simulation, synthetic populations, and LLM behavioural modelling</p>
+      </div>
+    </div>
+    <button id="theme" class="ghost" type="button" aria-label="Toggle theme">◐</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="panel add">
+    <label for="url">Analyse a repository</label>
+    <div class="row">
+      <input id="url" type="text" spellcheck="false" placeholder="https://github.com/owner/repo">
+      <button id="go" class="primary" type="button">Get command</button>
+    </div>
+    <pre id="cmd" hidden></pre>
+    <p class="hint">The dashboard is static, so analysis runs locally or in CI. Paste a URL to get the exact command; the report lands in <code>data/reports/</code> and appears here after <code>analyzer/build_index.py</code>.</p>
+  </section>
+
+  <section class="controls">
+    <input id="q" type="search" placeholder="Filter repositories, dimensions, models…">
+    <div class="chips" id="axisChips"></div>
+    <select id="sort">
+      <option value="relevance">Sort: relevance</option>
+      <option value="stars">Sort: stars</option>
+      <option value="analysed_at">Sort: recently analysed</option>
+      <option value="repo">Sort: name</option>
+    </select>
+  </section>
+
+  <section id="stats" class="stats"></section>
+  <section id="grid" class="grid"></section>
+  <section id="empty" class="empty" hidden></section>
+
+  <section class="panel">
+    <h2>Population lab</h2>
+    <p class="hint">Which demographic dimensions and which model versions the analysed corpus actually covers. Gaps here are research gaps: a dimension nobody models is a population nobody simulates.</p>
+    <div class="lab">
+      <div><h3>Dimensions modelled</h3><div id="dims" class="bars"></div></div>
+      <div><h3>Models &amp; versions referenced</h3><div id="models" class="bars"></div></div>
+    </div>
+  </section>
+</main>
+
+<div id="sheet" class="sheet" hidden><div class="sheet-inner" role="dialog" aria-modal="true"></div></div>
+
+<footer class="wrap foot">
+  <p>Ethical Tech CoLab · <a href="https://github.com/Ethical-Tech-CoLab/reinforcement-learning">source</a> · scores are heuristic signal coverage, not a quality judgement.</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+# joonspk-research/generative_agents
+
+> Generative Agents: Interactive Simulacra of Human Behavior
+
+[https://github.com/joonspk-research/generative_agents](https://github.com/joonspk-research/generative_agents) · ★21987 · n/a · analysed 2026-08-25
+
+## Axis scores
+
+- **Agent-based simulation** `··········` 0/100
+- **Synthetic data generation** `··········` 0/100
+- **LLM-based behavioural modelling** `████······` 43/100
+- **Reinforcement learning / policy search** `··········` 0/100
+- **Evaluation & validation rigour** `··········` 0/100
+
+Agentic-behaviour relevance: **32/100** (primary axis: LLM-based behavioural modelling)
+
+## Evidence
+
+### LLM-based behavioural modelling
+
+- **OpenAI SDK** — `dependencies`
+- **Persona/profile conditioning** — `environment/frontend_server/storage/July1_the_ville_isabella_maria_klaus-step-3-12/movement/5364.json:2`
+- **Generative-agents architecture** — `README.md:3`
+- **Prompt/persona asset directory** — `environment/frontend_server/compressed_storage/July1_the_ville_isabella_maria_klaus-step-3-20/personas/Isabella Rodriguez/bootstrap_memory/associative_memory/embeddings.json`
+
+## Population dimensions modelled
+
+`party`, `age`, `income`
