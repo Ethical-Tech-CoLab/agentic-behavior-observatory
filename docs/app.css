@@ -139,3 +139,35 @@ button:disabled{opacity:.6;cursor:progress}
 .badge{font-size:10px;letter-spacing:.06em;padding:2px 6px;border-radius:5px;vertical-align:middle;
   background:color-mix(in srgb,var(--accent-2) 20%,transparent);color:var(--accent-2);
   border:1px solid color-mix(in srgb,var(--accent-2) 40%,transparent)}
+
+/* --- populations guide -------------------------------------------------- */
+.tbl{overflow-x:auto;margin:0 0 14px;border:1px solid var(--line);border-radius:10px}
+.tbl table{border-collapse:collapse;width:100%;min-width:520px;font-size:13px}
+.tbl th,.tbl td{text-align:left;padding:10px 13px;border-bottom:1px solid var(--line);
+  vertical-align:top;color:var(--ink-2)}
+.tbl th{color:var(--ink);font-weight:600;font-size:11px;text-transform:uppercase;
+  letter-spacing:.07em;background:var(--panel-2)}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td strong{color:var(--ink)}
+.chain{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 14px;margin:0 0 18px}
+.chain>div{background:var(--panel);border:1px solid var(--line);
+  border-radius:10px;padding:12px 14px;position:relative}
+.chain>div::after{content:"→";position:absolute;right:-11px;top:50%;transform:translateY(-50%);
+  color:var(--ink-2);font-size:13px;z-index:1}
+.chain>div:nth-child(3n)::after,.chain>div:last-child::after{content:""}
+.chain b{display:block;font-size:13px;color:var(--ink);margin-bottom:3px}
+.chain span{font-size:11.5px;color:var(--ink-2);line-height:1.45}
+.chain>div:nth-child(1){border-left:2px solid var(--abm)}
+.chain>div:nth-child(2){border-left:2px solid var(--synth)}
+.chain>div:nth-child(3){border-left:2px solid var(--synth)}
+.chain>div:nth-child(4){border-left:2px solid var(--llm)}
+.chain>div:nth-child(5){border-left:2px solid var(--llm)}
+.chain>div:nth-child(6){border-left:2px solid var(--rl)}
+.check{counter-reset:c;list-style:none;padding:0;margin:0 0 12px}
+.check li{counter-increment:c;position:relative;padding:9px 0 9px 40px;color:var(--ink-2);
+  border-bottom:1px solid var(--line);font-size:14px}
+.check li:last-child{border-bottom:0}
+.check li::before{content:counter(c);position:absolute;left:0;top:8px;width:24px;height:24px;
+  border-radius:7px;background:var(--panel-2);border:1px solid var(--line);
+  display:grid;place-items:center;font-size:11px;color:var(--ink-2)}
+@media(max-width:700px){.chain{grid-template-columns:1fr}.chain>div::after{content:""}}

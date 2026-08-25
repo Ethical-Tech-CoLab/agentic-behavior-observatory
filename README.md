@@ -10,6 +10,7 @@ evaluates synthetic populations at scale, what are they actually modeling — an
 what are they leaving out?**
 
 - **Dashboard** → https://ethical-tech-colab.github.io/agentic-behavior-observatory/
+- **Building populations** → how to construct a synthetic population, what to weigh at each step, and how those choices propagate into agent behavior ([Building populations tab](https://ethical-tech-colab.github.io/agentic-behavior-observatory/#populations))
 - **Definitions** → what reinforcement behavior, agentic behavior, and synthetic populations mean here ([Definitions tab](https://ethical-tech-colab.github.io/agentic-behavior-observatory/#definitions))
 - **Methodology** → the full scoring method, in the open ([Methodology tab](https://ethical-tech-colab.github.io/agentic-behavior-observatory/))
 - **Reports** → [`data/reports/`](data/reports/), JSON + Markdown, one pair per repository
@@ -124,7 +125,8 @@ analyzer/analyze.py       fetch, score, and write reports
 analyzer/signals.py       the taxonomy — edit this to extend coverage
 analyzer/build_index.py   collect reports + export the taxonomy for the browser
 data/reports/             per-repository JSON + Markdown
-docs/                     static dashboard (Observatory · Definitions · Methodology)
+docs/                     static dashboard (Observatory · Definitions ·
+                          Building populations · Methodology)
 docs/analyzer.js          browser port of the analyzer, scoring identically
 ```
 

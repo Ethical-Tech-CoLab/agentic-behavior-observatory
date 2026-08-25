@@ -23,6 +23,7 @@
   <nav class="tabs wrap" role="tablist">
     <button class="tab" role="tab" data-view="observatory" aria-selected="true">Observatory</button>
     <button class="tab" role="tab" data-view="definitions" aria-selected="false">Definitions</button>
+    <button class="tab" role="tab" data-view="populations" aria-selected="false">Building populations</button>
     <button class="tab" role="tab" data-view="methodology" aria-selected="false">Methodology</button>
   </nav>
 </header>
@@ -147,6 +148,135 @@
       <dd><strong>Face validity</strong>: the simulation looks right to someone who knows the domain. <strong>Construct validity</strong>: the mechanism inside it corresponds to the mechanism in the world. Model-driven agents make the first easy to achieve and the second no easier — a plausible transcript is not evidence of a correct mechanism.</dd>
     </div>
   </dl>
+</section>
+
+<section id="view-populations" hidden class="prose">
+  <h2>Building synthetic populations</h2>
+  <p>A practical guide to constructing a synthetic population, the decisions that shape it, and how each of those decisions propagates into the behavior of the agents built on top of it. Written for the case this observatory tracks: populations that will be <em>acted through</em> by simulated agents, not merely analyzed as a table.</p>
+  <p>The through-line: <strong>a synthetic population is a set of assumptions wearing the costume of data.</strong> Every step below converts a judgment into a number that later looks like a fact. The work is keeping the judgments visible.</p>
+
+  <h3 class="grp">Step 0 — Decide what the population is for</h3>
+  <p>The intended decision determines which parts of the population must be right, and there is no such thing as a generally correct one. A population fit for estimating total evacuation time is <em>not</em> fit for estimating who gets left behind, because the second question lives entirely in the tail the first one averages away.</p>
+  <p>Write the decision down before generating anything, in this form: <em>"This population is fit for estimating ___ for ___ under ___, and is not fit for ___."</em> Everything downstream is a trade-off, and without that sentence you cannot say which side of each trade-off to take.</p>
+
+  <h3 class="grp">The pipeline</h3>
+  <ol class="steps">
+    <li>
+      <h3>1 · Unit and closure</h3>
+      <p>Choose the unit of the model — individual, household, firm, vehicle, school — and be aware that behavior usually happens at a different level from the data. Evacuation decisions are made by households; census attributes describe individuals. Whichever you pick, the other has to be constructed, and that construction is a modeling assumption, not a lookup.</p>
+      <p><strong>Closure</strong> is the harder half: who counts as in the population? Residents, or people present? A daytime commuter population differs from a nighttime residential one by a factor that dwarfs most parameter uncertainty. Populations that are unregistered, displaced, undocumented, institutionalized, or unhoused are missing from nearly every seed and every margin — and in humanitarian work they are frequently the population of interest. Their absence is not neutral; it silently sets their count to zero.</p>
+    </li>
+    <li>
+      <h3>2 · Seed and margins</h3>
+      <p>The standard construction needs two ingredients: a <strong>seed</strong> — a sample of real individuals or households with the joint structure of their attributes intact (census microdata, PUMS, IPUMS, DHS, a household survey) — and <strong>margins</strong> — published totals for the area you are populating (counts by age, by tenure, by household size).</p>
+      <p>The seed supplies the <em>joints</em>; the margins supply the <em>totals</em>. Both carry their own history: a seed drawn from a different region imports that region's correlations, and a seed drawn a decade ago imports a decade-old society. Record the vintage and the geography of both, because every later claim inherits them.</p>
+    </li>
+    <li>
+      <h3>3 · Fit</h3>
+      <p>Reweight or resample the seed until it reproduces the margins. Methods, honestly compared:</p>
+      <div class="tbl"><table>
+        <thead><tr><th>Method</th><th>Strength</th><th>Cost</th></tr></thead>
+        <tbody>
+          <tr><td><strong>IPF</strong> (iterative proportional fitting)</td><td>Simple, fast, reproducible, well understood</td><td>Fractional weights; cannot invent combinations absent from the seed</td></tr>
+          <tr><td><strong>IPU</strong> / hierarchical fitting</td><td>Fits individual and household margins at once</td><td>More fragile; convergence is not guaranteed</td></tr>
+          <tr><td><strong>Combinatorial optimization</strong></td><td>Whole individuals, no fractional weights</td><td>Expensive; can overfit the margins exactly</td></tr>
+          <tr><td><strong>Copulas / CTGAN / VAE</strong></td><td>Learns joints, generates unseen but plausible combinations</td><td>Opaque; can hallucinate impossible people; needs its own validation</td></tr>
+          <tr><td><strong>LLM generation</strong></td><td>Rich, unstructured attributes (occupation, narrative, preference)</td><td>No distributional guarantee whatsoever; imports training-data priors as if they were population statistics</td></tr>
+        </tbody>
+      </table></div>
+      <p>The dominant failure is the same across all of them: <strong>matching every margin while matching no real joint distribution</strong>. Each attribute is right one at a time, and nobody in the population is a plausible whole person. Fit is checked on margins; validity lives in the joints.</p>
+    </li>
+    <li>
+      <h3>4 · Structure — households, space, networks</h3>
+      <p>Individuals alone are not a population. Three structures have to be constructed, and each one usually matters more to the simulation's output than the attribute distributions everyone spends their time on:</p>
+      <ul>
+        <li><strong>Household composition</strong> — who lives with whom. Constrained by logic (a five-year-old is not a household head) and by joint distributions that margins never publish. Household structure governs who evacuates together, whose mobility limits whose, and who cannot leave because of someone else.</li>
+        <li><strong>Spatial allocation</strong> — where each agent is placed. Assign at too coarse a resolution and you erase the local heterogeneity that drives the result; assign at too fine a resolution and you invent precision the source data cannot support. This is the <em>modifiable areal unit problem</em>: the same underlying reality yields different findings under different zone boundaries.</li>
+        <li><strong>Social network</strong> — who talks to whom. Almost never in the source data, almost always decisive. If your model has any diffusion in it — information, panic, imitation, disease — the network topology and its homophily will drive the outcome harder than any individual attribute. A network assumed uniformly random is a strong claim that a society is unsegregated.</li>
+      </ul>
+    </li>
+    <li>
+      <h3>5 · Attach behavior — the load-bearing step</h3>
+      <p>Here demographics become conduct: the mapping from an agent's attributes to its behavioral parameters — walking speed, risk tolerance, trust in official warnings, time to comply, propensity to wait for a relative.</p>
+      <p><strong>This mapping is where most of a study's real content lives, and it is the least documented part of nearly every model.</strong> Two teams with the identical population and opposite conclusions almost always differ here, not in the fitting. Three rules follow:</p>
+      <ul>
+        <li>Every attribute→parameter link needs a citation, an assumption label, or a calibration target. "Older agents move slower" needs a distribution and a source, not a coefficient someone liked.</li>
+        <li>Prefer mappings to <em>situations</em> over mappings to <em>identities</em>. "Households with a dependent adult wait longer" is a mechanism; "elderly people are non-compliant" is a stereotype wearing a parameter's clothes, and it will reproduce itself as a finding.</li>
+        <li>Keep the mapping in one inspectable place — a table, not scattered literals. If a reviewer cannot list your behavioral assumptions in five minutes, neither can you.</li>
+      </ul>
+    </li>
+    <li>
+      <h3>6 · Validate on three axes</h3>
+      <p>A synthetic population is judged on <strong>fidelity</strong>, <strong>utility</strong>, and <strong>privacy</strong>, and gains on one are usually paid for by another.</p>
+      <ul>
+        <li><strong>Fidelity</strong> — does it resemble the real distribution? Compare margins (trivially true by construction, so nearly worthless as evidence) and then the <em>held-out joints</em> the fit never targeted (the actual test). KS, Wasserstein, Jensen–Shannon per attribute; cross-tabulations for pairs.</li>
+        <li><strong>Utility</strong> — does it work for the task? Train-synthetic-test-real, or re-run a known historical case and compare to what happened. Utility for <em>your</em> decision, not utility in general.</li>
+        <li><strong>Privacy</strong> — can a real person be recovered? Especially where the population is small and an attribute combination is rare. Differential privacy and <em>k</em>-anonymity both work by damaging exactly the rare cells that humanitarian analysis cares most about; that collision is a design decision to state, not a box to tick.</li>
+      </ul>
+      <p>Add <strong>face validity</strong> — does it look right to someone who knows the place? — but never mistake it for construct validity. A plausible-looking population can be built on a wrong mechanism, and a model-driven one is <em>especially</em> good at looking plausible.</p>
+    </li>
+    <li>
+      <h3>7 · Generate many, not one</h3>
+      <p>A single population is false precision. Margins carry sampling error, the fit has stochastic choices, and the network was assumed. Generate an ensemble across seeds and report the spread of your conclusion, not the mean of one run.</p>
+      <p>The useful question is not "what does the model say?" but <strong>"which conclusions survive a different plausible population?"</strong> Those are your findings. The rest is one draw from a distribution you did not look at.</p>
+    </li>
+    <li>
+      <h3>8 · Document it as data, not as code</h3>
+      <p>Ship a datasheet with the population: seed source and vintage, margins used, geography and unit, fitting method and convergence, what was assumed rather than fitted (networks, households, behavior parameters), known missing groups, privacy treatment, validation results, and the fitness statement from Step 0. Without it the population will be reused for a question it was never fit for — which is the most common way this work goes wrong, and it usually happens to a colleague six months later.</p>
+    </li>
+  </ol>
+
+  <h3 class="grp">The complexities, stated plainly</h3>
+  <dl class="defs">
+    <div><dt>Marginal fit is not joint fit</dt><dd>Every attribute correct in aggregate, no plausible individuals. The canonical failure, and invisible to every margin-based check.</dd></div>
+    <div><dt>Structural vs. sampled zeros</dt><dd>A combination absent from your seed may be impossible (a toddler with a doctorate) or merely unobserved (a rare but real household type). Treating the second as the first erases real people; treating the first as the second invents impossible ones.</dd></div>
+    <div><dt>Rare subgroups carry the result</dt><dd>Small groups are exactly where fitting error, privacy noise, and seed gaps concentrate — and in evacuation, health, or exclusion work they are usually the population the study exists to serve. Precision is worst precisely where it matters most.</dd></div>
+    <div><dt>The ecological fallacy and the MAUP</dt><dd>Area-level rates are not individual probabilities, and conclusions can change when zone boundaries change. Both convert a data-resolution artifact into a substantive finding.</dd></div>
+    <div><dt>Temporal drift</dt><dd>Censuses are old; conflict, displacement, and migration move faster than statistical agencies. A 2019 seed describes a society that may no longer exist in a 2026 crisis.</dd></div>
+    <div><dt>Categories are political</dt><dd>Race, gender, caste, ethnicity, and legal status schemas encode a particular state's way of seeing its people. Adopting them silently adopts that view — including its omissions, which are rarely accidental.</dd></div>
+    <div><dt>Missing populations</dt><dd>Undocumented, displaced, unregistered, unhoused, and institutionalized people are absent from most seeds and margins. Their absence is recorded as a zero, and a zero is a claim.</dd></div>
+    <div><dt>Assumed structure dominates fitted structure</dt><dd>The network you assumed and the behavior mapping you wrote will usually drive the output more than the distributions you carefully fitted. Effort tends to be allocated in inverse proportion to influence.</dd></div>
+    <div><dt>Privacy noise lands on the vulnerable</dt><dd>Differential privacy protects rare combinations by distorting them — the same cells that describe minority and at-risk groups. Protection and representation are in genuine tension here.</dd></div>
+    <div><dt>Validation circularity</dt><dd>Validating against the margins you fitted proves only that the fitting worked. Real validation needs a held-out joint, an external dataset, or a known outcome.</dd></div>
+  </dl>
+
+  <h3 class="grp">How population choices become agentic behavior</h3>
+  <p>Each link in this chain converts a decision into an apparent fact. Distortion introduced early is amplified, not averaged out, because emergent outcomes are driven by tails and structure rather than means.</p>
+  <div class="chain">
+    <div><b>Seed &amp; margins</b><span>whose society, which year, who is missing</span></div>
+    <div><b>Fit</b><span>joints preserved or invented</span></div>
+    <div><b>Structure</b><span>households, space, network topology</span></div>
+    <div><b>Attribute → parameter</b><span>where demographics become conduct</span></div>
+    <div><b>Agent behavior</b><span>rules, or an LLM's priors</span></div>
+    <div><b>Emergent outcome</b><span>what you report as a finding</span></div>
+  </div>
+
+  <p>Three consequences deserve naming, because they are specific to agentic models and are not solved by better fitting:</p>
+  <ul>
+    <li><strong>The tail drives the emergent result.</strong> Aggregate-accurate populations routinely produce wrong dynamics, because cascades, bottlenecks, and failures-to-evacuate are generated by the least typical agents. A population validated on means is not validated for a model whose output depends on extremes.</li>
+    <li><strong>LLM agents fill the gaps you left, from training priors.</strong> Whatever the population underspecifies, a language model supplies — confidently, and from patterns in its training data about how someone so described behaves. Two documented effects follow: <em>flattening</em>, where a demographic is portrayed as more internally uniform than any real group, and <em>stereotype amplification</em>, where the modal association becomes the modeled behavior. This converts an unstated assumption into what looks like a finding about a real group.</li>
+    <li><strong>Model version is a study parameter.</strong> A model-driven population's behavior shifts when the underlying model changes, since alignment training reshapes exactly the dispositions being simulated. A result reproducible only against a deprecated checkpoint is a result with a shelf life — which is why this observatory records the model versions each repository rests on.</li>
+  </ul>
+
+  <h3 class="grp">Pre-flight checklist</h3>
+  <ol class="check">
+    <li>Can you state what this population is fit for, and what it is not fit for?</li>
+    <li>Do you know the vintage and geography of your seed, and whose society it describes?</li>
+    <li>Which groups are missing from the seed and margins, and does the study's question concern them?</li>
+    <li>Have you validated a joint distribution the fit never targeted?</li>
+    <li>Is the household, spatial, and network structure assumed or derived — and do you know which?</li>
+    <li>Is every attribute→parameter mapping in one inspectable place, each with a source or an explicit assumption label?</li>
+    <li>Are those mappings keyed to situations rather than identities?</li>
+    <li>Do you report a spread across replicate populations, or a single run?</li>
+    <li>Does the conclusion survive a plausible alternative population?</li>
+    <li>If a language model supplies behavior: which version, with what prompt, and what does it invent that you did not specify?</li>
+    <li>Could a real individual be re-identified, and what did the privacy treatment cost your rare subgroups?</li>
+    <li>Is there a datasheet a stranger could read before reusing this?</li>
+  </ol>
+
+  <h3 class="grp">What the observatory can see of this</h3>
+  <p>The scores on the Observatory tab detect the <em>machinery</em> of good practice — a fitting method, seeded runs, fidelity metrics, privacy treatment, a sensitivity analysis, the demographic dimensions a repository conditions on. That is real evidence, and it is why the evaluation axis exists.</p>
+  <p>It cannot see whether a mapping from age to compliance was defensible, whether the missing population was the one that mattered, or whether the network was assumed into the shape that produced the finding. Those are the questions on this page, and they are answered by reading the code and asking the authors — the score only tells you where to look.</p>
 </section>
 
 <section id="view-methodology" hidden class="prose">
