@@ -56,6 +56,13 @@ set it covers.
 | **Reinforcement learning** | Gymnasium, Stable-Baselines3, RLlib, TorchRL; named algorithms, reward machinery, RLHF/DPO, the reset/step contract |
 | **Evaluation & validation** | Tests, fidelity metrics (KS, Wasserstein, TSTR), sensitivity analysis and ablations, seeded runs, experiment tracking, bias and representativeness audits |
 
+Pressing an axis chip on the dashboard filters the grid and opens that axis's
+definition beside it, cloned out of the Definitions tab so the two cannot
+disagree. The three subject chips select the repositories that axis is the
+*strongest* subject of; the two method chips select repositories where the axis
+is present at all, because `primary_axis` is only ever a subject axis and
+filtering on it left those two chips matching nothing.
+
 The headline **relevance** score uses only the three *subject* axes:
 
 ```

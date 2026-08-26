@@ -136,6 +136,18 @@ button:disabled{opacity:.6;cursor:progress}
   margin:30px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
 
 .chip.etc{color:var(--accent-2);white-space:nowrap}
+
+/* The definition that opens under the chips when a category is pressed. It
+   reuses .defs so it is visibly the same object as the entry in the
+   Definitions tab, with a left rule to mark it as a response to the click
+   rather than another band of the page. */
+.axis-note{margin:0 0 18px}
+.axis-note .defs{margin:0}
+.axis-note .defs>div{border-left:3px solid currentColor}
+.axis-note-more{display:block;margin-top:12px;font:inherit;font-size:12px;cursor:pointer;
+  background:none;border:0;padding:0;color:var(--accent);text-decoration:underline;
+  text-underline-offset:3px}
+.axis-note-more:hover{color:var(--ink)}
 .badge{font-size:10px;letter-spacing:.06em;padding:2px 6px;border-radius:5px;vertical-align:middle;
   background:color-mix(in srgb,var(--accent-2) 20%,transparent);color:var(--accent-2);
   border:1px solid color-mix(in srgb,var(--accent-2) 40%,transparent)}

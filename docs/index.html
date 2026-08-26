@@ -57,6 +57,19 @@
     </select>
   </section>
 
+  <!-- Filled by app.js when a category chip is pressed: the same definition
+       the Definitions tab carries, cloned from it so the two cannot drift,
+       shown here so choosing a category also tells you what it means. -->
+  <section id="axisNote" class="axis-note" hidden aria-live="polite"></section>
+
+  <!-- The ETC chip filters the corpus rather than naming a concept, so its
+       note lives here instead of in the Definitions tab. -->
+  <template id="def-etc">
+    <dt>ETC work</dt>
+    <dd>The fifteen Ethical Tech CoLab projects analyzed alongside the reference frameworks, marked <b>ETC</b> on their cards. Mostly evacuation and negotiation simulators, plus the CoLab's agent work and its evaluation tooling.</dd>
+    <dd>They are here to be measured by the same taxonomy as everything else, including the observatory itself. Reading them is what exposed three defects in that taxonomy: HTML and JSX source was not being read at all, the size cap excluded single-file apps, and agent detection assumed agents are called <code>agents</code> rather than <code>members</code>, <code>families</code>, or <code>residents</code>.</dd>
+  </template>
+
   <section id="stats" class="stats"></section>
   <section id="grid" class="grid"></section>
   <section id="empty" class="empty" hidden></section>
@@ -83,7 +96,7 @@
       <dd>The distinction that matters for this observatory: rule-based behavior is authored — you can read the rule in the source and know what the agent will do. Reinforcement behavior is <em>discovered</em> — you can read the reward function and still not know what the agent will do, which is exactly why it has to be observed rather than assumed. Reward hacking, where an agent maximizes the stated reward while defeating its intent, is the standard demonstration of that gap.</dd>
       <dd class="aka">Signals: named algorithms (PPO, DQN, SAC, Q-learning), reward functions and discount factors, the <code>reset</code>/<code>step</code> environment contract, RLHF and DPO.</dd>
     </div>
-    <div>
+    <div id="def-rl">
       <dt>Reinforcement learning (RL)</dt>
       <dd>The family of methods that produce reinforcement behavior: an agent, an environment, a state, a set of actions, a reward signal, and a policy mapping states to actions. Training searches for a policy that maximizes expected cumulative reward, discounted over time.</dd>
       <dd>Its relevance here is twofold. It is how many simulated agents acquire their behavior — and, through RLHF and preference optimization, it is how the language models used <em>as</em> agents acquired theirs. A model's behavioral tendencies in a simulation are partly an artifact of the reward model used to align it, which is one reason model version matters as much as prompt design.</dd>
@@ -102,22 +115,32 @@
 
   <h3 class="grp">The three subject axes</h3>
   <dl class="defs">
-    <div>
+    <div id="def-abm">
       <dt>Agent-based simulation (ABM)</dt>
       <dd>Modeling a system as many interacting individuals, each following its own rules, and running them forward in time to see what the population does. The unit of description is the individual; aggregate behavior is an output, never an input.</dd>
       <dd class="aka">Signals: Mesa, AgentPy, PettingZoo, NetLogo, Repast, SimPy; agent classes, schedulers, step loops, spatial grids and networks.</dd>
     </div>
-    <div>
+    <div id="def-synth">
       <dt>Synthetic data &amp; synthetic populations</dt>
       <dd><strong>Synthetic data</strong> is generated rather than observed, built to preserve the statistical structure of real data without carrying its records. <strong>A synthetic population</strong> is the specific case that matters here: a full roster of individuals with plausible, jointly consistent attributes — age with income with household with region — matching known marginals from a census or survey, so a simulation can be run over people who do not exist but who are distributed like people who do.</dd>
       <dd>The classic construction is iterative proportional fitting, reweighting a seed sample until it matches published margins. The classic failure is a population that matches every margin and no real joint distribution — every attribute right one at a time, nobody plausible taken whole.</dd>
       <dd class="aka">Signals: SDV, CTGAN, synthcity, Faker, Gretel; population synthesis and IPF, census/microdata seeds, differential privacy, generation at scale.</dd>
     </div>
-    <div>
+    <div id="def-llm_behavior">
       <dt>LLM-based behavioral modeling</dt>
       <dd>Using a language model as the behavioral engine of a simulated individual: the agent is given a persona, a memory, and a situation, and the model's output <em>is</em> its behavior. It replaces hand-written decision rules with a model's learned priors about how someone so described would act.</dd>
       <dd>The trade is explicit. Hand-written rules are transparent and thin; model-driven agents are rich and opaque, carrying whatever the training data encoded about the demographic they are asked to portray — which is why the dimensions a study conditions on, and the model version it used, are both recorded here.</dd>
       <dd class="aka">Signals: Anthropic/OpenAI SDKs, LangGraph, AutoGen, CrewAI, DSPy, local runtimes; personas, memory streams, generative-agent architectures.</dd>
+    </div>
+  </dl>
+
+  <h3 class="grp">The two method axes</h3>
+  <dl class="defs">
+    <div id="def-eval">
+      <dt>Evaluation &amp; validation</dt>
+      <dd>The apparatus that decides whether a simulation's output means anything: tests, fidelity metrics against real distributions, sensitivity analysis and ablations, seeded runs that reproduce, experiment tracking, and audits of bias and representativeness.</dd>
+      <dd>It scores as a method axis rather than a subject axis because it says how the work is checked, not what it is about. Read it beside the subject scores, not instead of them: a repository can score high here for having a thorough test suite around a thin model, and research code released to accompany a published paper can score zero because the validation lived in the paper.</dd>
+      <dd class="aka">Signals: test suites and CI, KS / Wasserstein / TSTR, sensitivity analysis and ablations, seeded runs, experiment tracking, bias and representativeness audits.</dd>
     </div>
   </dl>
 

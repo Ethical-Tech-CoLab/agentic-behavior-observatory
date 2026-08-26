@@ -7,6 +7,12 @@ const AXES = {
   rl: ["Reinforcement", "var(--rl)"],
   eval: ["Evaluation", "var(--eval)"],
 };
+// The three axes that describe what work is about. `primary_axis` is always
+// one of these, so a chip for a method axis cannot filter on it: reinforcement
+// and evaluation select on having any of that axis at all, which is the only
+// cut those two support.
+const SUBJECT_AXES = new Set(["abm", "synth", "llm_behavior"]);
+
 const LIVE_KEY = "abo-live-reports";
 
 const $ = (s) => document.querySelector(s);
@@ -136,12 +142,23 @@ function bars(el, rows, color) {
     : `<p class="hint">No data yet.</p>`;
 }
 
+/** A subject chip selects the repositories that axis is the strongest subject
+ *  of. A method chip cannot: `primary_axis` is only ever a subject axis, so
+ *  before this the Reinforcement and Evaluation chips matched nothing at all.
+ *  They select on the axis being present instead. */
+function matchesAxis(r) {
+  if (!state.axis) return true;
+  return SUBJECT_AXES.has(state.axis)
+    ? r.primary_axis === state.axis
+    : (r.scores?.[state.axis] ?? 0) > 0;
+}
+
 function render() {
   const all = [...state.live, ...state.corpus.filter((c) => !state.live.some((l) => l.repo === c.repo))];
   const q = state.q.toLowerCase();
   const rows = all.filter((r) => {
     const hay = [r.repo, r.description, ...dimsOf(r), ...modelsOf(r)].join(" ").toLowerCase();
-    return (!q || hay.includes(q)) && (!state.axis || r.primary_axis === state.axis)
+    return (!q || hay.includes(q)) && matchesAxis(r)
       && (!state.etc || r.repo.startsWith(ETC));
   });
   const s = state.sort;
@@ -246,16 +263,67 @@ $("#grid").addEventListener("keydown", (e) => {
 // --- controls -----------------------------------------------------------
 $("#axisChips").innerHTML = Object.entries(AXES).map(([a, [label, color]]) =>
   `<button class="chip" data-axis="${a}" aria-pressed="false" style="color:${color}">${label}</button>`).join("");
+// Choosing a category also says what the category means. The note is cloned
+// out of the Definitions tab rather than written twice, so the wording on the
+// two surfaces cannot drift apart; the only entry authored here is the ETC
+// chip's, which filters the corpus rather than naming a concept.
+function showAxisNote(key) {
+  const note = $("#axisNote");
+  if (!key) { note.hidden = true; note.innerHTML = ""; return; }
+
+  const src = document.getElementById(`def-${key}`);
+  if (!src) { note.hidden = true; note.innerHTML = ""; return; }
+
+  // A <template> holds its content in .content; a live <div> in the
+  // Definitions list is cloned directly. Either way the note owns a copy, so
+  // collapsing it never removes anything from the tab it came from.
+  const body = src.content ? src.content.cloneNode(true) : src.cloneNode(true);
+  const wrap = document.createElement("dl");
+  wrap.className = "defs axis-note-defs";
+  const cell = document.createElement("div");
+  cell.append(...(body.children ? [...body.children] : [body]));
+  wrap.append(cell);
+
+  // The left rule inherits currentColor, so the note is tinted to match the
+  // chip that opened it. ETC has its own accent.
+  note.style.color = key === "etc" ? "var(--accent-2)" : (AXES[key]?.[1] ?? "var(--line)");
+
+  // Everything except the ETC chip has a fuller entry to go on to. It sits
+  // inside the panel, not under it: outside the box it reads as a stray link
+  // belonging to the page rather than to the definition above it.
+  if (key !== "etc") {
+    const more = document.createElement("button");
+    more.type = "button";
+    more.className = "axis-note-more";
+    more.textContent = "Read it in Definitions \u2192";
+    more.onclick = () => {
+      showView("definitions");
+      document.getElementById(`def-${key}`)
+        ?.scrollIntoView({ behavior: "smooth", block: "center" });
+    };
+    cell.append(more);
+  }
+
+  note.replaceChildren(wrap);
+  note.hidden = false;
+}
+
 $("#axisChips").onclick = (e) => {
   const b = e.target.closest(".chip"); if (!b) return;
   state.axis = state.axis === b.dataset.axis ? null : b.dataset.axis;
   [...$("#axisChips").children].forEach((c) =>
     c.setAttribute("aria-pressed", String(c.dataset.axis === state.axis)));
+  // The two filters are independent, but only one note fits: pressing an axis
+  // takes the panel over, and releasing it hands the panel back to ETC if
+  // that is still on.
+  if (state.axis) $("#etcOnly").setAttribute("aria-pressed", String(state.etc));
+  showAxisNote(state.axis ?? (state.etc ? "etc" : null));
   render();
 };
 $("#etcOnly").onclick = (e) => {
   state.etc = !state.etc;
   e.currentTarget.setAttribute("aria-pressed", String(state.etc));
+  showAxisNote(state.axis ?? (state.etc ? "etc" : null));
   render();
 };
 $("#q").oninput = (e) => { state.q = e.target.value; render(); };
