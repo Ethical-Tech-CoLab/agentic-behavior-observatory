@@ -55,6 +55,7 @@ set it covers.
 | **LLM-based behavioral modeling** | Anthropic/OpenAI SDKs, LangGraph, AutoGen, CrewAI, DSPy, local runtimes; personas, memory streams, generative-agent architectures, silicon sampling |
 | **Reinforcement learning** | Gymnasium, Stable-Baselines3, RLlib, TorchRL; named algorithms, reward machinery, RLHF/DPO, the reset/step contract |
 | **Evaluation & validation** | Tests, fidelity metrics (KS, Wasserstein, TSTR), sensitivity analysis and ablations, seeded runs, experiment tracking, bias and representativeness audits |
+| **Context isolation** | Private and privileged instructions, BATNAs, red lines; visibility and disclosure rules; per-agent scoped context; fresh sessions and state resets; independent replications; staying in character and knowledge-cutoff handling; contamination and leakage checks; blind evaluation |
 
 Pressing an axis chip on the dashboard filters the grid and opens that axis's
 definition beside it, cloned out of the Definitions tab so the two cannot
@@ -71,8 +72,30 @@ relevance = 0.6 × max(subject axes) + 0.4 × mean(subject axes)
 
 The `max` term keeps a purely agent-based or purely synthetic-data repository
 squarely in scope; the `mean` term rewards work that spans them. Reinforcement
-learning and evaluation describe *how* the work is done, so they shape the
-profile without setting the headline.
+learning, evaluation and context isolation describe *how* the work is done, so
+they shape the profile without setting the headline.
+
+### Context bleeding
+
+**Context bleeding** is information reaching a place the study assumes it
+cannot: one agent reading another's private brief, a run inheriting the
+previous run's memory, a model answering out of its own training rather than
+the persona it was given, or an evaluation item sitting in the prompt that is
+meant to test it. It is a quiet failure, because the output still looks like a
+result.
+
+The axis scores the **guards, not the leak** — like every other axis here, so a
+high score reads the same way it does everywhere else. Read a low score as a
+boundary nobody wrote down, not as proof of a leak.
+
+The clearest case in the corpus is `diplomatic-simulator` at **73**, its highest
+axis by a wide margin: every delegation holds private instructions, a BATNA and
+red lines, and the table has explicit rules for what crosses between parties
+(sidebar disclosure, caucus report-back, coalition visibility). Its own paper
+puts it plainly: *"the organising principle of the design is information
+isolation."* At the other end, `generative_agents` scores 0 — the memory-stream
+architecture, with no vocabulary anywhere for keeping one agent's stream out of
+another's.
 
 Every point is traceable: each report records the file and line where each signal
 fired, and the dashboard shows that evidence beside the score. A score is signal

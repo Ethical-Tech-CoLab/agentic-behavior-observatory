@@ -5,8 +5,8 @@
   "stars": 3549,
   "language": "Python",
   "license": "NOASSERTION",
-  "pushed_at": "2026-08-25T16:42:58Z",
-  "analyzed_at": "2026-08-25T20:25:03+00:00",
+  "pushed_at": "2026-08-26T18:04:04Z",
+  "analyzed_at": "2026-08-26T19:48:31+00:00",
   "files_total": 289,
   "files_eligible": 253,
   "files_read": 120,
@@ -136,7 +136,8 @@
     "synth": 33,
     "llm_behavior": 0,
     "rl": 11,
-    "eval": 48
+    "eval": 48,
+    "bleed": 21
   },
   "primary_axis": "synth",
   "relevance": 25,
@@ -163,7 +164,7 @@
         "label": "Tabular synthesis (CTGAN family)",
         "weight": 10,
         "where": "dependencies",
-        "evidence": "sdmetrics"
+        "evidence": "ctgan"
       },
       {
         "signal": "census_source",
@@ -211,6 +212,22 @@
         "weight": 5,
         "where": "docs/Makefile",
         "evidence": "docs/Makefile"
+      }
+    ],
+    "bleed": [
+      {
+        "signal": "visibility_rules",
+        "label": "Explicit rules for what each agent may see",
+        "weight": 10,
+        "where": "docs/index.rst:29",
+        "evidence": "e systems without the risk of exposure that comes with data disclosure.  Underneath the hood it uses several probabilistic graphic"
+      },
+      {
+        "signal": "context_scoping",
+        "label": "Context scoped or isolated per agent",
+        "weight": 10,
+        "where": "tests/unit/cag/test__utils.py:401",
+        "evidence": "_constraint'])     modules = {'sdv.cag': cag_mock, 'sdv.cag.sandbox': sandbox_mock}     importlib_mock.import_module.side_effec"
       }
     ]
   },

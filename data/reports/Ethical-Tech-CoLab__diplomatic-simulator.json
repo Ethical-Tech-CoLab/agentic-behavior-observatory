@@ -6,7 +6,7 @@
   "language": "HTML",
   "license": null,
   "pushed_at": "2026-07-27T21:33:06Z",
-  "analyzed_at": "2026-08-25T20:26:55+00:00",
+  "analyzed_at": "2026-08-26T19:50:08+00:00",
   "files_total": 749,
   "files_eligible": 695,
   "files_read": 120,
@@ -16,7 +16,8 @@
     "synth": 9,
     "llm_behavior": 11,
     "rl": 0,
-    "eval": 47
+    "eval": 47,
+    "bleed": 73
   },
   "primary_axis": "llm_behavior",
   "relevance": 10,
@@ -77,6 +78,57 @@
         "weight": 10,
         "where": "DiplomaticSimulator-Paper.md:42",
         "evidence": "Rivera and colleagues, publishing at the ACM Conference on Fairness, Accountability, and Transparency in 2024, found that all f"
+      }
+    ],
+    "bleed": [
+      {
+        "signal": "private_state",
+        "label": "Per-agent private state the other agents are not given",
+        "weight": 12,
+        "where": "DiplomaticSimulator-Paper.md:16",
+        "evidence": "nce agents instead of by people. Each delegation is given a confidential brief and nothing else, the talks are run in rounds, and every wo"
+      },
+      {
+        "signal": "visibility_rules",
+        "label": "Explicit rules for what each agent may see",
+        "weight": 10,
+        "where": "sim/scenarios/arctic/transcript.md:40",
+        "evidence": "Beijing. To Denmark and Norway: I propose a Nordic-Canadian caucus to settle Lomonosov and Svalbard strictly via CLCS and UNCL"
+      },
+      {
+        "signal": "context_scoping",
+        "label": "Context scoped or isolated per agent",
+        "weight": 10,
+        "where": "DiplomaticSimulator-Paper.md:26",
+        "evidence": "1.3 The organising principle of the design is information isolation. When a delegation agent writes its statement for a round,"
+      },
+      {
+        "signal": "independent_runs",
+        "label": "Runs treated as independent replications",
+        "weight": 8,
+        "where": "DiplomaticSimulator-Paper.md:236",
+        "evidence": "an the real one.  ---  ## 8. Testing Under Uncertainty: the Monte Carlo Layer  8.1 What the method is. A Monte Carlo simulation est"
+      },
+      {
+        "signal": "in_character",
+        "label": "Guards against the model answering as itself rather than the persona",
+        "weight": 10,
+        "where": "DiplomaticSimulator-Paper.md:375",
+        "evidence": "he two step-by-step delegations. \"The weaker model degrades role fidelity\" and \"the Seoul and Tokyo seats are harder to play\" are ind"
+      },
+      {
+        "signal": "knowledge_cutoff",
+        "label": "Guards against the model's own training reaching the scenario",
+        "weight": 8,
+        "where": "sim/scenarios/cyprus/transcript.md:8",
+        "evidence": "ll return of Varosha to its lawful owners, abolition of the anachronistic 1960 guarantee system, and full withdrawal of foreign force"
+      },
+      {
+        "signal": "contamination",
+        "label": "Explicit contamination or leakage checking",
+        "weight": 12,
+        "where": "DiplomaticSimulator-Paper.md:400",
+        "evidence": "isolation has been audited on every scenario. A cross-party contamination audit now exists for all six multi-party scenarios, tracing"
       }
     ]
   },

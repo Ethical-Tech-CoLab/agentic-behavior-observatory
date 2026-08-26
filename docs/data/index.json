@@ -1,20 +1,64 @@
 [
  {
+  "repo": "Ethical-Tech-CoLab/agentic-behavior-observatory",
+  "url": "https://github.com/Ethical-Tech-CoLab/agentic-behavior-observatory",
+  "description": "Agentic Behavior Observatory - paste a GitHub repo URL and get a live, evidence-linked analysis of how it models agentic behavior: agent-based simulation, synthetic populations, LLM-based behavioral modeling, reinforcement learning and evaluation rigor, plus the demographic dimensions and model versions it rests on.",
+  "stars": 0,
+  "language": "Python",
+  "scores": {
+   "abm": 62,
+   "synth": 56,
+   "llm_behavior": 51,
+   "rl": 45,
+   "eval": 80,
+   "bleed": 40
+  },
+  "primary_axis": "abm",
+  "relevance": 60,
+  "analyzed_at": "2026-08-26T19:43:56+00:00",
+  "dimensions": [
+   "party",
+   "age",
+   "child",
+   "disabled",
+   "region",
+   "political",
+   "vulnerability",
+   "disability",
+   "migration",
+   "gender",
+   "household",
+   "elderly"
+  ],
+  "models": [
+   "gpt-4o-mini",
+   "gpt-4o",
+   "qwen",
+   "o3-mini",
+   "gpt-3.5-turbo",
+   "gpt-4",
+   "deepseek-r1",
+   "gpt-4.1"
+  ],
+  "file": "Ethical-Tech-CoLab__agentic-behavior-observatory.json"
+ },
+ {
   "repo": "microsoft/autogen",
   "url": "https://github.com/microsoft/autogen",
   "description": "A programming framework for agentic AI",
-  "stars": 60627,
+  "stars": 60640,
   "language": "Python",
   "scores": {
    "abm": 15,
    "synth": 0,
    "llm_behavior": 73,
    "rl": 11,
-   "eval": 72
+   "eval": 72,
+   "bleed": 21
   },
   "primary_axis": "llm_behavior",
   "relevance": 56,
-  "analyzed_at": "2026-08-25T20:26:31+00:00",
+  "analyzed_at": "2026-08-26T19:43:33+00:00",
   "dimensions": [
    "migration",
    "party",
@@ -37,63 +81,22 @@
   "file": "microsoft__autogen.json"
  },
  {
-  "repo": "Ethical-Tech-CoLab/agentic-behavior-observatory",
-  "url": "https://github.com/Ethical-Tech-CoLab/agentic-behavior-observatory",
-  "description": "Agentic Behavior Observatory - paste a GitHub repo URL and get a live, evidence-linked analysis of how it models agentic behavior: agent-based simulation, synthetic populations, LLM-based behavioral modeling, reinforcement learning and evaluation rigor, plus the demographic dimensions and model versions it rests on.",
-  "stars": 0,
-  "language": "Python",
-  "scores": {
-   "abm": 45,
-   "synth": 56,
-   "llm_behavior": 51,
-   "rl": 45,
-   "eval": 80
-  },
-  "primary_axis": "synth",
-  "relevance": 54,
-  "analyzed_at": "2026-08-25T20:28:17+00:00",
-  "dimensions": [
-   "age",
-   "party",
-   "region",
-   "education",
-   "migration",
-   "gender",
-   "income",
-   "occupation",
-   "disability",
-   "sex",
-   "race",
-   "religion"
-  ],
-  "models": [
-   "gpt-4o-mini",
-   "gpt-3.5-turbo",
-   "gpt-4o",
-   "o3-mini",
-   "gpt-4.1",
-   "qwen",
-   "llama3",
-   "gpt-4"
-  ],
-  "file": "Ethical-Tech-CoLab__agentic-behavior-observatory.json"
- },
- {
   "repo": "camel-ai/camel",
   "url": "https://github.com/camel-ai/camel",
   "description": "\ud83d\udc2b CAMEL: The first and the best multi-agent framework. Finding the Scaling Law of Agents. https://www.camel-ai.org",
-  "stars": 17639,
+  "stars": 17645,
   "language": "Python",
   "scores": {
    "abm": 19,
    "synth": 13,
    "llm_behavior": 62,
    "rl": 32,
-   "eval": 72
+   "eval": 72,
+   "bleed": 38
   },
   "primary_axis": "llm_behavior",
   "relevance": 50,
-  "analyzed_at": "2026-08-25T20:26:14+00:00",
+  "analyzed_at": "2026-08-26T19:44:31+00:00",
   "dimensions": [
    "disabled",
    "age",
@@ -116,21 +119,22 @@
   "file": "camel-ai__camel.json"
  },
  {
-  "repo": "projectmesa/mesa",
+  "repo": "mesa/mesa",
   "url": "https://github.com/mesa/mesa",
   "description": "Mesa is an open-source Python library for agent-based modeling, ideal for simulating complex systems and exploring emergent behaviors.",
-  "stars": 3806,
+  "stars": 3810,
   "language": "Python",
   "scores": {
    "abm": 65,
    "synth": 0,
    "llm_behavior": 6,
    "rl": 18,
-   "eval": 69
+   "eval": 69,
+   "bleed": 42
   },
   "primary_axis": "abm",
   "relevance": 48,
-  "analyzed_at": "2026-08-25T20:24:45+00:00",
+  "analyzed_at": "2026-08-26T19:44:58+00:00",
   "dimensions": [
    "wealth",
    "migration",
@@ -146,24 +150,25 @@
    "education"
   ],
   "models": [],
-  "file": "projectmesa__mesa.json"
+  "file": "mesa__mesa.json"
  },
  {
   "repo": "joonspk-research/generative_agents",
   "url": "https://github.com/joonspk-research/generative_agents",
   "description": "Generative Agents: Interactive Simulacra of Human Behavior",
-  "stars": 21987,
+  "stars": 21995,
   "language": null,
   "scores": {
    "abm": 0,
    "synth": 0,
    "llm_behavior": 43,
    "rl": 0,
-   "eval": 0
+   "eval": 0,
+   "bleed": 0
   },
   "primary_axis": "llm_behavior",
   "relevance": 32,
-  "analyzed_at": "2026-08-25T20:25:25+00:00",
+  "analyzed_at": "2026-08-26T19:45:41+00:00",
   "dimensions": [
    "age",
    "party",
@@ -183,11 +188,12 @@
    "synth": 16,
    "llm_behavior": 37,
    "rl": 11,
-   "eval": 48
+   "eval": 48,
+   "bleed": 62
   },
   "primary_axis": "llm_behavior",
   "relevance": 31,
-  "analyzed_at": "2026-08-25T20:27:19+00:00",
+  "analyzed_at": "2026-08-26T19:46:13+00:00",
   "dimensions": [
    "race",
    "child",
@@ -218,18 +224,19 @@
   "repo": "AgentTorch/AgentTorch",
   "url": "https://github.com/AgentTorch/AgentTorch",
   "description": "large population models",
-  "stars": 643,
+  "stars": 645,
   "language": "Jupyter Notebook",
   "scores": {
    "abm": 30,
    "synth": 22,
    "llm_behavior": 28,
    "rl": 32,
-   "eval": 84
+   "eval": 84,
+   "bleed": 42
   },
   "primary_axis": "abm",
   "relevance": 29,
-  "analyzed_at": "2026-08-25T20:25:42+00:00",
+  "analyzed_at": "2026-08-26T19:46:47+00:00",
   "dimensions": [
    "age",
    "region",
@@ -254,18 +261,19 @@
   "repo": "Farama-Foundation/PettingZoo",
   "url": "https://github.com/Farama-Foundation/PettingZoo",
   "description": "A standard API for multi-agent reinforcement learning environments, with popular reference environments and related utilities",
-  "stars": 3496,
+  "stars": 3497,
   "language": "Python",
   "scores": {
    "abm": 34,
    "synth": 7,
    "llm_behavior": 20,
    "rl": 87,
-   "eval": 45
+   "eval": 45,
+   "bleed": 23
   },
   "primary_axis": "abm",
   "relevance": 29,
-  "analyzed_at": "2026-08-25T20:25:58+00:00",
+  "analyzed_at": "2026-08-26T19:47:21+00:00",
   "dimensions": [
    "party",
    "race",
@@ -290,11 +298,12 @@
    "synth": 27,
    "llm_behavior": 18,
    "rl": 13,
-   "eval": 52
+   "eval": 52,
+   "bleed": 54
   },
   "primary_axis": "synth",
   "relevance": 25,
-  "analyzed_at": "2026-08-25T20:27:33+00:00",
+  "analyzed_at": "2026-08-26T19:47:39+00:00",
   "dimensions": [
    "displacement",
    "region",
@@ -326,11 +335,12 @@
    "synth": 33,
    "llm_behavior": 0,
    "rl": 11,
-   "eval": 48
+   "eval": 48,
+   "bleed": 21
   },
   "primary_axis": "synth",
   "relevance": 25,
-  "analyzed_at": "2026-08-25T20:25:03+00:00",
+  "analyzed_at": "2026-08-26T19:48:31+00:00",
   "dimensions": [
    "child",
    "age",
@@ -354,11 +364,12 @@
    "synth": 16,
    "llm_behavior": 24,
    "rl": 24,
-   "eval": 62
+   "eval": 62,
+   "bleed": 58
   },
   "primary_axis": "llm_behavior",
   "relevance": 20,
-  "analyzed_at": "2026-08-25T20:28:13+00:00",
+  "analyzed_at": "2026-08-26T19:48:55+00:00",
   "dimensions": [
    "region",
    "party",
@@ -391,11 +402,12 @@
    "synth": 16,
    "llm_behavior": 18,
    "rl": 13,
-   "eval": 44
+   "eval": 44,
+   "bleed": 62
   },
   "primary_axis": "abm",
   "relevance": 20,
-  "analyzed_at": "2026-08-25T20:27:52+00:00",
+  "analyzed_at": "2026-08-26T19:49:22+00:00",
   "dimensions": [
    "mobility",
    "vulnerability",
@@ -428,11 +440,12 @@
    "synth": 0,
    "llm_behavior": 0,
    "rl": 0,
-   "eval": 36
+   "eval": 36,
+   "bleed": 40
   },
   "primary_axis": "abm",
   "relevance": 15,
-  "analyzed_at": "2026-08-25T20:26:34+00:00",
+  "analyzed_at": "2026-08-26T19:49:28+00:00",
   "dimensions": [
    "household",
    "child",
@@ -461,11 +474,12 @@
    "synth": 0,
    "llm_behavior": 17,
    "rl": 24,
-   "eval": 28
+   "eval": 28,
+   "bleed": 42
   },
   "primary_axis": "llm_behavior",
   "relevance": 13,
-  "analyzed_at": "2026-08-25T20:26:38+00:00",
+  "analyzed_at": "2026-08-26T19:49:30+00:00",
   "dimensions": [
    "age",
    "child",
@@ -486,11 +500,12 @@
    "synth": 0,
    "llm_behavior": 17,
    "rl": 0,
-   "eval": 44
+   "eval": 44,
+   "bleed": 10
   },
   "primary_axis": "llm_behavior",
   "relevance": 13,
-  "analyzed_at": "2026-08-25T20:27:54+00:00",
+  "analyzed_at": "2026-08-26T19:49:34+00:00",
   "dimensions": [
    "age"
   ],
@@ -510,11 +525,12 @@
    "synth": 7,
    "llm_behavior": 11,
    "rl": 0,
-   "eval": 59
+   "eval": 59,
+   "bleed": 38
   },
   "primary_axis": "llm_behavior",
   "relevance": 10,
-  "analyzed_at": "2026-08-25T20:27:04+00:00",
+  "analyzed_at": "2026-08-26T19:49:45+00:00",
   "dimensions": [
    "disabled",
    "age",
@@ -547,11 +563,12 @@
    "synth": 9,
    "llm_behavior": 11,
    "rl": 0,
-   "eval": 47
+   "eval": 47,
+   "bleed": 73
   },
   "primary_axis": "llm_behavior",
   "relevance": 10,
-  "analyzed_at": "2026-08-25T20:26:55+00:00",
+  "analyzed_at": "2026-08-26T19:50:08+00:00",
   "dimensions": [
    "party",
    "region",
@@ -582,11 +599,12 @@
    "synth": 0,
    "llm_behavior": 0,
    "rl": 0,
-   "eval": 31
+   "eval": 31,
+   "bleed": 42
   },
   "primary_axis": "abm",
   "relevance": 9,
-  "analyzed_at": "2026-08-25T20:27:36+00:00",
+  "analyzed_at": "2026-08-26T19:50:12+00:00",
   "dimensions": [
    "vulnerability",
    "displacement",
@@ -617,11 +635,12 @@
    "synth": 0,
    "llm_behavior": 7,
    "rl": 0,
-   "eval": 56
+   "eval": 56,
+   "bleed": 19
   },
   "primary_axis": "abm",
   "relevance": 9,
-  "analyzed_at": "2026-08-25T20:26:37+00:00",
+  "analyzed_at": "2026-08-26T19:50:17+00:00",
   "dimensions": [
    "mobility",
    "vulnerability",
@@ -650,11 +669,12 @@
    "synth": 0,
    "llm_behavior": 12,
    "rl": 0,
-   "eval": 31
+   "eval": 31,
+   "bleed": 19
   },
   "primary_axis": "llm_behavior",
   "relevance": 9,
-  "analyzed_at": "2026-08-25T20:28:00+00:00",
+  "analyzed_at": "2026-08-26T19:50:28+00:00",
   "dimensions": [
    "region",
    "party",
@@ -681,11 +701,12 @@
    "synth": 0,
    "llm_behavior": 11,
    "rl": 0,
-   "eval": 47
+   "eval": 47,
+   "bleed": 54
   },
   "primary_axis": "llm_behavior",
   "relevance": 9,
-  "analyzed_at": "2026-08-25T20:26:58+00:00",
+  "analyzed_at": "2026-08-26T19:50:34+00:00",
   "dimensions": [
    "party",
    "disabled",
@@ -717,11 +738,12 @@
    "synth": 9,
    "llm_behavior": 0,
    "rl": 0,
-   "eval": 52
+   "eval": 52,
+   "bleed": 10
   },
   "primary_axis": "abm",
   "relevance": 9,
-  "analyzed_at": "2026-08-25T20:27:23+00:00",
+  "analyzed_at": "2026-08-26T19:50:39+00:00",
   "dimensions": [
    "vulnerability",
    "party",

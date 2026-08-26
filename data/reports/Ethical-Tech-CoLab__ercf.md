@@ -2,7 +2,7 @@
 
 > ERCF — Evacuation Risk and Cost Framework: decision-support tool estimating the human and financial cost of civilian evacuation in armed conflict
 
-[https://github.com/Ethical-Tech-CoLab/ercf](https://github.com/Ethical-Tech-CoLab/ercf) · ★0 · Python · analyzed 2026-08-25
+[https://github.com/Ethical-Tech-CoLab/ercf](https://github.com/Ethical-Tech-CoLab/ercf) · ★0 · Python · analyzed 2026-08-26
 
 ## Axis scores
 
@@ -11,6 +11,7 @@
 - **LLM-based behavioral modeling** `██········` 18/100
 - **Reinforcement learning / policy search** `█·········` 13/100
 - **Evaluation & validation rigor** `█████·····` 52/100
+- **Context isolation** `█████·····` 54/100
 
 Agentic-behavior relevance: **25/100** (primary axis: Synthetic data generation)
 
@@ -44,6 +45,14 @@ Agentic-behavior relevance: **25/100** (primary axis: Synthetic data generation)
 - **Validation practice** — `ERCF-Paper.md:705`
 - **Seeded, reproducible runs** — `reference/india-evac/ARCHITECTURE.md:33`
 - **Documentation or write-up** — `docs/after-the-corridor.pdf`
+
+### Context isolation
+
+- **Per-agent private state the other agents are not given** — `static/index.html:1889`
+- **Explicit rules for what each agent may see** — `static/index.html:239`
+- **Context scoped or isolated per agent** — `docs/snapshot/index.json:3209`
+- **Runs treated as independent replications** — `rics/DESIGN.md:6`
+- **Explicit contamination or leakage checking** — `docs/snapshot/index.json:696`
 
 ## Population dimensions modeled
 

@@ -6,7 +6,7 @@
   "language": null,
   "license": "NOASSERTION",
   "pushed_at": "2026-08-19T15:53:49Z",
-  "analyzed_at": "2026-08-25T20:27:19+00:00",
+  "analyzed_at": "2026-08-26T19:46:13+00:00",
   "files_total": 844,
   "files_eligible": 617,
   "files_read": 120,
@@ -121,7 +121,8 @@
     "synth": 16,
     "llm_behavior": 37,
     "rl": 11,
-    "eval": 48
+    "eval": 48,
+    "bleed": 62
   },
   "primary_axis": "llm_behavior",
   "relevance": 31,
@@ -232,6 +233,50 @@
         "weight": 5,
         "where": "docs/AUTONOMOUS-RUN-REPORT-P0-P2.md",
         "evidence": "docs/AUTONOMOUS-RUN-REPORT-P0-P2.md"
+      }
+    ],
+    "bleed": [
+      {
+        "signal": "private_state",
+        "label": "Per-agent private state the other agents are not given",
+        "weight": 12,
+        "where": "web/frontend/docs/code-of-conduct.md:29",
+        "evidence": "cks *   Public or private harassment *   Publishing others' private information, such as a physical or electronic     address, without expl"
+      },
+      {
+        "signal": "visibility_rules",
+        "label": "Explicit rules for what each agent may see",
+        "weight": 10,
+        "where": "web/frontend/src/app/components/a2ui/docs/A2UI_Generative_Architecture.md:38",
+        "evidence": "ned rectangle on a user's screen (such as a modal window, a sidebar, or an inline chat bubble).  When an agent needs to communi"
+      },
+      {
+        "signal": "context_scoping",
+        "label": "Context scoped or isolated per agent",
+        "weight": 10,
+        "where": "docs/guides/adk-agent-performance-optimization.md:283",
+        "evidence": "b-agents concurrently using `asyncio.TaskGroup`, each in an isolated branch context.  ### Use cases  - **Best-of-N generation**:"
+      },
+      {
+        "signal": "fresh_context",
+        "label": "State cleared between runs rather than carried over",
+        "weight": 8,
+        "where": "docs/guides/adk-agent-performance-optimization.md:469",
+        "evidence": "`none`    | Model receives no prior history              | Stateless classifiers, routers |  ### When to Use `none`  - The agent"
+      },
+      {
+        "signal": "independent_runs",
+        "label": "Runs treated as independent replications",
+        "weight": 8,
+        "where": "docs/P7-MARIUPOL-PREP.md:56",
+        "evidence": "RAI_AR](https://github.com/Ethical-Tech-CoLab/CERAI_AR)** \u2014 Monte Carlo   evacuation model. \u2192 multi-run over seed sets; ties into t"
+      },
+      {
+        "signal": "contamination",
+        "label": "Explicit contamination or leakage checking",
+        "weight": 12,
+        "where": "agents/tests/test_simulation_isolation_e2e.py:686",
+        "evidence": "ns.\"         )      # Verify they're all the same (no cross-contamination)     assert len(set(collected_sim_ids)) == 1, f\"Expected al"
       }
     ]
   },

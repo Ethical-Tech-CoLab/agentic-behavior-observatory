@@ -2,7 +2,7 @@
 
 > 🐫 CAMEL: The first and the best multi-agent framework. Finding the Scaling Law of Agents. https://www.camel-ai.org
 
-[https://github.com/camel-ai/camel](https://github.com/camel-ai/camel) · ★17639 · Python · analyzed 2026-08-25
+[https://github.com/camel-ai/camel](https://github.com/camel-ai/camel) · ★17645 · Python · analyzed 2026-08-26
 
 ## Axis scores
 
@@ -11,6 +11,7 @@
 - **LLM-based behavioral modeling** `██████····` 62/100
 - **Reinforcement learning / policy search** `███·······` 32/100
 - **Evaluation & validation rigor** `███████···` 72/100
+- **Context isolation** `████······` 38/100
 
 Agentic-behavior relevance: **50/100** (primary axis: LLM-based behavioral modeling)
 
@@ -52,6 +53,13 @@ Agentic-behavior relevance: **50/100** (primary axis: LLM-based behavioral model
 - **Validation practice** — `docs/cookbooks/data_generation/self_improving_cot_generation.md:48`
 - **Seeded, reproducible runs** — `docs/key_modules/datagen.md:314`
 - **Documentation or write-up** — `docs/Makefile`
+
+### Context isolation
+
+- **Explicit rules for what each agent may see** — `.camel/skills/skill-creator/SKILL.md:114`
+- **Context scoped or isolated per agent** — `docs/reference/camel.models.base_model.md:26`
+- **State cleared between runs rather than carried over** — `docs/reference/camel.agents.chat_agent.md:925`
+- **Runs treated as independent replications** — `docs/key_modules/datagen.md:26`
 
 ## Population dimensions modeled
 

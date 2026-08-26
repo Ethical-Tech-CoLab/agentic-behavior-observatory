@@ -2,7 +2,7 @@
 
 > Generative Agents: Interactive Simulacra of Human Behavior
 
-[https://github.com/joonspk-research/generative_agents](https://github.com/joonspk-research/generative_agents) · ★21987 · n/a · analyzed 2026-08-25
+[https://github.com/joonspk-research/generative_agents](https://github.com/joonspk-research/generative_agents) · ★21995 · n/a · analyzed 2026-08-26
 
 ## Axis scores
 
@@ -11,6 +11,7 @@
 - **LLM-based behavioral modeling** `████······` 43/100
 - **Reinforcement learning / policy search** `··········` 0/100
 - **Evaluation & validation rigor** `··········` 0/100
+- **Context isolation** `··········` 0/100
 
 Agentic-behavior relevance: **32/100** (primary axis: LLM-based behavioral modeling)
 

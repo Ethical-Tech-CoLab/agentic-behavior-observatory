@@ -2,7 +2,7 @@
 
 > Digital Provenance Passport — an x402-native agent that traces artwork provenance, flags looting/repatriation risk, and issues a signed tamper-evident passport
 
-[https://github.com/Ethical-Tech-CoLab/arts-provenance-agent](https://github.com/Ethical-Tech-CoLab/arts-provenance-agent) · ★0 · TypeScript · analyzed 2026-08-25
+[https://github.com/Ethical-Tech-CoLab/arts-provenance-agent](https://github.com/Ethical-Tech-CoLab/arts-provenance-agent) · ★0 · TypeScript · analyzed 2026-08-26
 
 ## Axis scores
 
@@ -11,6 +11,7 @@
 - **LLM-based behavioral modeling** `█·········` 12/100
 - **Reinforcement learning / policy search** `··········` 0/100
 - **Evaluation & validation rigor** `███·······` 31/100
+- **Context isolation** `██········` 19/100
 
 Agentic-behavior relevance: **9/100** (primary axis: LLM-based behavioral modeling)
 
@@ -25,6 +26,11 @@ Agentic-behavior relevance: **9/100** (primary axis: LLM-based behavioral modeli
 
 - **Distributional fidelity metrics** — `DPP-Paper.md:325`
 - **Validation practice** — `PEER-REVIEW.md:27`
+
+### Context isolation
+
+- **Explicit rules for what each agent may see** — `DPP-Paper.md:75`
+- **Runs treated as independent replications** — `src/agent/payForCheck.ts:70`
 
 ## Population dimensions modeled
 

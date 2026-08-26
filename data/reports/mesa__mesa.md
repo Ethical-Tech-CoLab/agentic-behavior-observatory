@@ -1,8 +1,8 @@
-# projectmesa/mesa
+# mesa/mesa
 
 > Mesa is an open-source Python library for agent-based modeling, ideal for simulating complex systems and exploring emergent behaviors.
 
-[https://github.com/mesa/mesa](https://github.com/mesa/mesa) · ★3806 · Python · analyzed 2026-08-25
+[https://github.com/mesa/mesa](https://github.com/mesa/mesa) · ★3810 · Python · analyzed 2026-08-26
 
 ## Axis scores
 
@@ -11,6 +11,7 @@
 - **LLM-based behavioral modeling** `█·········` 6/100
 - **Reinforcement learning / policy search** `██········` 18/100
 - **Evaluation & validation rigor** `███████···` 69/100
+- **Context isolation** `████······` 42/100
 
 Agentic-behavior relevance: **48/100** (primary axis: Agent-based simulation)
 
@@ -47,6 +48,13 @@ Agentic-behavior relevance: **48/100** (primary axis: Agent-based simulation)
 - **Seeded, reproducible runs** — `HISTORY.md:837`
 - **Experiment tracking / sweeps** — `docs/tutorials/5_collecting_data.ipynb:480`
 - **Documentation or write-up** — `docs/GSoC.md`
+
+### Context isolation
+
+- **Per-agent private state the other agents are not given** — `CODE_OF_CONDUCT.md:36`
+- **Explicit rules for what each agent may see** — `HISTORY.md:3044`
+- **Context scoped or isolated per agent** — `HISTORY.md:1117`
+- **Runs treated as independent replications** — `HISTORY.md:437`
 
 ## Population dimensions modeled
 

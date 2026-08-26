@@ -6,7 +6,7 @@
   "language": "Python",
   "license": "MIT",
   "pushed_at": "2026-08-14T17:55:29Z",
-  "analyzed_at": "2026-08-25T20:27:54+00:00",
+  "analyzed_at": "2026-08-26T19:49:34+00:00",
   "files_total": 19,
   "files_eligible": 17,
   "files_read": 17,
@@ -29,7 +29,8 @@
     "synth": 0,
     "llm_behavior": 17,
     "rl": 0,
-    "eval": 44
+    "eval": 44,
+    "bleed": 10
   },
   "primary_axis": "llm_behavior",
   "relevance": 13,
@@ -82,6 +83,15 @@
         "weight": 10,
         "where": "RESPONSIBLEAI-HOW-TO-GUIDE.md:343",
         "evidence": "le passing cases for human review; automated judges are not ground truth.  ## 9. Baselines, artifacts, and decision rules  - A first"
+      }
+    ],
+    "bleed": [
+      {
+        "signal": "context_scoping",
+        "label": "Context scoped or isolated per agent",
+        "weight": 10,
+        "where": "RESPONSIBLEAI-HOW-TO-GUIDE.md:201",
+        "evidence": "ort-lived credentials issued only after approval, or run an isolated trusted evaluator that does not expose reusable secrets to"
       }
     ]
   },

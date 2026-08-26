@@ -1,13 +1,13 @@
 :root{
   --bg:#0d1117; --panel:#151b23; --panel-2:#1c232c; --line:#2a323d;
   --ink:#e6edf3; --ink-2:#9aa7b4; --accent:#5eead4; --accent-2:#818cf8;
-  --abm:#5eead4; --synth:#818cf8; --llm:#f0abfc; --rl:#fbbf24; --eval:#7dd3fc;
+  --abm:#5eead4; --synth:#818cf8; --llm:#f0abfc; --rl:#fbbf24; --eval:#7dd3fc; --bleed:#fb923c;
   --radius:14px;
 }
 :root[data-theme="light"]{
   --bg:#f6f8fa; --panel:#ffffff; --panel-2:#f0f3f6; --line:#d8dee4;
   --ink:#1f2328; --ink-2:#59636e; --accent:#0d9488; --accent-2:#4f46e5;
-  --abm:#0d9488; --synth:#4f46e5; --llm:#a21caf; --rl:#b45309; --eval:#0369a1;
+  --abm:#0d9488; --synth:#4f46e5; --llm:#a21caf; --rl:#b45309; --eval:#0369a1; --bleed:#c2410c;
 }
 *{box-sizing:border-box}
 /* Author display rules outrank the UA [hidden] rule, so state it once, loudly. */
@@ -142,6 +142,15 @@ button:disabled{opacity:.6;cursor:progress}
    Definitions tab, with a left rule to mark it as a response to the click
    rather than another band of the page. */
 .axis-note{margin:0 0 18px}
+/* The axis label in the detail sheet is a control, but it has to keep the
+   exact metrics of the plain label beside the bar or the rows stop aligning. */
+.axis-name{font:inherit;color:inherit;background:none;border:0;padding:0;
+  text-align:left;cursor:pointer;text-decoration:underline;
+  text-decoration-style:dotted;text-underline-offset:3px}
+.axis-name:hover{color:var(--ink)}
+.axis-name[aria-expanded="true"]{color:var(--ink);text-decoration-style:solid}
+.sheet-scores-h{margin:20px 0 6px}
+.sheet-scores-note{margin:0}
 .axis-note .defs{margin:0}
 .axis-note .defs>div{border-left:3px solid currentColor}
 .axis-note-more{display:block;margin-top:12px;font:inherit;font-size:12px;cursor:pointer;

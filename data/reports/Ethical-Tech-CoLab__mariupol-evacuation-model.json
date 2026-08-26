@@ -6,7 +6,7 @@
   "language": "HTML",
   "license": null,
   "pushed_at": "2026-07-26T04:10:58Z",
-  "analyzed_at": "2026-08-25T20:27:23+00:00",
+  "analyzed_at": "2026-08-26T19:50:39+00:00",
   "files_total": 19,
   "files_eligible": 14,
   "files_read": 13,
@@ -16,7 +16,8 @@
     "synth": 9,
     "llm_behavior": 0,
     "rl": 0,
-    "eval": 52
+    "eval": 52,
+    "bleed": 10
   },
   "primary_axis": "abm",
   "relevance": 9,
@@ -76,6 +77,15 @@
         "weight": 5,
         "where": "docs/METHODOLOGY.md",
         "evidence": "docs/METHODOLOGY.md"
+      }
+    ],
+    "bleed": [
+      {
+        "signal": "visibility_rules",
+        "label": "Explicit rules for what each agent may see",
+        "weight": 10,
+        "where": "peer-review/mariupol-severity-model-Peer-Review.md:47",
+        "evidence": "l weather of March\u2013May 2022. This last point is more than a disclosure issue. Cold burden is the dominant driver on 23 days (\u00a74.5)"
       }
     ]
   },

@@ -6,6 +6,7 @@ const AXES = {
   llm_behavior: ["LLM behavior", "var(--llm)"],
   rl: ["Reinforcement", "var(--rl)"],
   eval: ["Evaluation", "var(--eval)"],
+  bleed: ["Context isolation", "var(--bleed)"],
 };
 // The three axes that describe what work is about. `primary_axis` is always
 // one of these, so a chip for a method axis cannot filter on it: reinforcement
@@ -109,6 +110,15 @@ $("#saveTok").onclick = () => {
 const bar = (label, value, color) => `
   <div class="axis"><span>${label}</span>
     <div class="track"><div class="fill" style="width:${value}%;background:${color}"></div></div>
+    <b>${value}</b></div>`;
+
+/** The same bar, with the axis name as a button into its definition. Used in
+ *  the detail sheet, where someone is reading one repository closely and is
+ *  most likely to want to know what a number counts. */
+const axisBar = (key, value) => `
+  <div class="axis"><button type="button" class="axis-name" data-def="${key}"
+      title="What ${AXES[key][0]} counts">${AXES[key][0]}</button>
+    <div class="track"><div class="fill" style="width:${value}%;background:${AXES[key][1]}"></div></div>
     <b>${value}</b></div>`;
 
 const dimsOf = (r) => (Array.isArray(r.dimensions) ? r.dimensions : Object.keys(r.dimensions || {}));
@@ -224,9 +234,21 @@ async function openSheet(repo) {
       ★${full.stars} · ${full.language || "n/a"} · ${full.license || "no license"} ·
       ${full.files_read} of ${full.files_eligible ?? full.files_total} readable files
       (${full.files_total} in repo) · analyzed ${String(full.analyzed_at).slice(0, 10)}</p>
-    <div class="axes" style="margin:18px 0">${Object.keys(AXES).map((a) =>
-      bar(AXES[a][0], full.scores[a], AXES[a][1])).join("")}</div>
-    <p class="hint">Relevance <b>${full.relevance}/100</b> — 0.6 × strongest subject axis + 0.4 × their mean.</p>
+    <h3 class="sheet-scores-h">Scores</h3>
+    <p class="hint sheet-scores-note">Each bar is <b>signal coverage</b>: the share of that axis's
+      weighted vocabulary this repository exhibits, out of 100. It is not a quality judgment, and
+      not a comparison against another repository's merit. A high score says the axis is well
+      represented here; a low one says the vocabulary is thin or absent, which can equally mean the
+      practice was never written down. The evidence below is the finding; the number is only an
+      index into it.</p>
+    <div class="axes sheet-axes" style="margin:14px 0">${Object.keys(AXES).map((a) =>
+      axisBar(a, full.scores[a])).join("")}</div>
+    <p class="hint"><b>Subject axes</b> (agent-based sim, synthetic data, LLM behavior) say what the
+      work is about and set the headline. <b>Method axes</b> (reinforcement, evaluation, context
+      isolation) say how it is done and deliberately do not.
+      Relevance <b>${full.relevance}/100</b> = 0.6 × strongest subject axis + 0.4 × their mean.
+      Press an axis name to read what it counts.</p>
+    <div id="sheetDef" class="axis-note" hidden aria-live="polite"></div>
     <h3 style="margin-top:18px">Population dimensions</h3>
     <div class="tags">${Object.entries(full.dimensions).map(([k, v]) =>
       `<span class="tag" title="${v.files.join(", ")}">${k} · ${v.count}</span>`).join("") ||
@@ -236,6 +258,21 @@ async function openSheet(repo) {
       `<span class="tag">${m.model} · ${m.mentions}</span>`).join("") ||
       '<span class="hint">none detected</span>'}</div>
     <h3 style="margin-top:18px">Evidence</h3>${evidence || '<p class="hint">No signals fired.</p>'}`;
+
+  inner.querySelector(".sheet-axes").onclick = (e) => {
+    const b = e.target.closest(".axis-name"); if (!b) return;
+    const box = $("#sheetDef");
+    const same = box.dataset.key === b.dataset.def && !box.hidden;
+    [...inner.querySelectorAll(".axis-name")].forEach((n) =>
+      n.setAttribute("aria-expanded", String(!same && n === b)));
+    if (same) { box.hidden = true; box.dataset.key = ""; box.innerHTML = ""; return; }
+    const built = definitionNode(b.dataset.def);
+    if (!built) return;
+    box.style.color = AXES[b.dataset.def][1];
+    box.dataset.key = b.dataset.def;
+    box.replaceChildren(built[0]);
+    box.hidden = false;
+  };
 
   $("#close").onclick = () => { sheet.hidden = true; };
   $("#dl").onclick = () => {
@@ -267,22 +304,30 @@ $("#axisChips").innerHTML = Object.entries(AXES).map(([a, [label, color]]) =>
 // out of the Definitions tab rather than written twice, so the wording on the
 // two surfaces cannot drift apart; the only entry authored here is the ETC
 // chip's, which filters the corpus rather than naming a concept.
-function showAxisNote(key) {
-  const note = $("#axisNote");
-  if (!key) { note.hidden = true; note.innerHTML = ""; return; }
-
+/** A copy of one definition, taken from the Definitions tab so no wording is
+ *  authored twice. A <template> holds its content in .content; a live <div>
+ *  in the list is cloned directly. Either way the caller owns the copy, so
+ *  discarding it never removes anything from the tab it came from.
+ *  Returns [wrapper, cell] so the caller can append to the entry itself. */
+function definitionNode(key) {
   const src = document.getElementById(`def-${key}`);
-  if (!src) { note.hidden = true; note.innerHTML = ""; return; }
-
-  // A <template> holds its content in .content; a live <div> in the
-  // Definitions list is cloned directly. Either way the note owns a copy, so
-  // collapsing it never removes anything from the tab it came from.
+  if (!src) return null;
   const body = src.content ? src.content.cloneNode(true) : src.cloneNode(true);
   const wrap = document.createElement("dl");
   wrap.className = "defs axis-note-defs";
   const cell = document.createElement("div");
   cell.append(...(body.children ? [...body.children] : [body]));
   wrap.append(cell);
+  return [wrap, cell];
+}
+
+function showAxisNote(key) {
+  const note = $("#axisNote");
+  if (!key) { note.hidden = true; note.innerHTML = ""; return; }
+
+  const built = definitionNode(key);
+  if (!built) { note.hidden = true; note.innerHTML = ""; return; }
+  const [wrap, cell] = built;
 
   // The left rule inherits currentColor, so the note is tinted to match the
   // chip that opened it. ETC has its own accent.

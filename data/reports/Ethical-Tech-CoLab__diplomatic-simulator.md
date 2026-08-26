@@ -2,7 +2,7 @@
 
 > Diplomatic Simulator — interactive multi-party diplomatic negotiation simulation (Ethical Tech CoLab)
 
-[https://github.com/Ethical-Tech-CoLab/diplomatic-simulator](https://github.com/Ethical-Tech-CoLab/diplomatic-simulator) · ★0 · HTML · analyzed 2026-08-25
+[https://github.com/Ethical-Tech-CoLab/diplomatic-simulator](https://github.com/Ethical-Tech-CoLab/diplomatic-simulator) · ★0 · HTML · analyzed 2026-08-26
 
 ## Axis scores
 
@@ -11,6 +11,7 @@
 - **LLM-based behavioral modeling** `█·········` 11/100
 - **Reinforcement learning / policy search** `··········` 0/100
 - **Evaluation & validation rigor** `█████·····` 47/100
+- **Context isolation** `███████···` 73/100
 
 Agentic-behavior relevance: **10/100** (primary axis: LLM-based behavioral modeling)
 
@@ -34,6 +35,16 @@ Agentic-behavior relevance: **10/100** (primary axis: LLM-based behavioral model
 - **Distributional fidelity metrics** — `DiplomaticSimulator-Paper.md:375`
 - **Validation practice** — `DiplomaticSimulator-Paper.md:32`
 - **Fairness/representativeness checking** — `DiplomaticSimulator-Paper.md:42`
+
+### Context isolation
+
+- **Per-agent private state the other agents are not given** — `DiplomaticSimulator-Paper.md:16`
+- **Explicit rules for what each agent may see** — `sim/scenarios/arctic/transcript.md:40`
+- **Context scoped or isolated per agent** — `DiplomaticSimulator-Paper.md:26`
+- **Runs treated as independent replications** — `DiplomaticSimulator-Paper.md:236`
+- **Guards against the model answering as itself rather than the persona** — `DiplomaticSimulator-Paper.md:375`
+- **Guards against the model's own training reaching the scenario** — `sim/scenarios/cyprus/transcript.md:8`
+- **Explicit contamination or leakage checking** — `DiplomaticSimulator-Paper.md:400`
 
 ## Population dimensions modeled
 

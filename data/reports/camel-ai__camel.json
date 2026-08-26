@@ -2,11 +2,11 @@
   "repo": "camel-ai/camel",
   "url": "https://github.com/camel-ai/camel",
   "description": "\ud83d\udc2b CAMEL: The first and the best multi-agent framework. Finding the Scaling Law of Agents. https://www.camel-ai.org",
-  "stars": 17639,
+  "stars": 17645,
   "language": "Python",
   "license": "Apache-2.0",
   "pushed_at": "2026-08-21T11:36:45Z",
-  "analyzed_at": "2026-08-25T20:26:14+00:00",
+  "analyzed_at": "2026-08-26T19:44:31+00:00",
   "files_total": 2234,
   "files_eligible": 1485,
   "files_read": 120,
@@ -217,7 +217,8 @@
     "synth": 13,
     "llm_behavior": 62,
     "rl": 32,
-    "eval": 72
+    "eval": 72,
+    "bleed": 38
   },
   "primary_axis": "llm_behavior",
   "relevance": 50,
@@ -384,6 +385,36 @@
         "weight": 5,
         "where": "docs/Makefile",
         "evidence": "docs/Makefile"
+      }
+    ],
+    "bleed": [
+      {
+        "signal": "visibility_rules",
+        "label": "Explicit rules for what each agent may see",
+        "weight": 10,
+        "where": ".camel/skills/skill-creator/SKILL.md:114",
+        "evidence": "ion files just adds clutter and confusion.  ### Progressive Disclosure Design Principle  Skills use a three-level loading system t"
+      },
+      {
+        "signal": "context_scoping",
+        "label": "Context scoped or isolated per agent",
+        "weight": 10,
+        "where": "docs/reference/camel.models.base_model.md:26",
+        "evidence": "_  ```python def __new__(     mcs,     name,     bases,     namespace ): ```  Wraps run method with preprocessing if it exists in"
+      },
+      {
+        "signal": "fresh_context",
+        "label": "State cleared between runs rather than carried over",
+        "weight": 8,
+        "where": "docs/reference/camel.agents.chat_agent.md:925",
+        "evidence": "the conversation  <a id=\"camel.agents.chat_agent.ChatAgent.clear_memory\"></a>  ### clear_memory  ```python def clear_memory(self):"
+      },
+      {
+        "signal": "independent_runs",
+        "label": "Runs treated as independent replications",
+        "weight": 8,
+        "where": "docs/key_modules/datagen.md:26",
+        "evidence": "te>  <AccordionGroup> <Accordion title = \"Key Features\">  - Monte Carlo Tree Search (MCTS) for solution exploration - Binary Search"
       }
     ]
   },

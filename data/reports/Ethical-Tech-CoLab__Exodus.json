@@ -6,7 +6,7 @@
   "language": "HTML",
   "license": null,
   "pushed_at": "2026-07-23T18:04:48Z",
-  "analyzed_at": "2026-08-25T20:27:52+00:00",
+  "analyzed_at": "2026-08-26T19:49:22+00:00",
   "files_total": 139,
   "files_eligible": 130,
   "files_read": 22,
@@ -23,7 +23,8 @@
     "synth": 16,
     "llm_behavior": 18,
     "rl": 13,
-    "eval": 44
+    "eval": 44,
+    "bleed": 62
   },
   "primary_axis": "abm",
   "relevance": 20,
@@ -120,6 +121,50 @@
         "weight": 8,
         "where": "static/routes_sim.html:834",
         "evidence": ", groups, confMult) {   const INFO_RUNS = 100;   const BASE_SEED = 200001;    const baseResults = assignForInfoValue(destination"
+      }
+    ],
+    "bleed": [
+      {
+        "signal": "private_state",
+        "label": "Per-agent private state the other agents are not given",
+        "weight": 12,
+        "where": "calculators.py:41",
+        "evidence": "\"Source: Achilli & Osman, 'Humanitarianism's Thin Red Line', Journal of \"                   \"Humanitarian Affairs Vol."
+      },
+      {
+        "signal": "visibility_rules",
+        "label": "Explicit rules for what each agent may see",
+        "weight": 10,
+        "where": "live_data.py:141",
+        "evidence": "s are load-bearing here: without them \"closure\" fires on # \"disclosure\", \"mined\" on \"examined\", and \"passable\" on \"impassable\" \u2014 w"
+      },
+      {
+        "signal": "context_scoping",
+        "label": "Context scoped or isolated per agent",
+        "weight": 10,
+        "where": "historical_data.py:2689",
+        "evidence": "Aug-Oct 2017, ~60 days) would be within scope but cannot be isolated in available data.\"             ),             \"infra_denia"
+      },
+      {
+        "signal": "fresh_context",
+        "label": "State cleared between runs rather than carried over",
+        "weight": 8,
+        "where": "static/risk_assessment.html:934",
+        "evidence": "the population lacking adequate identity documents (no ID, stateless, contested nationality). High documentation issues slow or"
+      },
+      {
+        "signal": "independent_runs",
+        "label": "Runs treated as independent replications",
+        "weight": 8,
+        "where": "static/risk_assessment.html:205",
+        "evidence": "e22}.r-critical{color:#e74c3c}.r-extreme{color:#c0392b}  /* Monte Carlo Panel */ .mc-run-btn{width:100%;padding:10px;background:lin"
+      },
+      {
+        "signal": "contamination",
+        "label": "Explicit contamination or leakage checking",
+        "weight": 12,
+        "where": "static/risk_assessment.html:738",
+        "evidence": "<label>UXO/Mine Load (Zone) <span class=\"q\" data-tip=\"Contamination of the evacuation zone itself with mines, IEDs or unexplode"
       }
     ]
   },

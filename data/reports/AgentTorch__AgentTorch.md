@@ -2,7 +2,7 @@
 
 > large population models
 
-[https://github.com/AgentTorch/AgentTorch](https://github.com/AgentTorch/AgentTorch) · ★643 · Jupyter Notebook · analyzed 2026-08-25
+[https://github.com/AgentTorch/AgentTorch](https://github.com/AgentTorch/AgentTorch) · ★645 · Jupyter Notebook · analyzed 2026-08-26
 
 ## Axis scores
 
@@ -11,6 +11,7 @@
 - **LLM-based behavioral modeling** `███·······` 28/100
 - **Reinforcement learning / policy search** `███·······` 32/100
 - **Evaluation & validation rigor** `████████··` 84/100
+- **Context isolation** `████······` 42/100
 
 Agentic-behavior relevance: **29/100** (primary axis: Agent-based simulation)
 
@@ -51,6 +52,13 @@ Agentic-behavior relevance: **29/100** (primary axis: Agent-based simulation)
 - **Seeded, reproducible runs** — `agent_torch/models/macro_economics/trainer_calibnn.py:16`
 - **Experiment tracking / sweeps** — `agent_torch/models/macro_economics/trainer_calibnn.py:46`
 - **Documentation or write-up** — `agent_torch/models/predator_prey/docs/config-map.yaml`
+
+### Context isolation
+
+- **Per-agent private state the other agents are not given** — `CODE_OF_CONDUCT.md:34`
+- **Explicit rules for what each agent may see** — `docs/contributing.md:107`
+- **Context scoped or isolated per agent** — `agent_torch/models/covid/model_card.md:62`
+- **State cleared between runs rather than carried over** — `docs/tutorials/simulation-and-calibration/index.md:192`
 
 ## Population dimensions modeled
 

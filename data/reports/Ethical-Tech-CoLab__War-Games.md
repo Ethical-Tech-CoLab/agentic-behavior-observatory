@@ -2,7 +2,7 @@
 
 > A WarGames (1983)-inspired terminal thriller with a modern AI-agent framing, plus a Monte Carlo simulation harness and case study.
 
-[https://github.com/Ethical-Tech-CoLab/War-Games](https://github.com/Ethical-Tech-CoLab/War-Games) · ★1 · JavaScript · analyzed 2026-08-25
+[https://github.com/Ethical-Tech-CoLab/War-Games](https://github.com/Ethical-Tech-CoLab/War-Games) · ★1 · JavaScript · analyzed 2026-08-26
 
 ## Axis scores
 
@@ -11,6 +11,7 @@
 - **LLM-based behavioral modeling** `█·········` 11/100
 - **Reinforcement learning / policy search** `··········` 0/100
 - **Evaluation & validation rigor** `██████····` 59/100
+- **Context isolation** `████······` 38/100
 
 Agentic-behavior relevance: **10/100** (primary axis: LLM-based behavioral modeling)
 
@@ -34,6 +35,13 @@ Agentic-behavior relevance: **10/100** (primary axis: LLM-based behavioral model
 - **Validation practice** — `how-to-guide.md:197`
 - **Seeded, reproducible runs** — `DESIGN-IDEA-NORAD-SCENE.md:429`
 - **Fairness/representativeness checking** — `GAME-DESIGN.md:327`
+
+### Context isolation
+
+- **Context scoped or isolated per agent** — `sim/model-profiles.mjs:41`
+- **State cleared between runs rather than carried over** — `js/llm.js:142`
+- **Runs treated as independent replications** — `package.json:5`
+- **Guards against the model answering as itself rather than the persona** — `PAPER.md:42`
 
 ## Population dimensions modeled
 

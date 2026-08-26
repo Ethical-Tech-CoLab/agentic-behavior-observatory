@@ -2,7 +2,7 @@
 
 > A programming framework for agentic AI
 
-[https://github.com/microsoft/autogen](https://github.com/microsoft/autogen) · ★60627 · Python · analyzed 2026-08-25
+[https://github.com/microsoft/autogen](https://github.com/microsoft/autogen) · ★60640 · Python · analyzed 2026-08-26
 
 ## Axis scores
 
@@ -11,6 +11,7 @@
 - **LLM-based behavioral modeling** `███████···` 73/100
 - **Reinforcement learning / policy search** `█·········` 11/100
 - **Evaluation & validation rigor** `███████···` 72/100
+- **Context isolation** `██········` 21/100
 
 Agentic-behavior relevance: **56/100** (primary axis: LLM-based behavioral modeling)
 
@@ -45,6 +46,11 @@ Agentic-behavior relevance: **56/100** (primary axis: LLM-based behavioral model
 - **Validation practice** — `python/packages/agbench/CONTRIBUTING.md:11`
 - **Seeded, reproducible runs** — `python/docs/src/user-guide/agentchat-user-guide/migration-guide.md:257`
 - **Documentation or write-up** — `docs/design/01 - Programming Model.md`
+
+### Context isolation
+
+- **Explicit rules for what each agent may see** — `python/docs/src/user-guide/agentchat-user-guide/migration-guide.md:18`
+- **Context scoped or isolated per agent** — `python/docs/src/user-guide/agentchat-user-guide/magentic-one.md:27`
 
 ## Population dimensions modeled
 

@@ -6,7 +6,7 @@
   "language": "Python",
   "license": "NOASSERTION",
   "pushed_at": "2026-07-23T15:55:38Z",
-  "analyzed_at": "2026-08-25T20:28:13+00:00",
+  "analyzed_at": "2026-08-26T19:48:55+00:00",
   "files_total": 125,
   "files_eligible": 104,
   "files_read": 104,
@@ -78,7 +78,8 @@
     "synth": 16,
     "llm_behavior": 24,
     "rl": 24,
-    "eval": 62
+    "eval": 62,
+    "bleed": 58
   },
   "primary_axis": "llm_behavior",
   "relevance": 20,
@@ -182,6 +183,50 @@
         "weight": 5,
         "where": "docs/01-introduction.md",
         "evidence": "docs/01-introduction.md"
+      }
+    ],
+    "bleed": [
+      {
+        "signal": "visibility_rules",
+        "label": "Explicit rules for what each agent may see",
+        "weight": 10,
+        "where": "docs/02-foundation-models.md:55",
+        "evidence": "DeepSeek V4 Preview release. Grade B, official architecture disclosure. Accessed 2026-07-22.  [^mistral2026small]: Mistral AI (202"
+      },
+      {
+        "signal": "context_scoping",
+        "label": "Context scoped or isolated per agent",
+        "weight": 10,
+        "where": "docs/07-agentic-ai.md:22",
+        "evidence": "ng application remains materially harder than completing an isolated task, which is what a long-horizon workload actually requir"
+      },
+      {
+        "signal": "fresh_context",
+        "label": "State cleared between runs rather than carried over",
+        "weight": 8,
+        "where": "docs/javascripts/mathjax.js:21",
+        "evidence": "}, };  document$.subscribe(() => {   MathJax.startup.output.clearCache();   MathJax.typesetClear();   MathJax.texReset();   MathJa"
+      },
+      {
+        "signal": "independent_runs",
+        "label": "Runs treated as independent replications",
+        "weight": 8,
+        "where": "research-methodology.md:66",
+        "evidence": "itution under a documented methodology, without independent replication. Admits university research reports; technical reports; mod"
+      },
+      {
+        "signal": "knowledge_cutoff",
+        "label": "Guards against the model's own training reaching the scenario",
+        "weight": 8,
+        "where": "docs/model-profiles/other-models.md:95",
+        "evidence": "ks, with the grounding condition stated, since grounded and closed-book rates are different quantities.  ## Latency  _Scope._ Recor"
+      },
+      {
+        "signal": "contamination",
+        "label": "Explicit contamination or leakage checking",
+        "weight": 12,
+        "where": "docs/appendices/model-release-timeline.md:8",
+        "evidence": "e existed at training time, and is the axis along which any contamination argument is made.  ## Research checklist  - [ ] Populate re"
       }
     ]
   },

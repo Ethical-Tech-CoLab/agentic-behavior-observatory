@@ -2,7 +2,7 @@
 
 > Civilian Evacuation Risk Platform — one FastAPI app unifying the EII crisis map, ERCF scenario model, and CERAI risk assessment
 
-[https://github.com/Ethical-Tech-CoLab/Exodus](https://github.com/Ethical-Tech-CoLab/Exodus) · ★0 · HTML · analyzed 2026-08-25
+[https://github.com/Ethical-Tech-CoLab/Exodus](https://github.com/Ethical-Tech-CoLab/Exodus) · ★0 · HTML · analyzed 2026-08-26
 
 ## Axis scores
 
@@ -11,6 +11,7 @@
 - **LLM-based behavioral modeling** `██········` 18/100
 - **Reinforcement learning / policy search** `█·········` 13/100
 - **Evaluation & validation rigor** `████······` 44/100
+- **Context isolation** `██████····` 62/100
 
 Agentic-behavior relevance: **20/100** (primary axis: Agent-based simulation)
 
@@ -42,6 +43,15 @@ Agentic-behavior relevance: **20/100** (primary axis: Agent-based simulation)
 - **Distributional fidelity metrics** — `static/risk_assessment.html:1235`
 - **Validation practice** — `static/risk_assessment.html:536`
 - **Seeded, reproducible runs** — `static/routes_sim.html:834`
+
+### Context isolation
+
+- **Per-agent private state the other agents are not given** — `calculators.py:41`
+- **Explicit rules for what each agent may see** — `live_data.py:141`
+- **Context scoped or isolated per agent** — `historical_data.py:2689`
+- **State cleared between runs rather than carried over** — `static/risk_assessment.html:934`
+- **Runs treated as independent replications** — `static/risk_assessment.html:205`
+- **Explicit contamination or leakage checking** — `static/risk_assessment.html:738`
 
 ## Population dimensions modeled
 

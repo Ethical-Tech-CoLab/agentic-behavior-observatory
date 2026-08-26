@@ -18,6 +18,7 @@ AXES = {
     "llm_behavior": "LLM-based behavioral modeling",
     "rl": "Reinforcement learning / policy search",
     "eval": "Evaluation & validation rigor",
+    "bleed": "Context isolation",
 }
 
 # --- signals ------------------------------------------------------------
@@ -100,6 +101,55 @@ SIGNALS = [
     ("eval", "sweeps", "text", r"\b(wandb|mlflow|hydra|optuna|parameter sweep|grid search)\b", 8, "Experiment tracking / sweeps"),
     ("eval", "bias", "text", r"\b(bias audit|fairness|demographic parity|disparate impact|representativeness)\b", 10, "Fairness/representativeness checking"),
     ("eval", "docs", "path", r"(^|/)(docs?|paper|report)/", 5, "Documentation or write-up"),
+
+    # context isolation
+    #
+    # Context bleeding is information reaching a place the study assumes it
+    # cannot: one agent seeing another's private brief, a run inheriting the
+    # last one's memory, a model answering out of its own training rather than
+    # its persona, an evaluation item sitting in the prompt that is meant to
+    # test it.
+    #
+    # Like every other axis this one detects the *guards*, not the hazard, so
+    # a high score reads the same way here as it does everywhere else: this
+    # repository has the vocabulary of keeping contexts apart. Silence is not
+    # evidence of leakage, only of a boundary nobody wrote down.
+    ("bleed", "private_state", "text", r"\b(private[_ ]?(instructions?|strategy|state|brief|goals?|info(rmation)?)|"
+                                       r"privileged[_ ]instructions?|hidden[_ ]state|secret[_ ]goals?|"
+                                       r"confidential[_ ]brief|\bBATNA\b|red[_ ]lines?)\b", 12,
+     "Per-agent private state the other agents are not given"),
+    ("bleed", "visibility_rules", "text", r"\b(partial(ly)? observab|observability|information set|fog of war|"
+                                          r"visible[_ ]to|disclosure|need-to-know|caucus|sidebar|"
+                                          r"who can see|not shared with)\b", 10,
+     "Explicit rules for what each agent may see"),
+    ("bleed", "context_scoping", "text", r"\b(per-?agent (context|memory|state|history)|scoped (context|memory)|"
+                                         r"isolat(e|ed|ion)|sandbox(ed|ing)?|namespaced?|"
+                                         r"separate (context|conversation|session)s?)\b", 10,
+     "Context scoped or isolated per agent"),
+    ("bleed", "fresh_context", "text", r"\b(fresh (context|session|conversation|client)|new (session|conversation) per|"
+                                       r"stateless|reset[_ ]?(state|context|memory|between)|clear[_ ]?(history|memory|cache)|"
+                                       r"no[_ ]?cache|cache[_ ]?bust)\b", 8,
+     "State cleared between runs rather than carried over"),
+    ("bleed", "independent_runs", "text", r"\b(independent (runs?|replicat|trials?|samples?)|"
+                                          r"monte[_ ]?carlo|replications?|per-?run seed|"
+                                          r"repeated (trials?|runs?) )\b", 8,
+     "Runs treated as independent replications"),
+    ("bleed", "in_character", "text", r"\b(stay in character|out[- ]of[- ]character|break(ing)? character|"
+                                      r"in-?character|role fidelity|persona (adherence|drift)|"
+                                      r"do not use (your|outside|prior) knowledge)\b", 10,
+     "Guards against the model answering as itself rather than the persona"),
+    ("bleed", "knowledge_cutoff", "text", r"\b(knowledge cutoff|training cutoff|anachronis(m|tic)|"
+                                          r"closed[- ]book|grounded only in|as of (the )?scenario date)\b", 8,
+     "Guards against the model's own training reaching the scenario"),
+    ("bleed", "contamination", "text", r"\b(contaminat(ion|ed)|decontaminat|data leakage|"
+                                       r"train[- ](test|eval) (leak|overlap)|n-?gram overlap|canary (string|token))\b", 12,
+     "Explicit contamination or leakage checking"),
+    ("bleed", "blind_eval", "text", r"\b(blind(ed)? (evaluation|judge|review|scoring)|"
+                                    r"judge does not see|without seeing|held out from the prompt|"
+                                    r"no few-?shot from)\b", 10,
+     "Evaluation kept blind to what it is judging"),
+    ("bleed", "leak_test", "path", r"(^|/)(tests?|spec)/.*\b(isolat|leak|contaminat|privacy|visibility)\w*\.",
+     8, "A test that exercises the boundary itself"),
 ]
 
 # Demographic / stratification attributes the analyzer looks for, so a reader

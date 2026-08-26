@@ -6,7 +6,7 @@
   "language": "JavaScript",
   "license": null,
   "pushed_at": "2026-08-21T21:10:43Z",
-  "analyzed_at": "2026-08-25T20:27:04+00:00",
+  "analyzed_at": "2026-08-26T19:49:45+00:00",
   "files_total": 73,
   "files_eligible": 45,
   "files_read": 45,
@@ -16,7 +16,8 @@
     "synth": 7,
     "llm_behavior": 11,
     "rl": 0,
-    "eval": 59
+    "eval": 59,
+    "bleed": 38
   },
   "primary_axis": "llm_behavior",
   "relevance": 10,
@@ -77,6 +78,36 @@
         "weight": 10,
         "where": "GAME-DESIGN.md:327",
         "evidence": "tic and legible, or it costs more than it gives. - **Puzzle fairness.** The locked room must be solvable from information the ga"
+      }
+    ],
+    "bleed": [
+      {
+        "signal": "context_scoping",
+        "label": "Context scoped or isolated per agent",
+        "weight": 10,
+        "where": "sim/model-profiles.mjs:41",
+        "evidence": "etic responder bound to one game (fresh per run so state is isolated).  * @param {object} profile behavioral parameters  * @para"
+      },
+      {
+        "signal": "fresh_context",
+        "label": "State cleared between runs rather than carried over",
+        "weight": 8,
+        "where": "js/llm.js:142",
+        "evidence": "';     return true;   }   return false; }  /**  * One-shot, stateless JSON completion \u2014 no conversation history, hard timeout, ne"
+      },
+      {
+        "signal": "independent_runs",
+        "label": "Runs treated as independent replications",
+        "weight": 8,
+        "where": "package.json:5",
+        "evidence": ": \"A WarGames-inspired terminal thriller (vertical slice) + Monte Carlo simulation harness.\",   \"type\": \"module\",   \"scripts\": {"
+      },
+      {
+        "signal": "in_character",
+        "label": "Guards against the model answering as itself rather than the persona",
+        "weight": 10,
+        "where": "PAPER.md:42",
+        "evidence": "l real models were run. Real models will not escalate. They stay in character, keep their DEFCON changes conservative, and almost never d"
       }
     ]
   },

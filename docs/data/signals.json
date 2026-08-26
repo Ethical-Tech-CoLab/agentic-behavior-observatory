@@ -4,7 +4,8 @@
   "synth": "Synthetic data generation",
   "llm_behavior": "LLM-based behavioral modeling",
   "rl": "Reinforcement learning / policy search",
-  "eval": "Evaluation & validation rigor"
+  "eval": "Evaluation & validation rigor",
+  "bleed": "Context isolation"
  },
  "signals": [
   {
@@ -422,6 +423,86 @@
    "pattern": "(^|/)(docs?|paper|report)/",
    "weight": 5,
    "label": "Documentation or write-up"
+  },
+  {
+   "axis": "bleed",
+   "key": "private_state",
+   "kind": "text",
+   "pattern": "\\b(private[_ ]?(instructions?|strategy|state|brief|goals?|info(rmation)?)|privileged[_ ]instructions?|hidden[_ ]state|secret[_ ]goals?|confidential[_ ]brief|\\bBATNA\\b|red[_ ]lines?)\\b",
+   "weight": 12,
+   "label": "Per-agent private state the other agents are not given"
+  },
+  {
+   "axis": "bleed",
+   "key": "visibility_rules",
+   "kind": "text",
+   "pattern": "\\b(partial(ly)? observab|observability|information set|fog of war|visible[_ ]to|disclosure|need-to-know|caucus|sidebar|who can see|not shared with)\\b",
+   "weight": 10,
+   "label": "Explicit rules for what each agent may see"
+  },
+  {
+   "axis": "bleed",
+   "key": "context_scoping",
+   "kind": "text",
+   "pattern": "\\b(per-?agent (context|memory|state|history)|scoped (context|memory)|isolat(e|ed|ion)|sandbox(ed|ing)?|namespaced?|separate (context|conversation|session)s?)\\b",
+   "weight": 10,
+   "label": "Context scoped or isolated per agent"
+  },
+  {
+   "axis": "bleed",
+   "key": "fresh_context",
+   "kind": "text",
+   "pattern": "\\b(fresh (context|session|conversation|client)|new (session|conversation) per|stateless|reset[_ ]?(state|context|memory|between)|clear[_ ]?(history|memory|cache)|no[_ ]?cache|cache[_ ]?bust)\\b",
+   "weight": 8,
+   "label": "State cleared between runs rather than carried over"
+  },
+  {
+   "axis": "bleed",
+   "key": "independent_runs",
+   "kind": "text",
+   "pattern": "\\b(independent (runs?|replicat|trials?|samples?)|monte[_ ]?carlo|replications?|per-?run seed|repeated (trials?|runs?) )\\b",
+   "weight": 8,
+   "label": "Runs treated as independent replications"
+  },
+  {
+   "axis": "bleed",
+   "key": "in_character",
+   "kind": "text",
+   "pattern": "\\b(stay in character|out[- ]of[- ]character|break(ing)? character|in-?character|role fidelity|persona (adherence|drift)|do not use (your|outside|prior) knowledge)\\b",
+   "weight": 10,
+   "label": "Guards against the model answering as itself rather than the persona"
+  },
+  {
+   "axis": "bleed",
+   "key": "knowledge_cutoff",
+   "kind": "text",
+   "pattern": "\\b(knowledge cutoff|training cutoff|anachronis(m|tic)|closed[- ]book|grounded only in|as of (the )?scenario date)\\b",
+   "weight": 8,
+   "label": "Guards against the model's own training reaching the scenario"
+  },
+  {
+   "axis": "bleed",
+   "key": "contamination",
+   "kind": "text",
+   "pattern": "\\b(contaminat(ion|ed)|decontaminat|data leakage|train[- ](test|eval) (leak|overlap)|n-?gram overlap|canary (string|token))\\b",
+   "weight": 12,
+   "label": "Explicit contamination or leakage checking"
+  },
+  {
+   "axis": "bleed",
+   "key": "blind_eval",
+   "kind": "text",
+   "pattern": "\\b(blind(ed)? (evaluation|judge|review|scoring)|judge does not see|without seeing|held out from the prompt|no few-?shot from)\\b",
+   "weight": 10,
+   "label": "Evaluation kept blind to what it is judging"
+  },
+  {
+   "axis": "bleed",
+   "key": "leak_test",
+   "kind": "path",
+   "pattern": "(^|/)(tests?|spec)/.*\\b(isolat|leak|contaminat|privacy|visibility)\\w*\\.",
+   "weight": 8,
+   "label": "A test that exercises the boundary itself"
   }
  ],
  "demographics": [

@@ -2,11 +2,11 @@
   "repo": "Farama-Foundation/PettingZoo",
   "url": "https://github.com/Farama-Foundation/PettingZoo",
   "description": "A standard API for multi-agent reinforcement learning environments, with popular reference environments and related utilities",
-  "stars": 3496,
+  "stars": 3497,
   "language": "Python",
   "license": "MIT",
   "pushed_at": "2026-08-13T18:03:26Z",
-  "analyzed_at": "2026-08-25T20:25:58+00:00",
+  "analyzed_at": "2026-08-26T19:47:21+00:00",
   "files_total": 620,
   "files_eligible": 330,
   "files_read": 120,
@@ -101,7 +101,8 @@
     "synth": 7,
     "llm_behavior": 20,
     "rl": 87,
-    "eval": 45
+    "eval": 45,
+    "bleed": 23
   },
   "primary_axis": "abm",
   "relevance": 29,
@@ -188,7 +189,7 @@
         "label": "Stable-Baselines3 agents",
         "weight": 12,
         "where": "dependencies",
-        "evidence": "stable-baselines3"
+        "evidence": "sb3-contrib"
       },
       {
         "signal": "rllib",
@@ -254,6 +255,22 @@
         "weight": 5,
         "where": "docs/.gitignore",
         "evidence": "docs/.gitignore"
+      }
+    ],
+    "bleed": [
+      {
+        "signal": "private_state",
+        "label": "Per-agent private state the other agents are not given",
+        "weight": 12,
+        "where": "CODE_OF_CONDUCT.rst:41",
+        "evidence": ", or that hold others up for ridicule. * Publishing others' private information, such as a physical or email address, without explicit perm"
+      },
+      {
+        "signal": "context_scoping",
+        "label": "Context scoped or isolated per agent",
+        "weight": 10,
+        "where": "docs/content/basic_usage.md:71",
+        "evidence": "arning} The old environment creation API (`from pettingzoo.<namespace> import <game>` then `<game>.env()` / `<game>.parallel_env("
       }
     ]
   },

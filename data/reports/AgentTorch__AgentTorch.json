@@ -2,11 +2,11 @@
   "repo": "AgentTorch/AgentTorch",
   "url": "https://github.com/AgentTorch/AgentTorch",
   "description": "large population models",
-  "stars": 643,
+  "stars": 645,
   "language": "Jupyter Notebook",
   "license": "NOASSERTION",
   "pushed_at": "2026-08-01T03:00:47Z",
-  "analyzed_at": "2026-08-25T20:25:42+00:00",
+  "analyzed_at": "2026-08-26T19:46:47+00:00",
   "files_total": 399,
   "files_eligible": 241,
   "files_read": 120,
@@ -58,7 +58,8 @@
     "synth": 22,
     "llm_behavior": 28,
     "rl": 32,
-    "eval": 84
+    "eval": 84,
+    "bleed": 42
   },
   "primary_axis": "abm",
   "relevance": 29,
@@ -129,7 +130,7 @@
         "label": "LLM agent orchestration framework",
         "weight": 10,
         "where": "dependencies",
-        "evidence": "langchain"
+        "evidence": "dspy"
       },
       {
         "signal": "persona",
@@ -218,6 +219,36 @@
         "weight": 5,
         "where": "agent_torch/models/predator_prey/docs/config-map.yaml",
         "evidence": "agent_torch/models/predator_prey/docs/config-map.yaml"
+      }
+    ],
+    "bleed": [
+      {
+        "signal": "private_state",
+        "label": "Per-agent private state the other agents are not given",
+        "weight": 12,
+        "where": "CODE_OF_CONDUCT.md:34",
+        "evidence": "attacks * Public or private harassment * Publishing others' private information, such as a physical or email   address, without their expli"
+      },
+      {
+        "signal": "visibility_rules",
+        "label": "Explicit rules for what each agent may see",
+        "weight": 10,
+        "where": "docs/contributing.md:107",
+        "evidence": "> mkdocs serve ```  > Rememeber to add any new pages to the sidebar by editing `mkdocs.yaml`.  If you wish to write a tutorial,"
+      },
+      {
+        "signal": "context_scoping",
+        "label": "Context scoped or isolated per agent",
+        "weight": 10,
+        "where": "agent_torch/models/covid/model_card.md:62",
+        "evidence": ":**     - New infections based on network interactions    - Isolation decisions with LLM alignment capability 2. **Disease Progre"
+      },
+      {
+        "signal": "fresh_context",
+        "label": "State cleared between runs rather than carried over",
+        "weight": 8,
+        "where": "docs/tutorials/simulation-and-calibration/index.md:192",
+        "evidence": "For large simulations, consider using:    ```python    def clear_memory(runner):        runner.state_trajectory = []  # Clear traje"
       }
     ]
   },

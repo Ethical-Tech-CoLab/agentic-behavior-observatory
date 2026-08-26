@@ -2,7 +2,7 @@
 
 > Research knowledge base on AI models: architecture, training, evaluation, inference, hardware, and model profiles — an Ethical Tech CoLab project
 
-[https://github.com/Ethical-Tech-CoLab/AI-Models-Research](https://github.com/Ethical-Tech-CoLab/AI-Models-Research) · ★0 · Python · analyzed 2026-08-25
+[https://github.com/Ethical-Tech-CoLab/AI-Models-Research](https://github.com/Ethical-Tech-CoLab/AI-Models-Research) · ★0 · Python · analyzed 2026-08-26
 
 ## Axis scores
 
@@ -11,6 +11,7 @@
 - **LLM-based behavioral modeling** `██········` 24/100
 - **Reinforcement learning / policy search** `██········` 24/100
 - **Evaluation & validation rigor** `██████····` 62/100
+- **Context isolation** `██████····` 58/100
 
 Agentic-behavior relevance: **20/100** (primary axis: LLM-based behavioral modeling)
 
@@ -43,6 +44,15 @@ Agentic-behavior relevance: **20/100** (primary axis: LLM-based behavioral model
 - **Validation practice** — `data-sources.md:120`
 - **Fairness/representativeness checking** — `docs/09-benchmarking.md:14`
 - **Documentation or write-up** — `docs/01-introduction.md`
+
+### Context isolation
+
+- **Explicit rules for what each agent may see** — `docs/02-foundation-models.md:55`
+- **Context scoped or isolated per agent** — `docs/07-agentic-ai.md:22`
+- **State cleared between runs rather than carried over** — `docs/javascripts/mathjax.js:21`
+- **Runs treated as independent replications** — `research-methodology.md:66`
+- **Guards against the model's own training reaching the scenario** — `docs/model-profiles/other-models.md:95`
+- **Explicit contamination or leakage checking** — `docs/appendices/model-release-timeline.md:8`
 
 ## Population dimensions modeled
 

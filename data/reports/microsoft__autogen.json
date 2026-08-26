@@ -2,11 +2,11 @@
   "repo": "microsoft/autogen",
   "url": "https://github.com/microsoft/autogen",
   "description": "A programming framework for agentic AI",
-  "stars": 60627,
+  "stars": 60640,
   "language": "Python",
   "license": "CC-BY-4.0",
   "pushed_at": "2026-04-15T11:59:09Z",
-  "analyzed_at": "2026-08-25T20:26:31+00:00",
+  "analyzed_at": "2026-08-26T19:43:33+00:00",
   "files_total": 1837,
   "files_eligible": 1061,
   "files_read": 120,
@@ -217,7 +217,8 @@
     "synth": 0,
     "llm_behavior": 73,
     "rl": 11,
-    "eval": 72
+    "eval": 72,
+    "bleed": 21
   },
   "primary_axis": "llm_behavior",
   "relevance": 56,
@@ -273,7 +274,7 @@
         "label": "Local/self-hosted model runtime",
         "weight": 8,
         "where": "dependencies",
-        "evidence": "llama-cpp-python"
+        "evidence": "ollama"
       },
       {
         "signal": "persona",
@@ -355,6 +356,22 @@
         "weight": 5,
         "where": "docs/design/01 - Programming Model.md",
         "evidence": "docs/design/01 - Programming Model.md"
+      }
+    ],
+    "bleed": [
+      {
+        "signal": "visibility_rules",
+        "label": "Explicit rules for what each agent may see",
+        "weight": 10,
+        "where": "python/docs/src/user-guide/agentchat-user-guide/migration-guide.md:18",
+        "evidence": "ronous, event-driven architecture to address issues such as observability, flexibility, interactive control, and scale.  The `v0.4` A"
+      },
+      {
+        "signal": "context_scoping",
+        "label": "Context scoped or isolated per agent",
+        "weight": 10,
+        "where": "python/docs/src/user-guide/agentchat-user-guide/magentic-one.md:27",
+        "evidence": ". **Use Containers**: Run all tasks in docker containers to isolate the agents and prevent direct system attacks. 2. **Virtual"
       }
     ]
   },

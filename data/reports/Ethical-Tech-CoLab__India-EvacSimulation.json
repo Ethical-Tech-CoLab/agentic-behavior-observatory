@@ -6,7 +6,7 @@
   "language": "HTML",
   "license": "MIT",
   "pushed_at": "2026-07-28T16:34:38Z",
-  "analyzed_at": "2026-08-25T20:26:37+00:00",
+  "analyzed_at": "2026-08-26T19:50:17+00:00",
   "files_total": 22,
   "files_eligible": 15,
   "files_read": 15,
@@ -16,7 +16,8 @@
     "synth": 0,
     "llm_behavior": 7,
     "rl": 0,
-    "eval": 56
+    "eval": 56,
+    "bleed": 19
   },
   "primary_axis": "abm",
   "relevance": 9,
@@ -76,6 +77,22 @@
         "weight": 8,
         "where": "ERUS-Paper.md:233",
         "evidence": "t rather than only described. Anyone can regenerate it at `?seed=42&n=8&m=3&u=30` on the live site.  Of the eight generated de"
+      }
+    ],
+    "bleed": [
+      {
+        "signal": "context_scoping",
+        "label": "Context scoped or isolated per agent",
+        "weight": 10,
+        "where": "engine.js:269",
+        "evidence": "n (100 MC runs) used for factor-upgrade simulation. // Seed namespace offset avoids collision with main simulation seeds. // ===="
+      },
+      {
+        "signal": "independent_runs",
+        "label": "Runs treated as independent replications",
+        "weight": 8,
+        "where": "ERUS-Paper.md:30",
+        "evidence": "inistically, which lowers mean readiness, which pushes more Monte Carlo trials below the forty per cent success floor. The perturba"
       }
     ]
   },

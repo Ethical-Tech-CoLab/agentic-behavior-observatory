@@ -2,7 +2,7 @@
 
 > Evacuation Readiness & Uncertainty Simulator — models how field-intelligence uncertainty degrades civilian evacuation decisions in armed conflict
 
-[https://github.com/Ethical-Tech-CoLab/India-EvacSimulation](https://github.com/Ethical-Tech-CoLab/India-EvacSimulation) · ★0 · HTML · analyzed 2026-08-25
+[https://github.com/Ethical-Tech-CoLab/India-EvacSimulation](https://github.com/Ethical-Tech-CoLab/India-EvacSimulation) · ★0 · HTML · analyzed 2026-08-26
 
 ## Axis scores
 
@@ -11,6 +11,7 @@
 - **LLM-based behavioral modeling** `█·········` 7/100
 - **Reinforcement learning / policy search** `··········` 0/100
 - **Evaluation & validation rigor** `██████····` 56/100
+- **Context isolation** `██········` 19/100
 
 Agentic-behavior relevance: **9/100** (primary axis: Agent-based simulation)
 
@@ -31,6 +32,11 @@ Agentic-behavior relevance: **9/100** (primary axis: Agent-based simulation)
 - **Distributional fidelity metrics** — `ERUS-Paper.md:319`
 - **Validation practice** — `PEER-REVIEW.md:15`
 - **Seeded, reproducible runs** — `ERUS-Paper.md:233`
+
+### Context isolation
+
+- **Context scoped or isolated per agent** — `engine.js:269`
+- **Runs treated as independent replications** — `ERUS-Paper.md:30`
 
 ## Population dimensions modeled
 

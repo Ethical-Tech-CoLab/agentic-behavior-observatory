@@ -2,7 +2,7 @@
 
 > Researching grounded, auditable language emergence between isolated artificial agents
 
-[https://github.com/Ethical-Tech-CoLab/agentic-language-development](https://github.com/Ethical-Tech-CoLab/agentic-language-development) · ★1 · HTML · analyzed 2026-08-25
+[https://github.com/Ethical-Tech-CoLab/agentic-language-development](https://github.com/Ethical-Tech-CoLab/agentic-language-development) · ★1 · HTML · analyzed 2026-08-26
 
 ## Axis scores
 
@@ -11,6 +11,7 @@
 - **LLM-based behavioral modeling** `██········` 17/100
 - **Reinforcement learning / policy search** `██········` 24/100
 - **Evaluation & validation rigor** `███·······` 28/100
+- **Context isolation** `████······` 42/100
 
 Agentic-behavior relevance: **13/100** (primary axis: LLM-based behavioral modeling)
 
@@ -34,6 +35,13 @@ Agentic-behavior relevance: **13/100** (primary axis: LLM-based behavioral model
 
 - **Validation practice** — `CONCEPT-IDEA.md:413`
 - **Seeded, reproducible runs** — `EXPERIMENT-NOTEBOOK.md:106`
+
+### Context isolation
+
+- **Per-agent private state the other agents are not given** — `CONCEPT-IDEA.md:974`
+- **Explicit rules for what each agent may see** — `CONCEPT-IDEA.md:336`
+- **Context scoped or isolated per agent** — `CONCEPT-IDEA.md:12`
+- **Runs treated as independent replications** — `CONCEPT-IDEA.md:255`
 
 ## Population dimensions modeled
 

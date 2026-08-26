@@ -2,11 +2,11 @@
   "repo": "joonspk-research/generative_agents",
   "url": "https://github.com/joonspk-research/generative_agents",
   "description": "Generative Agents: Interactive Simulacra of Human Behavior",
-  "stars": 21987,
+  "stars": 21995,
   "language": null,
   "license": "Apache-2.0",
   "pushed_at": "2024-08-05T21:38:56Z",
-  "analyzed_at": "2026-08-25T20:25:25+00:00",
+  "analyzed_at": "2026-08-26T19:45:41+00:00",
   "files_total": 44016,
   "files_eligible": 42608,
   "files_read": 120,
@@ -85,7 +85,8 @@
     "synth": 0,
     "llm_behavior": 43,
     "rl": 0,
-    "eval": 0
+    "eval": 0,
+    "bleed": 0
   },
   "primary_axis": "llm_behavior",
   "relevance": 32,
@@ -123,7 +124,8 @@
       }
     ],
     "rl": [],
-    "eval": []
+    "eval": [],
+    "bleed": []
   },
   "dimensions": {
     "age": {

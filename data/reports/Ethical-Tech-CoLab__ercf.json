@@ -6,7 +6,7 @@
   "language": "Python",
   "license": null,
   "pushed_at": "2026-07-23T18:45:10Z",
-  "analyzed_at": "2026-08-25T20:27:33+00:00",
+  "analyzed_at": "2026-08-26T19:47:39+00:00",
   "files_total": 82,
   "files_eligible": 73,
   "files_read": 72,
@@ -23,7 +23,8 @@
     "synth": 27,
     "llm_behavior": 18,
     "rl": 13,
-    "eval": 52
+    "eval": 52,
+    "bleed": 54
   },
   "primary_axis": "synth",
   "relevance": 25,
@@ -134,6 +135,43 @@
         "weight": 5,
         "where": "docs/after-the-corridor.pdf",
         "evidence": "docs/after-the-corridor.pdf"
+      }
+    ],
+    "bleed": [
+      {
+        "signal": "private_state",
+        "label": "Per-agent private state the other agents are not given",
+        "weight": 12,
+        "where": "static/index.html:1889",
+        "evidence": "Source: Achilli &amp; Osman, \"Humanitarianism's Thin Red Line\", <em>Journal of Humanitarian Affairs</em> Vol. 5(3), 2024."
+      },
+      {
+        "signal": "visibility_rules",
+        "label": "Explicit rules for what each agent may see",
+        "weight": 10,
+        "where": "static/index.html:239",
+        "evidence": "r:#14532d; margin-top:.6rem; }  /* \u2500\u2500 Deployment assumption disclosure banner \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 */ .deploy-notice { borde"
+      },
+      {
+        "signal": "context_scoping",
+        "label": "Context scoped or isolated per agent",
+        "weight": 10,
+        "where": "docs/snapshot/index.json:3209",
+        "evidence": "Aug-Oct 2017, ~60 days) would be within scope but cannot be isolated in available data.\",       \"infra_denial_flag\": false     }"
+      },
+      {
+        "signal": "independent_runs",
+        "label": "Runs treated as independent replications",
+        "weight": 8,
+        "where": "rics/DESIGN.md:6",
+        "evidence": "nterval arithmetic via `base_uncertainty_pct`, not a second Monte Carlo).  Grounding: *After the Corridor* (Ethical Tech CoLab / NY"
+      },
+      {
+        "signal": "contamination",
+        "label": "Explicit contamination or leakage checking",
+        "weight": 12,
+        "where": "docs/snapshot/index.json:696",
+        "evidence": "ion capacity\",       \"Post-liberation return impeded by IED contamination\"     ],     \"ihl_issues\": [       \"Urban warfare\",       \"H"
       }
     ]
   },

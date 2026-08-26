@@ -6,7 +6,7 @@
   "language": "HTML",
   "license": "MIT",
   "pushed_at": "2026-08-24T18:43:49Z",
-  "analyzed_at": "2026-08-25T20:26:58+00:00",
+  "analyzed_at": "2026-08-26T19:50:34+00:00",
   "files_total": 35,
   "files_eligible": 18,
   "files_read": 18,
@@ -16,7 +16,8 @@
     "synth": 0,
     "llm_behavior": 11,
     "rl": 0,
-    "eval": 47
+    "eval": 47,
+    "bleed": 54
   },
   "primary_axis": "llm_behavior",
   "relevance": 9,
@@ -69,6 +70,43 @@
         "weight": 10,
         "where": "index.html:1926",
         "evidence": "'],\r   ['Principled appeal', 'Argument from law, precedent, fairness or an objective standard.', '0.4\u20130.8',\r    'The Fisher\u2013Ury"
+      }
+    ],
+    "bleed": [
+      {
+        "signal": "private_state",
+        "label": "Per-agent private state the other agents are not given",
+        "weight": 12,
+        "where": "app.html:300",
+        "evidence": ".tp-redline { border-left: 3px solid var(--err); }     .tp-batna { border-left: 3px solid var(--accent); padding: 10px; back"
+      },
+      {
+        "signal": "visibility_rules",
+        "label": "Explicit rules for what each agent may see",
+        "weight": 10,
+        "where": "README.md:34",
+        "evidence": "two AI and one human facilitator. The US and the E3 hold a caucus that Iran is not in, and this log contains it. | | **Ceasef"
+      },
+      {
+        "signal": "context_scoping",
+        "label": "Context scoped or isolated per agent",
+        "weight": 10,
+        "where": "app.html:2906",
+        "evidence": "uted); margin-bottom:10px;\">       Each party is a separate isolated <strong>team-twin</strong> holding its own private negotiat"
+      },
+      {
+        "signal": "in_character",
+        "label": "Guards against the model answering as itself rather than the persona",
+        "weight": 10,
+        "where": "index.html:484",
+        "evidence": "th</span></td>\r             <td>Read a windowed transcript, stay in character, advance a position, emit valid JSON, in\r                 u"
+      },
+      {
+        "signal": "blind_eval",
+        "label": "Evaluation kept blind to what it is judging",
+        "weight": 10,
+        "where": "README.md:49",
+        "evidence": "redaction. You can see that something was said at tick 15 without seeing what \u2014 which is a more   honest artefact than a transcript"
       }
     ]
   },

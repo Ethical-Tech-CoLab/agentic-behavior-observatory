@@ -2,7 +2,7 @@
 
 > Shared ASSERT and B3IQ responsible AI evaluation tooling for Ethical Tech CoLab
 
-[https://github.com/Ethical-Tech-CoLab/responsible-ai-evals](https://github.com/Ethical-Tech-CoLab/responsible-ai-evals) · ★0 · Python · analyzed 2026-08-25
+[https://github.com/Ethical-Tech-CoLab/responsible-ai-evals](https://github.com/Ethical-Tech-CoLab/responsible-ai-evals) · ★0 · Python · analyzed 2026-08-26
 
 ## Axis scores
 
@@ -11,6 +11,7 @@
 - **LLM-based behavioral modeling** `██········` 17/100
 - **Reinforcement learning / policy search** `··········` 0/100
 - **Evaluation & validation rigor** `████······` 44/100
+- **Context isolation** `█·········` 10/100
 
 Agentic-behavior relevance: **13/100** (primary axis: LLM-based behavioral modeling)
 
@@ -30,6 +31,10 @@ Agentic-behavior relevance: **13/100** (primary axis: LLM-based behavioral model
 - **Test suite present** — `tests/test_b3iq_proxy.py`
 - **Distributional fidelity metrics** — `RESPONSIBLEAI-HOW-TO-GUIDE.md:22`
 - **Validation practice** — `RESPONSIBLEAI-HOW-TO-GUIDE.md:343`
+
+### Context isolation
+
+- **Context scoped or isolated per agent** — `RESPONSIBLEAI-HOW-TO-GUIDE.md:201`
 
 ## Population dimensions modeled
 

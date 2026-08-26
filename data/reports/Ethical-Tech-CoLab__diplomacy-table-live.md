@@ -2,7 +2,7 @@
 
 > Diplomacy Table - configuration & teaching console for the DTSF multi-party AI negotiation simulator. Static, reference-only build.
 
-[https://github.com/Ethical-Tech-CoLab/diplomacy-table-live](https://github.com/Ethical-Tech-CoLab/diplomacy-table-live) · ★0 · HTML · analyzed 2026-08-25
+[https://github.com/Ethical-Tech-CoLab/diplomacy-table-live](https://github.com/Ethical-Tech-CoLab/diplomacy-table-live) · ★0 · HTML · analyzed 2026-08-26
 
 ## Axis scores
 
@@ -11,6 +11,7 @@
 - **LLM-based behavioral modeling** `█·········` 11/100
 - **Reinforcement learning / policy search** `··········` 0/100
 - **Evaluation & validation rigor** `█████·····` 47/100
+- **Context isolation** `█████·····` 54/100
 
 Agentic-behavior relevance: **9/100** (primary axis: LLM-based behavioral modeling)
 
@@ -30,6 +31,14 @@ Agentic-behavior relevance: **9/100** (primary axis: LLM-based behavioral modeli
 - **Distributional fidelity metrics** — `index.html:503`
 - **Validation practice** — `index.html:629`
 - **Fairness/representativeness checking** — `index.html:1926`
+
+### Context isolation
+
+- **Per-agent private state the other agents are not given** — `app.html:300`
+- **Explicit rules for what each agent may see** — `README.md:34`
+- **Context scoped or isolated per agent** — `app.html:2906`
+- **Guards against the model answering as itself rather than the persona** — `index.html:484`
+- **Evaluation kept blind to what it is judging** — `README.md:49`
 
 ## Population dimensions modeled
 

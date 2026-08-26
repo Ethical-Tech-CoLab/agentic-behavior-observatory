@@ -2,7 +2,7 @@
 
 > Evacuation Simulator — an agent-based model of how information spread and demographics shape community evacuation behavior
 
-[https://github.com/Ethical-Tech-CoLab/Evac-Sim-Melanie](https://github.com/Ethical-Tech-CoLab/Evac-Sim-Melanie) · ★0 · JavaScript · analyzed 2026-08-25
+[https://github.com/Ethical-Tech-CoLab/Evac-Sim-Melanie](https://github.com/Ethical-Tech-CoLab/Evac-Sim-Melanie) · ★0 · JavaScript · analyzed 2026-08-26
 
 ## Axis scores
 
@@ -11,6 +11,7 @@
 - **LLM-based behavioral modeling** `··········` 0/100
 - **Reinforcement learning / policy search** `··········` 0/100
 - **Evaluation & validation rigor** `████······` 36/100
+- **Context isolation** `████······` 40/100
 
 Agentic-behavior relevance: **15/100** (primary axis: Agent-based simulation)
 
@@ -28,6 +29,13 @@ Agentic-behavior relevance: **15/100** (primary axis: Agent-based simulation)
 - **Distributional fidelity metrics** — `EvacSim-Paper.md:548`
 - **Seeded, reproducible runs** — `src/EvacuationSim.jsx:92`
 - **Documentation or write-up** — `docs/assets/index-D3N-WJ4P.js`
+
+### Context isolation
+
+- **Explicit rules for what each agent may see** — `UX_SUGGESTIONS.md:68`
+- **Context scoped or isolated per agent** — `src/AboutPage.jsx:1214`
+- **Runs treated as independent replications** — `peer-review/evacuation-simulation-Peer-Review.md:23`
+- **Evaluation kept blind to what it is judging** — `peer-review/evacuation-simulation-Peer-Review.md:32`
 
 ## Population dimensions modeled
 

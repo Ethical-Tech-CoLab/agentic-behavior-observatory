@@ -2,7 +2,7 @@
 
 > A standard API for multi-agent reinforcement learning environments, with popular reference environments and related utilities
 
-[https://github.com/Farama-Foundation/PettingZoo](https://github.com/Farama-Foundation/PettingZoo) · ★3496 · Python · analyzed 2026-08-25
+[https://github.com/Farama-Foundation/PettingZoo](https://github.com/Farama-Foundation/PettingZoo) · ★3497 · Python · analyzed 2026-08-26
 
 ## Axis scores
 
@@ -11,6 +11,7 @@
 - **LLM-based behavioral modeling** `██········` 20/100
 - **Reinforcement learning / policy search** `█████████·` 87/100
 - **Evaluation & validation rigor** `████······` 45/100
+- **Context isolation** `██········` 23/100
 
 Agentic-behavior relevance: **29/100** (primary axis: Agent-based simulation)
 
@@ -50,6 +51,11 @@ Agentic-behavior relevance: **29/100** (primary axis: Agent-based simulation)
 - **Seeded, reproducible runs** — `docs/environments/atari.md:60`
 - **Experiment tracking / sweeps** — `docs/tutorials/agilerl/DQN.md:60`
 - **Documentation or write-up** — `docs/.gitignore`
+
+### Context isolation
+
+- **Per-agent private state the other agents are not given** — `CODE_OF_CONDUCT.rst:41`
+- **Context scoped or isolated per agent** — `docs/content/basic_usage.md:71`
 
 ## Population dimensions modeled
 

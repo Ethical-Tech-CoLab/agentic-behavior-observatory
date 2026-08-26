@@ -2,7 +2,7 @@
 
 > Race Condition fork: DTSF twin backend, GitHub Pages frontend workflow, self-hosted system design
 
-[https://github.com/Ethical-Tech-CoLab/race-condition-mod](https://github.com/Ethical-Tech-CoLab/race-condition-mod) · ★0 · n/a · analyzed 2026-08-25
+[https://github.com/Ethical-Tech-CoLab/race-condition-mod](https://github.com/Ethical-Tech-CoLab/race-condition-mod) · ★0 · n/a · analyzed 2026-08-26
 
 ## Axis scores
 
@@ -11,6 +11,7 @@
 - **LLM-based behavioral modeling** `████······` 37/100
 - **Reinforcement learning / policy search** `█·········` 11/100
 - **Evaluation & validation rigor** `█████·····` 48/100
+- **Context isolation** `██████····` 62/100
 
 Agentic-behavior relevance: **31/100** (primary axis: LLM-based behavioral modeling)
 
@@ -44,6 +45,15 @@ Agentic-behavior relevance: **31/100** (primary axis: LLM-based behavioral model
 - **Distributional fidelity metrics** — `pyproject.toml:91`
 - **Seeded, reproducible runs** — `docs/guides/adk-agent-performance-optimization.md:57`
 - **Documentation or write-up** — `docs/AUTONOMOUS-RUN-REPORT-P0-P2.md`
+
+### Context isolation
+
+- **Per-agent private state the other agents are not given** — `web/frontend/docs/code-of-conduct.md:29`
+- **Explicit rules for what each agent may see** — `web/frontend/src/app/components/a2ui/docs/A2UI_Generative_Architecture.md:38`
+- **Context scoped or isolated per agent** — `docs/guides/adk-agent-performance-optimization.md:283`
+- **State cleared between runs rather than carried over** — `docs/guides/adk-agent-performance-optimization.md:469`
+- **Runs treated as independent replications** — `docs/P7-MARIUPOL-PREP.md:56`
+- **Explicit contamination or leakage checking** — `agents/tests/test_simulation_isolation_e2e.py:686`
 
 ## Population dimensions modeled
 

@@ -1,14 +1,14 @@
 {
-  "repo": "projectmesa/mesa",
+  "repo": "mesa/mesa",
   "url": "https://github.com/mesa/mesa",
   "description": "Mesa is an open-source Python library for agent-based modeling, ideal for simulating complex systems and exploring emergent behaviors.",
-  "stars": 3806,
+  "stars": 3810,
   "language": "Python",
   "license": "Apache-2.0",
-  "pushed_at": "2026-08-25T08:50:29Z",
-  "analyzed_at": "2026-08-25T20:24:45+00:00",
-  "files_total": 237,
-  "files_eligible": 221,
+  "pushed_at": "2026-08-26T18:30:23Z",
+  "analyzed_at": "2026-08-26T19:44:58+00:00",
+  "files_total": 238,
+  "files_eligible": 222,
   "files_read": 120,
   "dependencies": [
     "abm",
@@ -87,7 +87,8 @@
     "synth": 0,
     "llm_behavior": 6,
     "rl": 18,
-    "eval": 69
+    "eval": 69,
+    "bleed": 42
   },
   "primary_axis": "abm",
   "relevance": 48,
@@ -239,6 +240,36 @@
         "weight": 5,
         "where": "docs/GSoC.md",
         "evidence": "docs/GSoC.md"
+      }
+    ],
+    "bleed": [
+      {
+        "signal": "private_state",
+        "label": "Per-agent private state the other agents are not given",
+        "weight": 12,
+        "where": "CODE_OF_CONDUCT.md:36",
+        "evidence": "attacks * Public or private harassment * Publishing others' private information, such as a physical or email address,   without their expli"
+      },
+      {
+        "signal": "visibility_rules",
+        "label": "Explicit rules for what each agent may see",
+        "weight": 10,
+        "where": "HISTORY.md:3044",
+        "evidence": "ss #429 -   Batchrunfixedparameters #423 -   \\[BUGFIX\\] Fix sidebar visibility in Edge #436 -   Updating Travis svg to target #"
+      },
+      {
+        "signal": "context_scoping",
+        "label": "Context scoped or isolated per agent",
+        "weight": 10,
+        "where": "HISTORY.md:1117",
+        "evidence": "ore: - Steps counter automatically increments - `mesa.flat` namespace removed - Python 3.10+ required - Reserved model variables"
+      },
+      {
+        "signal": "independent_runs",
+        "label": "Runs treated as independent replications",
+        "weight": 8,
+        "where": "HISTORY.md:437",
+        "evidence": "pdated to provide explicit control over random seeds across replications (#2841). Previously, using `iterations` with a fixed seed c"
       }
     ]
   },

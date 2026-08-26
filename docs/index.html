@@ -134,13 +134,21 @@
     </div>
   </dl>
 
-  <h3 class="grp">The two method axes</h3>
+  <h3 class="grp">The method axes</h3>
+  <p class="hint" style="margin:-4px 0 12px">These describe how work is done rather than what it is about, so they shape a repository's profile without entering the headline relevance. Reinforcement learning is the third; it is defined above, beside the behavior it produces.</p>
   <dl class="defs">
     <div id="def-eval">
       <dt>Evaluation &amp; validation</dt>
       <dd>The apparatus that decides whether a simulation's output means anything: tests, fidelity metrics against real distributions, sensitivity analysis and ablations, seeded runs that reproduce, experiment tracking, and audits of bias and representativeness.</dd>
       <dd>It scores as a method axis rather than a subject axis because it says how the work is checked, not what it is about. Read it beside the subject scores, not instead of them: a repository can score high here for having a thorough test suite around a thin model, and research code released to accompany a published paper can score zero because the validation lived in the paper.</dd>
       <dd class="aka">Signals: test suites and CI, KS / Wasserstein / TSTR, sensitivity analysis and ablations, seeded runs, experiment tracking, bias and representativeness audits.</dd>
+    </div>
+    <div id="def-bleed">
+      <dt>Context isolation (and context bleeding)</dt>
+      <dd><strong>Context bleeding</strong> is information reaching a place the study assumes it cannot: one agent reading another's private brief, a run inheriting the previous run's memory, a model answering out of its own training rather than the persona it was given, or an evaluation item sitting in the prompt that is meant to test it. It is a quiet failure, because the output still looks like a result.</dd>
+      <dd>The axis scores the <em>guards</em>, not the leak, exactly like every other axis here: a high score means the repository has the vocabulary of keeping contexts apart, not that it is bleeding. It is a method axis, so it shapes the profile without touching the headline relevance.</dd>
+      <dd>Read a low score as a boundary nobody wrote down, not as proof of a leak. Silence is the absence of evidence in both directions, which is the whole reason each signal links to the line it fired on.</dd>
+      <dd class="aka">Signals: private and privileged instructions, BATNAs and red lines; visibility and disclosure rules; per-agent scoped context; fresh sessions and state resets; independent replications; staying in character and knowledge-cutoff handling; contamination and leakage checks; blind evaluation.</dd>
     </div>
   </dl>
 

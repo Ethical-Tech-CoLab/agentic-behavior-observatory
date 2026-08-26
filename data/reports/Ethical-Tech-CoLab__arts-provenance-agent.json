@@ -6,7 +6,7 @@
   "language": "TypeScript",
   "license": null,
   "pushed_at": "2026-07-27T21:32:50Z",
-  "analyzed_at": "2026-08-25T20:28:00+00:00",
+  "analyzed_at": "2026-08-26T19:50:28+00:00",
   "files_total": 63,
   "files_eligible": 42,
   "files_read": 42,
@@ -32,7 +32,8 @@
     "synth": 0,
     "llm_behavior": 12,
     "rl": 0,
-    "eval": 31
+    "eval": 31,
+    "bleed": 19
   },
   "primary_axis": "llm_behavior",
   "relevance": 9,
@@ -70,6 +71,22 @@
         "weight": 10,
         "where": "PEER-REVIEW.md:27",
         "evidence": "ional one.  **4. Nothing in the report is validated against ground truth, and it is unclear which of the showcased numbers the syste"
+      }
+    ],
+    "bleed": [
+      {
+        "signal": "visibility_rules",
+        "label": "Explicit rules for what each agent may see",
+        "weight": 10,
+        "where": "DPP-Paper.md:75",
+        "evidence": "is later altered, the seal fails and the alteration becomes visible to anyone who checks. The prototype ships with a deliberate ta"
+      },
+      {
+        "signal": "independent_runs",
+        "label": "Runs treated as independent replications",
+        "weight": 8,
+        "where": "src/agent/payForCheck.ts:70",
+        "evidence": "fig.maxSpendUsd;   // Default to the process-wide ledger so repeated runs share one lifetime cap.   const spent = opts.alreadySpentUsd"
       }
     ]
   },
