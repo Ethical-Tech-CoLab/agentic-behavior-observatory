@@ -2,7 +2,7 @@
 
 Paste a GitHub repository URL and get a live, evidence-linked analysis of how
 that repository models agentic behavior — agent-based simulation, synthetic
-populations, LLM-driven behavioral modeling — scored on five axes, with the
+populations, LLM-driven behavioral modeling — scored on six axes, with the
 demographic dimensions and model versions it rests on pulled out.
 
 The question it exists to answer: **when someone builds a system that generates or
@@ -43,7 +43,7 @@ a server rather than `file://`):
 python -m http.server -d docs 8000
 ```
 
-## The five axes
+## The six axes
 
 Every repository is scored 0–100 on each axis by how much of that axis's signal
 set it covers.
@@ -60,9 +60,9 @@ set it covers.
 Pressing an axis chip on the dashboard filters the grid and opens that axis's
 definition beside it, cloned out of the Definitions tab so the two cannot
 disagree. The three subject chips select the repositories that axis is the
-*strongest* subject of; the two method chips select repositories where the axis
+*strongest* subject of; the three method chips select repositories where the axis
 is present at all, because `primary_axis` is only ever a subject axis and
-filtering on it left those two chips matching nothing.
+filtering on it left those chips matching nothing.
 
 The headline **relevance** score uses only the three *subject* axes:
 
@@ -89,8 +89,10 @@ high score reads the same way it does everywhere else. Read a low score as a
 boundary nobody wrote down, not as proof of a leak.
 
 The clearest case in the corpus is `diplomatic-simulator` at **73**, its highest
-axis by a wide margin: every delegation holds private instructions, a BATNA and
-red lines, and the table has explicit rules for what crosses between parties
+axis by a wide margin. (The observatory itself scores higher, but only because
+`signals.py` carries the axis's own vocabulary; that number is the taxonomy
+reading itself, not a finding.) In `diplomatic-simulator` every delegation
+holds private instructions, a BATNA and red lines, and the table has explicit rules for what crosses between parties
 (sidebar disclosure, caucus report-back, coalition visibility). Its own paper
 puts it plainly: *"the organising principle of the design is information
 isolation."* At the other end, `generative_agents` scores 0 — the memory-stream

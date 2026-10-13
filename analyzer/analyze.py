@@ -4,7 +4,7 @@
     python analyzer/analyze.py https://github.com/owner/repo
 
 Reads the repository through the public GitHub API (no clone), scores it on
-five axes, extracts the demographic dimensions and model versions it works
+six axes, extracts the demographic dimensions and model versions it works
 with, and writes a JSON report plus a Markdown brief. The dashboard in docs/
 reads those JSON reports.
 
@@ -87,7 +87,7 @@ def raw(owner, name, branch, path, tok):
 def api(path, tok):
     req = urllib.request.Request(f"{API}{path}",
                                  headers={"Accept": "application/vnd.github+json",
-                                          "User-Agent": "etc-rl-analyzer"})
+                                          "User-Agent": "etc-abo-analyzer"})
     if tok:
         req.add_header("Authorization", f"Bearer {tok}")
     with urllib.request.urlopen(req, timeout=45) as r:
@@ -114,7 +114,7 @@ def deps_from(name, text):
         except json.JSONDecodeError:
             return found
         for key in ("dependencies", "devDependencies", "peerDependencies"):
-            found.update(pkg.get(key, {}))
+            found.update(d.lower() for d in pkg.get(key, {}))
         return found
     if name in ("requirements.txt", "Pipfile", "setup.cfg", "environment.yml",
                 "pyproject.toml", "setup.py", "renv.lock", "Project.toml"):
