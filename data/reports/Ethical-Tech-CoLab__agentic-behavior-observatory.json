@@ -5,11 +5,11 @@
   "stars": 0,
   "language": "Python",
   "license": "MIT",
-  "pushed_at": "2026-08-26T18:45:19Z",
-  "analyzed_at": "2026-08-26T19:43:56+00:00",
+  "pushed_at": "2026-10-11T17:33:05Z",
+  "analyzed_at": "2026-10-13T00:54:37+00:00",
   "files_total": 80,
   "files_eligible": 75,
-  "files_read": 65,
+  "files_read": 62,
   "dependencies": [],
   "scores": {
     "abm": 62,
@@ -17,7 +17,7 @@
     "llm_behavior": 51,
     "rl": 45,
     "eval": 80,
-    "bleed": 40
+    "bleed": 92
   },
   "primary_axis": "abm",
   "relevance": 60,
@@ -27,77 +27,77 @@
         "signal": "netlogo",
         "label": "NetLogo model referenced",
         "weight": 10,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md:21",
-        "evidence": "a generation)  ## Evidence  ### Agent-based simulation  - **NetLogo model referenced** \u2014 `README.md:52` - **Repast ABM toolkit"
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md:22",
+        "evidence": "d simulation)  ## Evidence  ### Agent-based simulation  - **NetLogo model referenced** \u2014 `data/reports/Ethical-Tech-CoLab__agen"
       },
       {
         "signal": "repast",
         "label": "Repast ABM toolkit referenced",
         "weight": 10,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md:22",
-        "evidence": "lation  - **NetLogo model referenced** \u2014 `README.md:52` - **Repast ABM toolkit referenced** \u2014 `README.md:52` - **Agent class d"
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md:23",
+        "evidence": "Ethical-Tech-CoLab__agentic-behavior-observatory.md:21` - **Repast ABM toolkit referenced** \u2014 `data/reports/Ethical-Tech-CoLab"
       },
       {
         "signal": "agent_class",
         "label": "Agent class defined in source",
         "weight": 8,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:44",
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:45",
         "evidence": "ssage], add_messages]     datasource: str     status: str   class AgentRunner:     def __init__(self, llm, simulation, retriever, thread_i"
       },
       {
         "signal": "step_loop",
         "label": "Simulation step/tick loop",
         "weight": 6,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:51",
-        "evidence": ": \\\"self.state_trajectory.append([to_cpu(self.state)])      def step(self, num_steps=None):         r\\\\\\\"\\\\\\\"\\\\\\\"         Execute"
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:52",
+        "evidence": "\\\\\\\"self.state_trajectory.append([to_cpu(self.state)])      def step(self, num_steps=None):         r\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\""
       },
       {
         "signal": "agent_population",
         "label": "A population of agents held and iterated",
         "weight": 6,
-        "where": "data/reports/AgentTorch__AgentTorch.json:86",
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:59",
         "evidence": "reate_base_pop(df_age_gender, df_ethnicity, age, area):     population = []     # number_of_individuals = area_data[number_of_individu"
       },
       {
         "signal": "sim_builder",
         "label": "Simulation constructor",
         "weight": 8,
-        "where": "data/reports/AgentTorch__AgentTorch.json:93",
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:66",
         "evidence": "torch.populations import sample2  # Example population  def setup_simulation(model, population):     # Create a population loader     loa"
       },
       {
         "signal": "tick_time",
         "label": "Discrete simulation time",
         "weight": 6,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md:24",
-        "evidence": "reports/AgentTorch__AgentTorch.json:71` - **Simulation step/tick loop** \u2014 `data/reports/AgentTorch__AgentTorch.json:78` - **"
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md:25",
+        "evidence": "__agentic-behavior-observatory.json:44` - **Simulation step/tick loop** \u2014 `data/reports/Ethical-Tech-CoLab__agentic-behavior"
       },
       {
         "signal": "heterogeneous_agents",
         "label": "Agents differentiated by demographic mix",
         "weight": 8,
-        "where": "data/reports/Ethical-Tech-CoLab__mariupol-evacuation-model.json:37",
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:80",
         "evidence": "ax:99, // industrial + Soviet worker housing   occupancy:8, childPct:0.13, elderlyPct:0.18, disabledPct:0.04,   note:'Industrial"
       },
       {
         "signal": "scheduler",
         "label": "ABM scheduler",
         "weight": 8,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:65",
-        "evidence": "scheduler\\\",    \\\"kind\\\": \\\"text\\\",    \\\"pattern\\\": \\\"\\\\\\\\b(RandomActivation|SimultaneousActivation|StagedActivation)\\\\\\\\b\\\",    \\\"weigh"
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:87",
+        "evidence": "\\\"kind\\\\\\\": \\\\\\\"text\\\\\\\",    \\\\\\\"pattern\\\\\\\": \\\\\\\"\\\\\\\\\\\\\\\\b(RandomActivation|SimultaneousActivation|StagedActivation)\\\\\\\\\\\\\\\\b\\\\\\\",    \\"
       },
       {
         "signal": "grid_space",
         "label": "Spatial environment",
         "weight": 6,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:72",
-        "evidence": "rid_space\\\",    \\\"kind\\\": \\\"text\\\",    \\\"pattern\\\": \\\"\\\\\\\\b(MultiGrid|SingleGrid|ContinuousSpace|NetworkGrid)\\\\\\\\b\\\",    \\\"weight"
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:94",
+        "evidence": "\\\"kind\\\\\\\": \\\\\\\"text\\\\\\\",    \\\\\\\"pattern\\\\\\\": \\\\\\\"\\\\\\\\\\\\\\\\b(MultiGrid|SingleGrid|ContinuousSpace|NetworkGrid)\\\\\\\\\\\\\\\\b\\\\\\\",    \\\\"
       },
       {
         "signal": "mas_terms",
         "label": "Multi-agent framing in prose",
         "weight": 5,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:79",
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:101",
         "evidence": "://agenttorch.readthedocs.io/) - Framework documentation - [Emergent Behavior](https://en.wikipedia.org/wiki/Emergence) - Collective inte"
       }
     ],
@@ -106,22 +106,22 @@
         "signal": "gretel",
         "label": "Gretel synthetic data platform",
         "weight": 8,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md:32",
-        "evidence": "ch__AgentTorch.json:85`  ### Synthetic data generation  - **Gretel synthetic data platform** \u2014 `README.md:53` - **Explicit pop"
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md:36",
+        "evidence": "or-observatory.json:79`  ### Synthetic data generation  - **Gretel synthetic data platform** \u2014 `data/reports/Ethical-Tech-CoLa"
       },
       {
         "signal": "population_synth",
         "label": "Explicit population synthesis",
         "weight": 12,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md:33",
-        "evidence": "tel synthetic data platform** \u2014 `README.md:53` - **Explicit population synthesis** \u2014 `data/reports/AgentTorch__AgentTorch.md:27` - **Real mi"
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md:37",
+        "evidence": "ech-CoLab__agentic-behavior-observatory.md:32` - **Explicit population synthesis** \u2014 `data/reports/Ethical-Tech-CoLab__agentic-behavior-obse"
       },
       {
         "signal": "census_source",
         "label": "Real microdata used as a seed",
         "weight": 8,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md:34",
-        "evidence": "is** \u2014 `data/reports/AgentTorch__AgentTorch.md:27` - **Real microdata used as a seed** \u2014 `data/reports/AgentTorch__AgentTorch.md:"
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md:38",
+        "evidence": "al-Tech-CoLab__agentic-behavior-observatory.md:33` - **Real microdata used as a seed** \u2014 `data/reports/Ethical-Tech-CoLab__agenti"
       },
       {
         "signal": "privacy",
@@ -134,7 +134,7 @@
         "signal": "sampling",
         "label": "Sampling machinery",
         "weight": 6,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:116",
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:138",
         "evidence": "edge research solutions for synthetic data generation. 4. **Rejection Sampling**: Integrate rejection sampling method to the SelfImprov"
       },
       {
@@ -150,8 +150,8 @@
         "signal": "persona",
         "label": "Persona/profile conditioning",
         "weight": 10,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md:41",
-        "evidence": "e** \u2014 `README.md:9`  ### LLM-based behavioral modeling  - **Persona/profile conditioning** \u2014 `data/reports/AgentTorch__AgentTor"
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md:45",
+        "evidence": "e** \u2014 `README.md:9`  ### LLM-based behavioral modeling  - **Persona/profile conditioning** \u2014 `data/reports/Ethical-Tech-CoLab__"
       },
       {
         "signal": "generative_agents",
@@ -164,22 +164,22 @@
         "signal": "silicon_sample",
         "label": "LLMs standing in for human respondents",
         "weight": 12,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:146",
-        "evidence": "on_sample\\\",    \\\"kind\\\": \\\"text\\\",    \\\"pattern\\\": \\\"\\\\\\\\b(silicon sampl|LLM (respondents?|participants?|subjects?)|simulated (surve"
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:168",
+        "evidence": "\\\"kind\\\\\\\": \\\\\\\"text\\\\\\\",    \\\\\\\"pattern\\\\\\\": \\\\\\\"\\\\\\\\\\\\\\\\b(silicon sampl|LLM (respondents?|participants?|subjects?)|simulated (surve"
       },
       {
         "signal": "tool_use",
         "label": "Tool-using agents",
         "weight": 6,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:149",
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:171",
         "evidence": "cts?)|simulated (surve\"       },       {         \"signal\": \"tool_use\",         \"label\": \"Tool-using agents\",         \"weight\": 6"
       },
       {
         "signal": "memory",
         "label": "Memory/retrieval layer",
         "weight": 5,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md:45",
-        "evidence": "ents** \u2014 `data/reports/camel-ai__camel.json:300` - **Memory/retrieval layer** \u2014 `data/reports/AgentTorch__AgentTorch.md:34`  ###"
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md:49",
+        "evidence": "ch-CoLab__agentic-behavior-observatory.json:149` - **Memory/retrieval layer** \u2014 `data/reports/Ethical-Tech-CoLab__agentic-behavio"
       }
     ],
     "rl": [
@@ -187,14 +187,14 @@
         "signal": "algorithms",
         "label": "Named RL algorithm",
         "weight": 10,
-        "where": "data/reports/Farama-Foundation__PettingZoo.md:23",
+        "where": "data/reports/Farama-Foundation__PettingZoo.md:24",
         "evidence": "` - **Simulation step/tick loop** \u2014 `docs/tutorials/agilerl/DQN.md:406` - **A population of agents held and iterated** \u2014 `d"
       },
       {
         "signal": "reward",
         "label": "Reward machinery",
         "weight": 8,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:176",
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:198",
         "evidence": "to use either:  Use a Rewards provider: this is your custom reward function. P3O calls it each step with (group_keys, group_preds, arch"
       },
       {
@@ -208,8 +208,8 @@
         "signal": "env_api",
         "label": "Environment reset/step API",
         "weight": 6,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:51",
-        "evidence": ": \\\"self.state_trajectory.append([to_cpu(self.state)])      def step(self, num_steps=None):         r\\\\\\\"\\\\\\\"\\\\\\\"         Execute a s"
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:52",
+        "evidence": "\\\\\\\"self.state_trajectory.append([to_cpu(self.state)])      def step(self, num_steps=None):         r\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\""
       }
     ],
     "eval": [
@@ -217,8 +217,8 @@
         "signal": "metrics",
         "label": "Distributional fidelity metrics",
         "weight": 10,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md:56",
-        "evidence": ":78`  ### Evaluation & validation rigor  - **Distributional fidelity metrics** \u2014 `data/reports/AgentTorch__AgentTorch.md:46` - *"
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md:60",
+        "evidence": ":51`  ### Evaluation & validation rigor  - **Distributional fidelity metrics** \u2014 `data/reports/Ethical-Tech-CoLab__agentic-behav"
       },
       {
         "signal": "validation",
@@ -231,22 +231,22 @@
         "signal": "seeds",
         "label": "Seeded, reproducible runs",
         "weight": 8,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:213",
-        "evidence": "alse\\\\\\\"  import random import numpy as np  random.seed(42) np.random.seed(42)  import pickle import warnings  from AgentTorch.utils i"
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:235",
+        "evidence": "\\\\\\\\\\\\\\\"  import random import numpy as np  random.seed(42) np.random.seed(42)  import pickle import warnings  from AgentTorch.utils i"
       },
       {
         "signal": "sweeps",
         "label": "Experiment tracking / sweeps",
         "weight": 8,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:220",
-        "evidence": "cro_economics.utils.misc import week_num_to_epiweek  import wandb import matplotlib.pyplot as plt  \\\\\\\"\\\\\\\"\\\\\\\"Command: pytho"
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:242",
+        "evidence": "cro_economics.utils.misc import week_num_to_epiweek  import wandb import matplotlib.pyplot as plt  \\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"Co"
       },
       {
         "signal": "bias",
         "label": "Fairness/representativeness checking",
         "weight": 10,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md:60",
-        "evidence": "eeps** \u2014 `data/reports/AgentTorch__AgentTorch.json:191` - **Fairness/representativeness checking** \u2014 `README.md:56` - **Document"
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md:64",
+        "evidence": "ical-Tech-CoLab__agentic-behavior-observatory.json:220` - **Fairness/representativeness checking** \u2014 `data/reports/Ethical-Tech-"
       },
       {
         "signal": "docs",
@@ -258,38 +258,73 @@
     ],
     "bleed": [
       {
+        "signal": "private_state",
+        "label": "Per-agent private state the other agents are not given",
+        "weight": 12,
+        "where": "data/reports/AgentTorch__AgentTorch.md:58",
+        "evidence": "docs/config-map.yaml`  ### Context isolation  - **Per-agent private state the other agents are not given** \u2014 `CODE_OF_CONDUCT.md:34`"
+      },
+      {
         "signal": "visibility_rules",
         "label": "Explicit rules for what each agent may see",
         "weight": 10,
-        "where": "data/reports/Ethical-Tech-CoLab__AI-Models-Research.json:101",
-        "evidence": ":39\",         \"evidence\": \"families is a sample selected by disclosure practice, not a census of capable models.  ### 1.5 Undisclo"
+        "where": "README.md:58",
+        "evidence": "privileged instructions, BATNAs, red lines; visibility and disclosure rules; per-agent scoped context; fresh sessions and state r"
       },
       {
         "signal": "context_scoping",
         "label": "Context scoped or isolated per agent",
         "weight": 10,
-        "where": "data/reports/Ethical-Tech-CoLab__agentic-language-development.md:3",
-        "evidence": "Researching grounded, auditable language emergence between isolated artificial agents  [https://github.com/Ethical-Tech-CoLab/a"
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md:14",
+        "evidence": "uation & validation rigor** `\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u00b7\u00b7` 80/100 - **Context isolation** `\u2588\u2588\u2588\u2588\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7` 40/100  Agentic-behavior relevance: **60/100"
+      },
+      {
+        "signal": "fresh_context",
+        "label": "State cleared between runs rather than carried over",
+        "weight": 8,
+        "where": "data/reports/AgentTorch__AgentTorch.json:251",
+        "evidence": "\"For large simulations, consider using:    ```python    def clear_memory(runner):        runner.state_trajectory = []  # Clear traje"
       },
       {
         "signal": "independent_runs",
         "label": "Runs treated as independent replications",
         "weight": 8,
-        "where": "data/reports/Ethical-Tech-CoLab__War-Games.md:3",
-        "evidence": "ed terminal thriller with a modern AI-agent framing, plus a Monte Carlo simulation harness and case study.  [https://github.com/Eth"
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md:71",
+        "evidence": "-language-development.md:3` - **Runs treated as independent replications** \u2014 `data/reports/Ethical-Tech-CoLab__War-Games.md:3` - **G"
       },
       {
         "signal": "in_character",
         "label": "Guards against the model answering as itself rather than the persona",
         "weight": 10,
-        "where": "data/reports/Ethical-Tech-CoLab__diplomatic-simulator.json:65",
-        "evidence": "\": \"o step-by-step delegations. \\\"The weaker model degrades role fidelity\\\" and \\\"the Seoul and Tokyo seats are harder to play\\\" are"
+        "where": "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json:286",
+        "evidence": "\\\"o step-by-step delegations. \\\\\\\"The weaker model degrades role fidelity\\\\\\\" and \\\\\\\"the Seoul and Tokyo seats are harder to play\\\\\\"
+      },
+      {
+        "signal": "knowledge_cutoff",
+        "label": "Guards against the model's own training reaching the scenario",
+        "weight": 8,
+        "where": "data/reports/Ethical-Tech-CoLab__AI-Models-Research.json:222",
+        "evidence": "ks, with the grounding condition stated, since grounded and closed-book rates are different quantities.  ## Latency  _Scope._ Recor"
+      },
+      {
+        "signal": "contamination",
+        "label": "Explicit contamination or leakage checking",
+        "weight": 12,
+        "where": "data/reports/Ethical-Tech-CoLab__AI-Models-Research.md:55",
+        "evidence": "o** \u2014 `docs/model-profiles/other-models.md:95` - **Explicit contamination or leakage checking** \u2014 `docs/appendices/model-release-time"
+      },
+      {
+        "signal": "blind_eval",
+        "label": "Evaluation kept blind to what it is judging",
+        "weight": 10,
+        "where": "README.md:58",
+        "evidence": "nowledge-cutoff handling; contamination and leakage checks; blind evaluation |  Pressing an axis chip on the dashboard filters the grid"
       }
     ]
   },
   "dimensions": {
     "party": {
-      "count": 54,
+      "count": 51,
       "files": [
         "analyzer/signals.py",
         "data/reports/AgentTorch__AgentTorch.json",
@@ -299,7 +334,7 @@
       ]
     },
     "age": {
-      "count": 52,
+      "count": 50,
       "files": [
         "README.md",
         "analyzer/signals.py",
@@ -309,7 +344,7 @@
       ]
     },
     "child": {
-      "count": 49,
+      "count": 48,
       "files": [
         "analyzer/signals.py",
         "data/reports/AgentTorch__AgentTorch.json",
@@ -319,7 +354,7 @@
       ]
     },
     "disabled": {
-      "count": 45,
+      "count": 44,
       "files": [
         "analyzer/signals.py",
         "data/reports/AgentTorch__AgentTorch.json",
@@ -329,23 +364,13 @@
       ]
     },
     "region": {
-      "count": 41,
+      "count": 38,
       "files": [
         "README.md",
         "analyzer/signals.py",
         "data/reports/AgentTorch__AgentTorch.json",
         "data/reports/AgentTorch__AgentTorch.md",
         "data/reports/Ethical-Tech-CoLab__AI-Models-Research.json"
-      ]
-    },
-    "political": {
-      "count": 34,
-      "files": [
-        "analyzer/signals.py",
-        "data/reports/AgentTorch__AgentTorch.json",
-        "data/reports/AgentTorch__AgentTorch.md",
-        "data/reports/Ethical-Tech-CoLab__CERAI_AR.json",
-        "data/reports/Ethical-Tech-CoLab__CERAI_AR.md"
       ]
     },
     "vulnerability": {
@@ -358,8 +383,18 @@
         "data/reports/Ethical-Tech-CoLab__CERAI_AR.md"
       ]
     },
+    "political": {
+      "count": 32,
+      "files": [
+        "analyzer/signals.py",
+        "data/reports/AgentTorch__AgentTorch.json",
+        "data/reports/AgentTorch__AgentTorch.md",
+        "data/reports/Ethical-Tech-CoLab__CERAI_AR.json",
+        "data/reports/Ethical-Tech-CoLab__CERAI_AR.md"
+      ]
+    },
     "disability": {
-      "count": 28,
+      "count": 27,
       "files": [
         "README.md",
         "analyzer/signals.py",
@@ -368,8 +403,18 @@
         "data/reports/Ethical-Tech-CoLab__Evac-Sim-Melanie.json"
       ]
     },
-    "migration": {
+    "elderly": {
       "count": 27,
+      "files": [
+        "analyzer/signals.py",
+        "data/reports/AgentTorch__AgentTorch.json",
+        "data/reports/Ethical-Tech-CoLab__CERAI_AR.json",
+        "data/reports/Ethical-Tech-CoLab__CERAI_AR.md",
+        "data/reports/Ethical-Tech-CoLab__Evac-Sim-Melanie.json"
+      ]
+    },
+    "migration": {
+      "count": 26,
       "files": [
         "README.md",
         "analyzer/signals.py",
@@ -378,44 +423,24 @@
         "data/reports/Ethical-Tech-CoLab__CERAI_AR.json"
       ]
     },
-    "gender": {
-      "count": 26,
-      "files": [
-        "analyzer/signals.py",
-        "data/reports/AgentTorch__AgentTorch.json",
-        "data/reports/AgentTorch__AgentTorch.md",
-        "data/reports/Ethical-Tech-CoLab__CERAI_AR.json",
-        "data/reports/Ethical-Tech-CoLab__CERAI_AR.md"
-      ]
-    },
     "household": {
-      "count": 26,
-      "files": [
-        "analyzer/signals.py",
-        "data/reports/AgentTorch__AgentTorch.json",
-        "data/reports/AgentTorch__AgentTorch.md",
-        "data/reports/Ethical-Tech-CoLab__CERAI_AR.json",
-        "data/reports/Ethical-Tech-CoLab__CERAI_AR.md"
-      ]
-    },
-    "elderly": {
-      "count": 26,
-      "files": [
-        "analyzer/signals.py",
-        "data/reports/AgentTorch__AgentTorch.json",
-        "data/reports/Ethical-Tech-CoLab__CERAI_AR.json",
-        "data/reports/Ethical-Tech-CoLab__CERAI_AR.md",
-        "data/reports/Ethical-Tech-CoLab__Evac-Sim-Melanie.json"
-      ]
-    },
-    "occupation": {
       "count": 25,
       "files": [
         "analyzer/signals.py",
+        "data/reports/AgentTorch__AgentTorch.json",
+        "data/reports/AgentTorch__AgentTorch.md",
         "data/reports/Ethical-Tech-CoLab__CERAI_AR.json",
-        "data/reports/Ethical-Tech-CoLab__CERAI_AR.md",
-        "data/reports/Ethical-Tech-CoLab__Exodus.json",
-        "data/reports/Ethical-Tech-CoLab__Exodus.md"
+        "data/reports/Ethical-Tech-CoLab__CERAI_AR.md"
+      ]
+    },
+    "gender": {
+      "count": 24,
+      "files": [
+        "analyzer/signals.py",
+        "data/reports/AgentTorch__AgentTorch.json",
+        "data/reports/AgentTorch__AgentTorch.md",
+        "data/reports/Ethical-Tech-CoLab__CERAI_AR.json",
+        "data/reports/Ethical-Tech-CoLab__CERAI_AR.md"
       ]
     },
     "race": {
@@ -428,18 +453,18 @@
         "data/reports/Ethical-Tech-CoLab__AI-Models-Research.json"
       ]
     },
-    "religion": {
+    "occupation": {
       "count": 23,
       "files": [
         "analyzer/signals.py",
-        "data/reports/AgentTorch__AgentTorch.json",
-        "data/reports/AgentTorch__AgentTorch.md",
         "data/reports/Ethical-Tech-CoLab__CERAI_AR.json",
-        "data/reports/Ethical-Tech-CoLab__CERAI_AR.md"
+        "data/reports/Ethical-Tech-CoLab__CERAI_AR.md",
+        "data/reports/Ethical-Tech-CoLab__Exodus.json",
+        "data/reports/Ethical-Tech-CoLab__Exodus.md"
       ]
     },
     "displacement": {
-      "count": 22,
+      "count": 23,
       "files": [
         "analyzer/signals.py",
         "data/reports/Ethical-Tech-CoLab__CERAI_AR.json",
@@ -449,13 +474,23 @@
       ]
     },
     "refugee": {
-      "count": 22,
+      "count": 23,
       "files": [
         "analyzer/signals.py",
         "data/reports/Ethical-Tech-CoLab__CERAI_AR.json",
         "data/reports/Ethical-Tech-CoLab__CERAI_AR.md",
         "data/reports/Ethical-Tech-CoLab__Exodus.json",
         "data/reports/Ethical-Tech-CoLab__Exodus.md"
+      ]
+    },
+    "religion": {
+      "count": 22,
+      "files": [
+        "analyzer/signals.py",
+        "data/reports/AgentTorch__AgentTorch.json",
+        "data/reports/AgentTorch__AgentTorch.md",
+        "data/reports/Ethical-Tech-CoLab__CERAI_AR.json",
+        "data/reports/Ethical-Tech-CoLab__CERAI_AR.md"
       ]
     },
     "education": {
@@ -469,7 +504,7 @@
       ]
     },
     "ethnicity": {
-      "count": 20,
+      "count": 19,
       "files": [
         "analyzer/signals.py",
         "data/reports/AgentTorch__AgentTorch.json",
@@ -499,22 +534,12 @@
       ]
     },
     "income": {
-      "count": 17,
+      "count": 16,
       "files": [
         "README.md",
         "analyzer/signals.py",
         "data/reports/AgentTorch__AgentTorch.json",
         "data/reports/AgentTorch__AgentTorch.md",
-        "data/reports/Ethical-Tech-CoLab__Exodus.json"
-      ]
-    },
-    "nationality": {
-      "count": 16,
-      "files": [
-        "analyzer/signals.py",
-        "data/reports/AgentTorch__AgentTorch.json",
-        "data/reports/Ethical-Tech-CoLab__CERAI_AR.json",
-        "data/reports/Ethical-Tech-CoLab__CERAI_AR.md",
         "data/reports/Ethical-Tech-CoLab__Exodus.json"
       ]
     },
@@ -528,18 +553,28 @@
         "data/reports/Ethical-Tech-CoLab__Evac-Sim-Melanie.md"
       ]
     },
-    "sex": {
+    "nationality": {
       "count": 15,
+      "files": [
+        "analyzer/signals.py",
+        "data/reports/AgentTorch__AgentTorch.json",
+        "data/reports/Ethical-Tech-CoLab__CERAI_AR.json",
+        "data/reports/Ethical-Tech-CoLab__CERAI_AR.md",
+        "data/reports/Ethical-Tech-CoLab__Exodus.json"
+      ]
+    },
+    "sex": {
+      "count": 13,
       "files": [
         "analyzer/signals.py",
         "data/reports/AgentTorch__AgentTorch.json",
         "data/reports/AgentTorch__AgentTorch.md",
         "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json",
-        "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md"
+        "data/reports/Ethical-Tech-CoLab__mariupol-evacuation-model.json"
       ]
     },
     "geography": {
-      "count": 14,
+      "count": 13,
       "files": [
         "analyzer/signals.py",
         "data/reports/Ethical-Tech-CoLab__Exodus.json",
@@ -549,7 +584,7 @@
       ]
     },
     "literacy": {
-      "count": 13,
+      "count": 12,
       "files": [
         "README.md",
         "analyzer/signals.py",
@@ -579,17 +614,17 @@
       ]
     },
     "caste": {
-      "count": 8,
+      "count": 7,
       "files": [
         "README.md",
         "analyzer/signals.py",
         "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json",
-        "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md",
-        "data/reports/projectmesa__mesa.json"
+        "data/reports/mesa__mesa.json",
+        "data/reports/mesa__mesa.md"
       ]
     },
     "citizenship": {
-      "count": 8,
+      "count": 7,
       "files": [
         "analyzer/signals.py",
         "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json",
@@ -599,23 +634,23 @@
       ]
     },
     "wealth": {
-      "count": 7,
+      "count": 6,
       "files": [
         "analyzer/signals.py",
         "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json",
-        "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md",
-        "data/reports/projectmesa__mesa.json",
-        "data/reports/projectmesa__mesa.md"
+        "data/reports/mesa__mesa.json",
+        "data/reports/mesa__mesa.md",
+        "docs/data/index.json"
       ]
     },
     "employment": {
-      "count": 7,
+      "count": 6,
       "files": [
         "analyzer/signals.py",
         "data/reports/AgentTorch__AgentTorch.json",
         "data/reports/AgentTorch__AgentTorch.md",
         "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json",
-        "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.md"
+        "docs/data/index.json"
       ]
     },
     "family size": {
@@ -624,7 +659,7 @@
         "analyzer/signals.py",
         "data/reports/Ethical-Tech-CoLab__Evac-Sim-Melanie.json",
         "data/reports/Ethical-Tech-CoLab__Evac-Sim-Melanie.md",
-        "docs/data/Ethical-Tech-CoLab__Evac-Sim-Melanie.json",
+        "data/reports/Ethical-Tech-CoLab__agentic-behavior-observatory.json",
         "docs/data/index.json"
       ]
     },
@@ -687,6 +722,10 @@
       "mentions": 12
     },
     {
+      "model": "deepseek-r1",
+      "mentions": 12
+    },
+    {
       "model": "gpt-3.5-turbo",
       "mentions": 11
     },
@@ -695,51 +734,47 @@
       "mentions": 11
     },
     {
-      "model": "deepseek-r1",
-      "mentions": 11
-    },
-    {
       "model": "gpt-4.1",
       "mentions": 9
     },
     {
-      "model": "llama3",
+      "model": "llama3.2",
+      "mentions": 9
+    },
+    {
+      "model": "claude-assisted",
+      "mentions": 9
+    },
+    {
+      "model": "claude-opus-4-8",
       "mentions": 8
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "mentions": 8
+    },
+    {
+      "model": "claude-haiku-4-5-20251001",
+      "mentions": 8
+    },
+    {
+      "model": "qwen3",
+      "mentions": 8
+    },
+    {
+      "model": "qwen3-27b",
+      "mentions": 8
+    },
+    {
+      "model": "llama3",
+      "mentions": 7
     },
     {
       "model": "gemini-api",
       "mentions": 7
     },
     {
-      "model": "claude-opus-4-8",
-      "mentions": 7
-    },
-    {
-      "model": "llama3.2",
-      "mentions": 7
-    },
-    {
-      "model": "claude-assisted",
-      "mentions": 7
-    },
-    {
       "model": "o1-preview",
-      "mentions": 6
-    },
-    {
-      "model": "claude-haiku-4-5",
-      "mentions": 6
-    },
-    {
-      "model": "claude-haiku-4-5-20251001",
-      "mentions": 6
-    },
-    {
-      "model": "qwen3",
-      "mentions": 6
-    },
-    {
-      "model": "qwen3-27b",
       "mentions": 6
     },
     {
